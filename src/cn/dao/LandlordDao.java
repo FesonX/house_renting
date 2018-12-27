@@ -5,20 +5,21 @@ import java.util.List;
 import cn.bean.Landlord;
 
 public interface LandlordDao {
-	//1.µÇÂ¼
-	public Landlord login(int lid,String password);
-	//2.ÐÞ¸ÄÃÜÂë
+	//1.ï¿½ï¿½Â¼
+	public Landlord login(String name,String password);
+	//2.ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean updatePwd(Landlord ag,String password);
-	//3.Ìí¼Ó·¿¶«
+	//3.ï¿½ï¿½Ó·ï¿½ï¿½ï¿½
 	public boolean doLandlord(Landlord ag);
-	//4.ÐÞ¸Ä·¿¶«
+	//4.ï¿½Þ¸Ä·ï¿½ï¿½ï¿½
 	public boolean updateLandlord(Landlord ag);
-	//5.É¾³ý·¿¶«
+	//5.É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteLandlord(int lid);
-	//6.Í¨¹ýÕòÇø²éÑ¯·¿¶«
+	//6.Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 	public List<Landlord> findLandlordByDid(int did);
-	//7.²éÑ¯È«²¿·¿¶«
+	//7.ï¿½ï¿½Ñ¯È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<Landlord> findLandlord();
-	//8.²éÑ¯Ä³¸ö·¿¶«
+	//8.ï¿½ï¿½Ñ¯Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public Landlord findLandlordBy(int lid);
+	boolean register(Landlord ag);
 }
