@@ -1,61 +1,70 @@
 package cn.bean;
 
 public class House {
-	public int hid;					//房屋ID
-	public String lid;				//所属房东
-	public int did;					//所属区域
-	public int eid;					//相应评价
-	public String address;			//具体地址
-	public float Area;				//房屋面积
-	public String Pic;				//房屋图片
-	public int status;				//租售状态
-	public float Price;				//房屋价格
-	public String issueDate;			//信息发布日期
-	public int reviewed;			//审核状态
+	public int hid;				
+	public String lid;			
+	public int did;				
+	public String title;			
+	public String houseType;
+	public String address;			
+	public float Area;			
+	public String Pic;		
+	public int status;				
+	public float Price;			
+	public String issueDate;			
+	public int reviewed;			
 	public House() {
 		super();
 	}
-	public House(int hid, String lid, int did, int eid, String address, float Area,  String Pic, int status, float Price, String issueDate, int reviewed) {
+	
+	
+	public House(int hid, String lid, int did, String title, String houseType, String address, float area, String pic,
+			int status, float price, String issueDate, int reviewed) {
 		super();
 		this.hid = hid;
 		this.lid = lid;
 		this.did = did;
-		this.eid = eid;
+		this.title = title;
+		this.houseType = houseType;
 		this.address = address;
-		this.Area = Area;
-		this.Pic = Pic;
+		Area = area;
+		Pic = pic;
 		this.status = status;
-		this.Price = Price;
+		Price = price;
 		this.issueDate = issueDate;
 		this.reviewed = reviewed;
-		
 	}
+
+
 	public int getHid() {
 		return hid;
 	}
 	public void setHid(int hid) {
 		this.hid = hid;
 	}
-	
-	public String getlid() {
+	public String getLid() {
 		return lid;
 	}
-	public void setlid(String lid) {
+	public void setLid(String lid) {
 		this.lid = lid;
 	}
-	
-	public int getdid() {
+	public int getDid() {
 		return did;
 	}
-	public void setdid(int did) {
+	public void setDid(int did) {
 		this.did = did;
 	}
-	
-	public int getEid() {
-		return eid;
+	public String getTitle() {
+		return title;
 	}
-	public void setEid(int eid) {
-		this.eid = eid;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getHouseType() {
+		return houseType;
+	}
+	public void setHouseType(String houseType) {
+		this.houseType = houseType;
 	}
 	public String getAddress() {
 		return address;
@@ -66,14 +75,14 @@ public class House {
 	public float getArea() {
 		return Area;
 	}
-	public void setArea(float Area) {
-		this.Area = Area;
+	public void setArea(float area) {
+		Area = area;
 	}
 	public String getPic() {
 		return Pic;
 	}
-	public void setPic(String Pic) {
-		this.Pic = Pic;
+	public void setPic(String pic) {
+		Pic = pic;
 	}
 	public int getStatus() {
 		return status;
@@ -84,19 +93,20 @@ public class House {
 	public float getPrice() {
 		return Price;
 	}
-	public void setPrice(float Price) {
-		this.Price = Price;
+	public void setPrice(float price) {
+		Price = price;
 	}
-	public String getissueDate() {
+	public String getIssueDate() {
 		return issueDate;
 	}
-	public void setissueDate(String issueDate) {
+	public void setIssueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
-	public int getreviewed() {
+	public int getReviewed() {
 		return reviewed;
 	}
-	public void setreviewed(int reviewed) {
+	public void setReviewed(int reviewed) {
 		this.reviewed = reviewed;
 	}
+	
 }

@@ -18,8 +18,8 @@ public class BaseDao
 		Connection conn=null;
 		try
 		{
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			conn=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=house_rent","sa","123");
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/house_rent","root","xwg@DGUT");
 
 		} 
 		catch (Exception e)

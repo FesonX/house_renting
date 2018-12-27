@@ -12,22 +12,35 @@ import cn.framework.Action;
 
 public class QueryAction implements Action {
 
+	
+//	GitHub 鍦板潃 https://github.com/FesonX/house_renting.git
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		
+		String method=request.getParameter("method");
+		String result = "";
+		
+		switch(method) {
+			case "showAllHouse":result = showAllHouse(request,response);break;
+		}
+		return result; 
+	}
+	
+	public String showAllHouse(HttpServletRequest request, HttpServletResponse response) {
 		HouseDao hd=new HouseDaoImpl();
-		String htid=request.getParameter("htid");
-		String tid=request.getParameter("tid");
-		String price=request.getParameter("price");
-		String[] propertyname={"htid","tid","price"};
-		Object[] value={htid,tid,price};
+		//String htid=request.getParameter("htid");
+		//String tid=request.getParameter("tid");
+		//String price=request.getParameter("price");
+		//String status=request.getParameter("status");
+		//String reviewed=request.getParameter("reviewed");
+		int status = 0;
+		int reviewed = 1;
+		String[] propertyname={"status","reviewed"}; Object[] value={status,reviewed};
 		try {
 			List<House> list = hd.housesearch(propertyname, value);
-			request.setAttribute("list", list);
-		} catch (Exception e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		return "query.jsp";
+			request.setAttribute("houseList", list);
+		} catch (Exception e) { e.printStackTrace(); }
+		return "showAllHouse.jsp";
 	}
 
 }
