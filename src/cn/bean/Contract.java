@@ -1,6 +1,5 @@
 package cn.bean;
 
-import java.util.Date;
 
 public class Contract {
 	public int cid;				//合同ID	
@@ -8,13 +7,13 @@ public class Contract {
 	public String lid;			//房东用户ID
 	public int hid;				//租房信息ID
 	public float duration;		//租赁时间
-	public Date signdate;		//签约时间
+	public String signdate;		//签约时间
 	public int reviewed;		//审核状态
 	public float Price;			//总价
 	public Contract() {
 		super();
 	}
-	public Contract(int cid, String rid, String lid, int hid,float duration, Date signdate, int reviewed, float Price) {
+	public Contract(int cid, String rid, String lid, int hid,float duration, String signdate, int reviewed, float Price) {
 		super();
 		this.cid = cid;
 		this.rid = rid;
@@ -55,10 +54,10 @@ public class Contract {
 	public void setDuration(float duration) {
 		this.duration = duration;
 	}
-	public Date getsigndate() {
+	public String getsigndate() {
 		return signdate;
 	}
-	public void setsigndate(Date signdate) {
+	public void setsigndate(String signdate) {
 		this.signdate = signdate;
 	}
 	

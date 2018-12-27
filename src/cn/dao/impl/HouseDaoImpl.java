@@ -104,7 +104,7 @@ public class HouseDaoImpl implements HouseDao {
 			ho.setPic(rs.getString(7));
 			ho.setStatus(rs.getInt(8));
 			ho.setPrice(rs.getFloat(9));
-			ho.setissueDate(rs.getDate(10));
+			ho.setissueDate(rs.getString(10));
 			ho.setreviewed(rs.getInt(11));
 			
 			list.add(ho);

@@ -1,7 +1,5 @@
 package cn.bean;
 
-import java.util.Date;
-
 public class House {
 	public int hid;					//房屋ID
 	public String lid;				//所属房东
@@ -12,12 +10,12 @@ public class House {
 	public String Pic;				//房屋图片
 	public int status;				//租售状态
 	public float Price;				//房屋价格
-	public Date issueDate;			//信息发布日期
+	public String issueDate;			//信息发布日期
 	public int reviewed;			//审核状态
 	public House() {
 		super();
 	}
-	public House(int hid, String lid, int did, int eid, String address, float Area,  String Pic, int status, float Price, Date issueDate, int reviewed) {
+	public House(int hid, String lid, int did, int eid, String address, float Area,  String Pic, int status, float Price, String issueDate, int reviewed) {
 		super();
 		this.hid = hid;
 		this.lid = lid;
@@ -89,10 +87,10 @@ public class House {
 	public void setPrice(float Price) {
 		this.Price = Price;
 	}
-	public Date getissueDate() {
+	public String getissueDate() {
 		return issueDate;
 	}
-	public void setissueDate(Date issueDate) {
+	public void setissueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
 	public int getreviewed() {

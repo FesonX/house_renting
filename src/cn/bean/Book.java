@@ -1,18 +1,16 @@
 package cn.bean;
 
-import java.util.Date;
-
 public class Book {
 	public int bid;					//预约ID	
 	public String rid;				//租客用户ID
 	public String lid;				//房东用户ID
 	public int hid;					//房源信息ID
 	public int reviewed;			//审核状态
-	public Date booktime;			//预约时间
+	public String booktime;			//预约时间
 	public Book() {
 		super();
 	}
-	public Book(int bid, String rid, String lid, int hid, int reviewed, Date booktime) {
+	public Book(int bid, String rid, String lid, int hid, int reviewed, String booktime) {
 		super();
 		this.bid = bid;
 		this.rid = rid;
@@ -51,10 +49,10 @@ public class Book {
 	public void setReviewed(int reviewed) {
 		this.reviewed = reviewed;
 	}
-	public Date getBooktime() {
+	public String getBooktime() {
 		return booktime;
 	}
-	public void setBooktime(Date booktime) {
+	public void setBooktime(String booktime) {
 		this.booktime = booktime;
 	}
 }
