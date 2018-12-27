@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- base.html -->
+<!-- header.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +31,7 @@
                          <span class="sr-only">Toggle navigation</span>
                          <span class="icon-bar"></span><span class="icon-bar"></span>
                          <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="#">DGUT</a>
+                    <a class="navbar-brand" href="#">贝壳租房</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

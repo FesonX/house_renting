@@ -1,6 +1,7 @@
 package cn.dbc;
 
 import java.lang.reflect.Field;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,18 +14,26 @@ import java.util.List;
 
 public class BaseDao
 {
+	
 	public Connection getConnection()
 	{
+		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	    final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false";
+	 
+	    // 数据库的用户名与密码，需要根据自己的设置
+	    final String USER = "root";
+	    final String PASS = "123456";
 		Connection conn=null;
 		try
 		{
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			conn=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=house_rent","sa","123");
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection(DB_URL,USER,PASS);
 
 		} 
 		catch (Exception e)
 		{
 			// TODO Auto-generated catch block
+			System.out.println("连接数据库失败");
 			e.printStackTrace();
 		}
 		return conn;
