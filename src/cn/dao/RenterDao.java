@@ -3,12 +3,12 @@ package cn.dao;
 import cn.bean.Renter;
 
 public interface RenterDao {
-	//1.µÇÂ¼£¬µç»°ºÅºÍÃÜÂë
-	public Renter login(String rid,String password);
-	//2.×¢²á
+	//1.ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ç»°ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½
+	public Renter login(String name,String password);
+	//2.×¢ï¿½ï¿½
 	public boolean register(Renter ad);
-	//3.ÐÞ¸Ä×Ô¼ºÐÅÏ¢
+	//3.ï¿½Þ¸ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ï¢
 	public boolean updateRenter(Renter ad);
-	//4.ÐÞ¸ÄÃÜÂë
+	//4.ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean updatePwd(Renter ad,String password);
 }
