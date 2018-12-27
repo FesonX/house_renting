@@ -18,7 +18,7 @@
        <!-- create an html table row -->
        <tr>
        <!-- create cells of row -->
-       <td><% out.print(a_house.getPic()); %></td>
+       <td><a href="login.jsp"><% out.print(a_house.getPic()); %></a></td>
        <td><% out.print(a_house.getTitle()); %></td>
        <td><% out.print(a_house.getPrice()); %></td>
        <td><% out.print(a_house.getAddress()); %></td>
