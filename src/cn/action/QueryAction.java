@@ -24,7 +24,7 @@ public class QueryAction implements Action {
 			case "showAllHouse":result = showAllHouse(request,response);break;
 		}
 		return result; 
-	}
+	} 
 	
 	public String showAllHouse(HttpServletRequest request, HttpServletResponse response) {
 		HouseDao hd=new HouseDaoImpl();
