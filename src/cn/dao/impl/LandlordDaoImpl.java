@@ -1,6 +1,7 @@
 package cn.dao.impl;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import cn.bean.Landlord;
@@ -10,11 +11,11 @@ import cn.dbc.BaseDao;
 public class LandlordDaoImpl implements LandlordDao {
 	BaseDao bs=new BaseDao();
 	@Override
-	public Landlord login(int lid, String password) {
+	public Landlord login(String name, String password) {
 		Landlord Landlord=null;
 		List<Object> lp=new ArrayList<Object>();
-		String sql="select * from Landlord where lid=? and password=?";
-		lp.add(lid);
+		String sql="select * from landlord where name=? and password=?";
+		lp.add(name);
 		lp.add(password);
 		List<Landlord> l=bs.query(sql, lp, Landlord.class);
 		if(l.size()>0)
@@ -23,6 +24,23 @@ public class LandlordDaoImpl implements LandlordDao {
 		}
 		return Landlord;
 	}
+	
+	@Override
+	public boolean register(Landlord ag) {
+		boolean Flag=false;
+		String sql="insert into landlord values(?,?,?,?,?,?,?)";
+		List<Object> lp=new ArrayList<Object>();
+		lp.add(ag.getlid());
+		lp.add(ag.getname());
+		lp.add(ag.getgender());
+		lp.add(ag.getrealname());
+		lp.add(ag.getAvatar());
+		lp.add(ag.getPassword());
+		lp.add(ag.getdid());
+		Flag=bs.update(sql, lp);
+		return Flag;
+	}
+
 
 	@Override
 	public boolean updatePwd(Landlord ag,String password) {
