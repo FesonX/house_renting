@@ -20,6 +20,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/landing-page.min.css" rel="stylesheet">
+    
+    <%@include file="header.jsp"%>
 
   </head>
 

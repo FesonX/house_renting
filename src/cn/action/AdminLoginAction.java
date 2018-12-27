@@ -18,9 +18,11 @@ public class AdminLoginAction implements Action{
 		String password = request.getParameter("password");
 		admin = adminDao.login(phone, password);
 		if(admin != null) {
+			request.getSession().setAttribute("currentUser", admin);
 			return "adminCenter.jsp";
 		}
 		else {
+			request.setAttribute("msg", "用户名或密码错误！");
 			return "adminLogin.jsp";
 		}
 	}

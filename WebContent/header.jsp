@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="cn.bean.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.Driver" %>
 <!-- header.html -->
 <!DOCTYPE html>
 <html>
@@ -61,20 +64,30 @@
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<strong class="caret"></strong></a>
               <ul class="dropdown-menu">
+              <%
+				Admin admin=(Admin) session.getAttribute("currentUser");
+				if (admin!=null) {
+				%>
                 <li>
                    <a href="https://github.com/FesonX">我的主页</a>
                 </li>
                 <li>
                    <a href="https://github.com/huangjiarong">我的合同</a>
                 </li>
-                <li>
-                   <a href="mailto:fesonx@foxmail.com">fesonx@foxmail.com</a>
-                </li>
                 <li class="divider">
                 </li>
                 <li>
                    <a href="#navbar">退出</a>
                 </li>
+                <%}
+				else{%>
+				<li>
+                   <a href="http://localhost:8080/House_rent/login.jsp">登录</a>
+                </li>
+                <li>
+                   <a href="http://localhost:8080/House_rent/register.jsp">注册</a>
+                </li>
+				<%} %>
               </ul>
             </li>
           </ul>
