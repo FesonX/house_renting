@@ -14,8 +14,7 @@ public class Renter {
 	public Renter() {
 		super();
 	}
-	
-	//��ֵ
+	ֵ
 	public Renter(String rid, String name, String gender, String realname, String Avatar, String qq, String wechat, String password) {
 		super();
 		this.rid = rid;
