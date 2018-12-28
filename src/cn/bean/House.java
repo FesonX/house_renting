@@ -17,7 +17,6 @@ public class House {
 		super();
 	}
 	
-	
 	public House(int hid, String lid, int did, String title, String houseType, String address, float area, String pic,
 			int status, float price, String issueDate, int reviewed) {
 		super();
