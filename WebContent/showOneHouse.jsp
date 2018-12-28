@@ -18,13 +18,18 @@
        <!-- create an html table row -->
        <tr>
        <!-- create cells of row -->
-       <a href="showOneHouse">
-       <td><a href="login.jsp"><% out.print(a_house.getPic()); %></a></td>
+       <td><% out.print(a_house.getHid()); %></td>
+       <td><% out.print(a_house.getLid()); %></td>
+       <td><% out.print(a_house.getDid()); %></td>
        <td><% out.print(a_house.getTitle()); %></td>
-       <td><% out.print(a_house.getPrice()); %></td>
+       <td><% out.print(a_house.getHouseType()); %></td>
        <td><% out.print(a_house.getAddress()); %></td>
-       <td><% out.print(a_house.getArea()); %></td>
-        </a>
+       <td><% out.print(a_house.getArea()); %></a></td>
+       <td><% out.print(a_house.getPic()); %></td>
+       <td><% out.print(a_house.getStatus()); %></a></td>
+       <td><% out.print(a_house.getPrice()); %></td>
+       <td><% out.print(a_house.getIssueDate()); %></td>
+       <td><% out.print(a_house.getReviewed()); %></td>
        <!-- close row -->
        </tr>
        <!-- close the loop -->

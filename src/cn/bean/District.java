@@ -1,21 +1,21 @@
 package cn.bean;
 
-public class Distinct {
-	public int did;					//ÇøÓòID
-	public String name;    			//ÇøÓòÃû
-	public int parent_id;			//¸¸¼¶ID
-	public String pinyin;			//Æ´Òô
-	public String initial;			//ÇøÓòµÚÒ»¸ö×ÖÄ¸
-	public String initials;			//ÇøÓòÆ´ÒôÊ××ÖÄ¸
-	public String suffle;			//ĞĞÕş¼¶±ğ
-	public String code;				//ĞĞÕş´úÂë
-	public int order;				//Ä¬ÈÏÅÅĞòĞòºÅ
-	public Distinct() {
+public class District {
+	public int did;					//ï¿½ï¿½ï¿½ï¿½ID
+	public String name;    			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public int parent_id;			//ï¿½ï¿½ï¿½ï¿½ID
+	public String pinyin;			//Æ´ï¿½ï¿½
+	public String initial;			//ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¸
+	public String initials;			//ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸
+	public String suffle;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public String code;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public int order;				//Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public District() {
 		super();
 	}
 	
 	
-	public Distinct(int did, String name, int parent_id, String pinyin ,String initial, String initials, String suffle, String code, int order) {
+	public District(int did, String name, int parent_id, String pinyin ,String initial, String initials, String suffle, String code, int order) {
 		super();
 		this.did = did;
 		this.name = name;

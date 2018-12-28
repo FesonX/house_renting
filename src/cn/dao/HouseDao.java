@@ -6,21 +6,25 @@ import cn.bean.House;
 
 public interface HouseDao {
 
-	//1.·¢²¼·¿Ô´ÐÅÏ¢
+	//1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ï¢
 	public boolean doHouse(House ho);
-	//2.ÐÞ¸Ä·¿Ô´ÐÅÏ¢
+	//2.ï¿½Þ¸Ä·ï¿½Ô´ï¿½ï¿½Ï¢
 	public boolean updateHouse(House ho);
 
-	 //5.ÐÞ¸Ä·¿ÎÝ×´Ì¬1£¨¾­¼ÍÈË£©
+	 //5.ï¿½Þ¸Ä·ï¿½ï¿½ï¿½×´Ì¬1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½
 	 public boolean updateHouseByStatus(House ho,int status);
 	 
 	 /*
-	// 7.ÐÞ¸Ä·¿ÎÝ×´Ì¬2£¨¹ÜÀíÔ±£©
+	// 7.ï¿½Þ¸Ä·ï¿½ï¿½ï¿½×´Ì¬2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½
 	 public boolean updateHouseByAuditing(House ho,String auditing);
 	 */
 	 
-	// 8.ÐÞ¸Ä·¿ÎÝÐÅÏ¢£¨¹ÜÀíÔ±¸ø·¿ÎÝ·ÖÅä¾­¼ÍÈË£©
+	// 8.ï¿½Þ¸Ä·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ä¾­ï¿½ï¿½ï¿½Ë£ï¿½
 	 public boolean updateHouseByLid(House ho,int lid);
-	 //¶àÌõ¼þ²éÑ¯
+	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯
 	 public List<House> housesearch(String[] propertyname,Object[] value) throws Exception;
+	 
+	 //search house by district
+	 public List<House> houseSearchByDistrict(String district) throws Exception;
+	 
 }

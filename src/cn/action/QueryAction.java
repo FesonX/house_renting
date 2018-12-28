@@ -22,10 +22,40 @@ public class QueryAction implements Action {
 		
 		switch(method) {
 			case "showAllHouse":result = showAllHouse(request,response);break;
+			case "searchHouseByDid":result = searchHouse(request,response);break;
+			case "showOneHouse":result = showOneHouse(request,response);break;
 		}
 		return result; 
 	} 
 	
+	public String showOneHouse(HttpServletRequest request, HttpServletResponse response) {
+		HouseDao hd=new HouseDaoImpl();
+		String hid=request.getParameter("hid");
+		int hid_value = Integer.parseInt(hid);
+		String[] propertyname={"hid"};
+		Object[] value={hid_value};
+		
+		try {
+			List<House> list = hd.housesearch(propertyname, value);
+			request.setAttribute("houseList", list);
+		} catch (Exception e) { e.printStackTrace(); }
+		
+		return "showOneHouse.jsp";
+	}
+
+	public String searchHouse(HttpServletRequest request, HttpServletResponse response) {
+		HouseDao hd=new HouseDaoImpl();
+		String district=request.getParameter("district");
+		
+		try {
+			List<House> list = hd.houseSearchByDistrict(district);
+			request.setAttribute("houseList", list);
+		} catch (Exception e) {e.printStackTrace();}
+		
+		
+		return "showAllHouse.jsp";
+	}
+
 	public String showAllHouse(HttpServletRequest request, HttpServletResponse response) {
 		HouseDao hd=new HouseDaoImpl();
 		//String htid=request.getParameter("htid");
@@ -35,7 +65,8 @@ public class QueryAction implements Action {
 		//String reviewed=request.getParameter("reviewed");
 		int status = 0;
 		int reviewed = 1;
-		String[] propertyname={"status","reviewed"}; Object[] value={status,reviewed};
+		String[] propertyname={"status","reviewed"};
+		Object[] value={status,reviewed};
 		try {
 			List<House> list = hd.housesearch(propertyname, value);
 			request.setAttribute("houseList", list);

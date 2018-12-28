@@ -2,16 +2,16 @@ package cn.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import cn.bean.Distinct;
-import cn.dao.DistinctDao;
+import cn.bean.District;
+import cn.dao.DistrictDao;
 import cn.dbc.BaseDao;
 
-public class DistinctDaoImpl  implements DistinctDao{
+public class DistrictDaoImpl  implements DistrictDao{
 	BaseDao bs=new BaseDao();
 	@Override
-	//1.Ìí¼ÓÇøÓò
-	public boolean doDistinct(Distinct dis){
-		String sql="insert into distinct(did,name,parent_id,pinyin,initial,initials,suffle,code,order) values(?,?,?,?,?,?,?,?,?)";
+	//1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public boolean doDistrict(District dis){
+		String sql="insert into district(did,name,parent_id,pinyin,initial,initials,suffle,code,order) values(?,?,?,?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(dis.getDid());
 		lp.add(dis.getName());
@@ -26,9 +26,9 @@ public class DistinctDaoImpl  implements DistinctDao{
 		return flag;
 	}
 	@Override
-	//2.ÐÞ¸ÄÇøÓò
-	public boolean updateDistinct(Distinct dis){
-		String sql="update distinct set name=?,parent_id=?,pinyin=?,initial=?,initials=?,suffle=?,code=?,order=? where did=?";
+	//2.ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	public boolean updateDistrict(District dis){
+		String sql="update district set name=?,parent_id=?,pinyin=?,initial=?,initials=?,suffle=?,code=?,order=? where did=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(dis.getName());
 		lp.add(dis.getParent_id());
@@ -44,22 +44,22 @@ public class DistinctDaoImpl  implements DistinctDao{
 	}
 	
 	@Override
-	//3.É¾³ýÇøÓò
-	public boolean deleteDistinct(int did){
-		String sql="delete distinct where did=?";
+	//3.É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public boolean deleteDistrict(int did){
+		String sql="delete district where did=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(did);
 		boolean flag=bs.update(sql, lp);
 		return flag;
 	}
 	@Override
-	//4¡£¸ù¾ÝÇøÓòID²éÑ¯
-	public List<Distinct> findDistinctByDid(int did){
-		List<Distinct> list=null;
-		String sql="select * from distinct where did=?";
+	//4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½Ñ¯
+	public List<District> findDistrictByDid(int did){
+		List<District> list=null;
+		String sql="select * from district where did=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(did);
-		list=bs.query(sql, lp, Distinct.class);
+		list=bs.query(sql, lp, District.class);
 		return list;
 	}
 }
