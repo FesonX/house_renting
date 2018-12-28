@@ -1,21 +1,21 @@
 package cn.bean;
 
 public class Renter {
-	public String rid;					//用户ID
-	public String name;					//昵称
-	public String gender;				//性别
-	public String realname;				//姓名
-	public String Avatar;				//头像
-	public String qq;					//QQ号
-	public String wechat;				//微信号
-	public String password;				//密码
+	public String rid;			
+	public String name;				
+	public String gender;			
+	public String realname;		
+	public String Avatar;		
+	public String qq;				
+	public String wechat;		
+	public String password;		
 	
 	
 	public Renter() {
 		super();
 	}
 	
-	//赋值
+	//锟斤拷值
 	public Renter(String rid, String name, String gender, String realname, String Avatar, String qq, String wechat, String password) {
 		super();
 		this.rid = rid;

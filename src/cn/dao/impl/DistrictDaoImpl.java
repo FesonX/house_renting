@@ -9,7 +9,6 @@ import cn.dbc.BaseDao;
 public class DistrictDaoImpl  implements DistrictDao{
 	BaseDao bs=new BaseDao();
 	@Override
-	//1.�������
 	public boolean doDistrict(District dis){
 		String sql="insert into district(did,name,parent_id,pinyin,initial,initials,suffle,code,order) values(?,?,?,?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
@@ -26,7 +25,6 @@ public class DistrictDaoImpl  implements DistrictDao{
 		return flag;
 	}
 	@Override
-	//2.�޸�����
 	public boolean updateDistrict(District dis){
 		String sql="update district set name=?,parent_id=?,pinyin=?,initial=?,initials=?,suffle=?,code=?,order=? where did=?";
 		List<Object> lp=new ArrayList<Object>();
@@ -44,7 +42,6 @@ public class DistrictDaoImpl  implements DistrictDao{
 	}
 	
 	@Override
-	//3.ɾ������
 	public boolean deleteDistrict(int did){
 		String sql="delete district where did=?";
 		List<Object> lp=new ArrayList<Object>();
@@ -53,7 +50,6 @@ public class DistrictDaoImpl  implements DistrictDao{
 		return flag;
 	}
 	@Override
-	//4����������ID��ѯ
 	public List<District> findDistrictByDid(int did){
 		List<District> list=null;
 		String sql="select * from district where did=?";

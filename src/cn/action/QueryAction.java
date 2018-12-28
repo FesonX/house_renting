@@ -58,11 +58,6 @@ public class QueryAction implements Action {
 
 	public String showAllHouse(HttpServletRequest request, HttpServletResponse response) {
 		HouseDao hd=new HouseDaoImpl();
-		//String htid=request.getParameter("htid");
-		//String tid=request.getParameter("tid");
-		//String price=request.getParameter("price");
-		//String status=request.getParameter("status");
-		//String reviewed=request.getParameter("reviewed");
 		int status = 0;
 		int reviewed = 1;
 		String[] propertyname={"status","reviewed"};

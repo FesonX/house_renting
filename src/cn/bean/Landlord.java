@@ -1,13 +1,13 @@
 package cn.bean;
 
 public class Landlord {
-	public String lid;					//用户ID
-	public String name;					//昵称
-	public String gender;				//性别
-	public String realname;				//姓名
-	public String Avatar;				//头像
-	public String password;				//密码
-	public int did;						//区域ID
+	public String lid;				
+	public String name;				
+	public String gender;			
+	public String realname;				
+	public String Avatar;			
+	public String password;			
+	public int did;						
 	
 	public Landlord() {
 		super();

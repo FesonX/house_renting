@@ -1,11 +1,11 @@
 package cn.bean;
 
 public class Evaluate {
-	public int eid;						//评价ID
-	public String rid;					//租客用户ID
-	public int hid;						//房源信息ID
-	public int star;					//评分星级
-	public String content;				//评价内容
+	public int eid;					
+	public String rid;			
+	public int hid;					
+	public int star;				
+	public String content;			
 		
 	public Evaluate() {
 		super();

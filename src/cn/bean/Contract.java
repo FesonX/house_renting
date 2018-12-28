@@ -2,14 +2,14 @@ package cn.bean;
 
 
 public class Contract {
-	public int cid;				//合同ID	
-	public String rid;			//租客用户ID
-	public String lid;			//房东用户ID
-	public int hid;				//租房信息ID
-	public float duration;		//租赁时间
-	public String signdate;		//签约时间
-	public int reviewed;		//审核状态
-	public float Price;			//总价
+	public int cid;				
+	public String rid;			
+	public String lid;			
+	public int hid;				
+	public float duration;		
+	public String signdate;		
+	public int reviewed;                                    
+	public float Price;			
 	public Contract() {
 		super();
 	}

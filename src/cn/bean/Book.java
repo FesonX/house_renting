@@ -1,12 +1,12 @@
 package cn.bean;
 
 public class Book {
-	public int bid;					//预约ID	
-	public String rid;				//租客用户ID
-	public String lid;				//房东用户ID
-	public int hid;					//房源信息ID
-	public int reviewed;			//审核状态
-	public String booktime;			//预约时间
+	public int bid;					
+	public String rid;				
+	public String lid;				
+	public int hid;					
+	public int reviewed;
+	public String booktime;			
 	public Book() {
 		super();
 	}

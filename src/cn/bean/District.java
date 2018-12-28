@@ -1,15 +1,15 @@
 package cn.bean;
 
 public class District {
-	public int did;					//����ID
-	public String name;    			//������
-	public int parent_id;			//����ID
-	public String pinyin;			//ƴ��
-	public String initial;			//�����һ����ĸ
-	public String initials;			//����ƴ������ĸ
-	public String suffle;			//��������
-	public String code;				//��������
-	public int order;				//Ĭ���������
+	public int did;			
+	public String name;    	
+	public int parent_id;	
+	public String pinyin;		
+	public String initial;		
+	public String initials;			
+	public String suffle;		
+	public String code;				
+	public int order;				
 	public District() {
 		super();
 	}
