@@ -1,20 +1,20 @@
 package cn.bean;
 
 public class Admin {
-	public int aid;
+	public String aid;
 	public String password;
 	public Admin() {
 		super();
 	}
-	public Admin(int aid, String password) {
+	public Admin(String aid, String password) {
 		super();
 		this.aid = aid;
 		this.password = password;
 	}
-	public int getaid() {
+	public String getaid() {
 		return aid;
 	}
-	public void setaid(int aid) {
+	public void setaid(String aid) {
 		this.aid = aid;
 	}
 	public String getPassword() {
