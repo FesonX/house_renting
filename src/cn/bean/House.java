@@ -1,18 +1,18 @@
 package cn.bean;
 
 public class House {
-	public int hid;					//����ID
-	public String lid;				//��������
-	public int did;					//��������
-	public String title;
-	public int eid;					//��Ӧ����
-	public String address;			//�����ַ
-	public float Area;				//�������
-	public String Pic;				//����ͼƬ
-	public int status;				//����״̬
-	public float Price;				//���ݼ۸�
-	public String issueDate;			//��Ϣ��������
-	public int reviewed;			//���״̬
+	public int hid;				
+	public String lid;			
+	public int did;				
+	public String title;			
+	public String houseType;
+	public String address;			
+	public float Area;			
+	public String Pic;		
+	public int status;				
+	public float Price;			
+	public String issueDate;			
+	public int reviewed;
 	public House() {
 		super();
 	}
