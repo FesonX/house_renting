@@ -20,7 +20,7 @@ public class BaseDao
 		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	    final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false";
 	 
-	    // Êı¾İ¿âµÄÓÃ»§ÃûÓëÃÜÂë£¬ĞèÒª¸ù¾İ×Ô¼ºµÄÉèÖÃ
+	    // æ•°æ®åº“çš„ç”¨æˆ·åä¸å¯†ç ï¼Œéœ€è¦æ ¹æ®è‡ªå·±çš„è®¾ç½®
 	    final String USER = "root";
 	    final String PASS = "123456";
 		Connection conn=null;
@@ -33,7 +33,7 @@ public class BaseDao
 		catch (Exception e)
 		{
 			// TODO Auto-generated catch block
-			System.out.println("Á¬½ÓÊı¾İ¿âÊ§°Ü");
+			System.out.println("è¿æ¥æ•°æ®åº“å¤±è´¥");
 			e.printStackTrace();
 		}
 		return conn;
