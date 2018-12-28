@@ -3,6 +3,7 @@ package cn.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,16 +19,17 @@ public class HouseDaoImpl implements HouseDao {
 		String sql="insert into house(hid,lid,did,eid,address,Area,Pic,status,Price,issueDate,reviewed) values(?,?,?,?,?,?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(ho.getHid());
-		lp.add(ho.getlid());
-		lp.add(ho.getdid());
-		lp.add(ho.getEid());
+		lp.add(ho.getLid());
+		lp.add(ho.getDid());
+		lp.add(ho.getTitle());
+		lp.add(ho.getHouseType());
 		lp.add(ho.getAddress());
 		lp.add(ho.getArea());
 		lp.add(ho.getPic());
 		lp.add(ho.getStatus());
 		lp.add(ho.getPrice());
-		lp.add(ho.getissueDate());
-		lp.add(ho.getreviewed());
+		lp.add(ho.getIssueDate());
+		lp.add(ho.getReviewed());
 		
 		boolean flag=bd.update(sql, lp);
 		return flag;
@@ -42,7 +44,7 @@ public class HouseDaoImpl implements HouseDao {
 		lp.add(ho.getStatus());
 		lp.add(ho.getArea());
 		lp.add(ho.getAddress());
-		lp.add(ho.getlid());
+		lp.add(ho.getLid());
 		Boolean flag= bd.update(sql, lp);
 		return flag;
 	}
@@ -72,7 +74,7 @@ public class HouseDaoImpl implements HouseDao {
 	public boolean updateHouseByLid(House ho, int lid) {
 		String sql = "insert into house(lid) value(?) where hid=?";
 		List<Object> lp = new ArrayList<Object>();
-		lp.add(ho.getlid());
+		lp.add(ho.getLid());
 		lp.add(ho.getHid());
 		Boolean flag= bd.update(sql, lp);
 		return flag;
@@ -86,7 +88,7 @@ public class HouseDaoImpl implements HouseDao {
 		int len = propertyname.length;
 		for(int i = 0;i < len;i++){
 			if(propertyname[i] != null && value != null){
-				sqlBuffer.append("and"+propertyname[i]+"="+value[i]);
+				sqlBuffer.append(" and "+propertyname[i]+"="+value[i]);
 			}
 		}
 		PreparedStatement pstmt = conn.prepareStatement(sqlBuffer.toString());
@@ -95,22 +97,58 @@ public class HouseDaoImpl implements HouseDao {
 		while(rs.next()){
 			House ho = new House();
 			ho.setHid(rs.getInt(1));
-			ho.setlid(rs.getString(2));
-			ho.setdid(rs.getInt(3));
-			ho.setEid(rs.getInt(4));
-			
-			ho.setAddress(rs.getString(5));
-			ho.setArea(rs.getFloat(6));
-			ho.setPic(rs.getString(7));
-			ho.setStatus(rs.getInt(8));
-			ho.setPrice(rs.getFloat(9));
-			ho.setissueDate(rs.getString(10));
-			ho.setreviewed(rs.getInt(11));
+			ho.setLid(rs.getString(2));
+			ho.setDid(rs.getInt(3));
+			ho.setTitle(rs.getString(4));
+			ho.setHouseType(rs.getString(5));
+			ho.setAddress(rs.getString(6));
+			ho.setArea(rs.getFloat(7));
+			ho.setPic(rs.getString(8));
+			ho.setStatus(rs.getInt(9));
+			ho.setPrice(rs.getFloat(10));
+			ho.setIssueDate(rs.getString(11));
+			ho.setReviewed(rs.getInt(12));
 			
 			list.add(ho);
 		}
 		return list;
 		
+	}
+
+	@Override
+	public List<House> houseSearchByDistrict(String district) throws SQLException {
+		char[] d = district.toCharArray();
+		
+		//select * from house where did in (select did from district where name LIKE '%name1%' or name LIKE '%name2%')
+		List<House> list = new ArrayList<House>();
+		Connection conn = bd.getConnection();
+		StringBuffer sqlBuffer = new StringBuffer();
+		sqlBuffer.append("select * from house where did in (select did from district where pinyin LIKE "+"'%"+district+"%') and status=0 and reviewed=1");
+		int len = d.length;
+//		for(int i = 0;i < len-1;i++){
+//			sqlBuffer.append(" or pinyin LIKE "+"%"+d[i]+"%");
+//		}
+		PreparedStatement pstmt = conn.prepareStatement(sqlBuffer.toString());
+		ResultSet rs = pstmt.executeQuery();
+
+		while(rs.next()){
+			House ho = new House();
+			ho.setHid(rs.getInt(1));
+			ho.setLid(rs.getString(2));
+			ho.setDid(rs.getInt(3));
+			ho.setTitle(rs.getString(4));
+			ho.setHouseType(rs.getString(5));
+			ho.setAddress(rs.getString(6));
+			ho.setArea(rs.getFloat(7));
+			ho.setPic(rs.getString(8));
+			ho.setStatus(rs.getInt(9));
+			ho.setPrice(rs.getFloat(10));
+			ho.setIssueDate(rs.getString(11));
+			ho.setReviewed(rs.getInt(12));
+			
+			list.add(ho);
+		}
+		return list;
 	} 
 
 }
