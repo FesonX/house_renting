@@ -1,5 +1,6 @@
 package cn.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import cn.bean.Book;
@@ -11,5 +12,5 @@ public interface BookDao {
 	public List<Book> findBookByRid(String rid);
 	//3.�鿴ԤԼ��Ϣ�������ˣ�
 	public List<Book> findBookByLid(String lid);
-	public int countBookSize();
+	public int countBookSize() throws SQLException;
 }
