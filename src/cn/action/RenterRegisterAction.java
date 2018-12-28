@@ -5,29 +5,43 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.bean.Admin;
+import cn.dao.AdminDao;
+import cn.bean.Landlord;
+import cn.dao.LandlordDao;
+import cn.dao.impl.LandlordDaoImpl;
+import cn.dao.impl.AdminDaoImpl;
 import cn.bean.District;
-import cn.bean.Renter;
-import cn.dao.RenterDao;
-import cn.dao.impl.RenterDaoImpl;
+import cn.dao.DistrictDao;
+import cn.dao.impl.DistrictDaoImpl;
 import cn.framework.Action;
 
-public class RenterRegisterAction implements Action {
+public class LandlordRegisterAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		RenterDao renterDao = new RenterDaoImpl();
+		AdminDao adminDao = new AdminDaoImpl();
+		LandlordDao landlordDao = new LandlordDaoImpl();
+		DistrictDao distinctDao = new DistrictDaoImpl();
 		boolean Flag = false;
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String realname = request.getParameter("realname");
-		String rid = request.getParameter("rid");
+		String lid = request.getParameter("lid");
 		String gender = request.getParameter("gender");
-		String qq = request.getParameter("qq");
-		String Wechat = request.getParameter("Wechat");
-		Renter renter = new Renter(rid,name,gender,realname,"0",qq,Wechat,password);
-		Flag= renterDao.register(renter);
+		String didname = request.getParameter("didname");
+		int did = 0;
+		List<District> list = distinctDao.findDistinctByName(didname);
+		for(int    i=0;    i<list.size();    i++)    {   
+			did = list.get(i).getDid();
+		   } 
+		Landlord landlord = new Landlord(lid, name, gender, realname, "0", password, did);
+		Flag = landlordDao.register(landlord);
+		//Admin admin = new Admin(uid, name, realname, password, gender, identify, qq, Wechat);
+		
+		//Flag = adminDao.register(admin);
 		if (Flag) {
-			return "login.jsp";
+			return "index.jsp";
 		}
 		else
 			return "register.jsp";	
