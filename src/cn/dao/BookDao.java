@@ -5,10 +5,11 @@ import java.util.List;
 import cn.bean.Book;
 
 public interface BookDao {
-	//1.Ô¤Ô¼¾­¼ÍÈË£¨Ìí¼ÓÔ¤Ô¼ÐÅÏ¢±í£©
+	//1.Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½Ï¢ï¿½ï¿½
 	public boolean doBook(Book bo);
-	//2.²é¿´Ô¤Ô¼ÐÅÏ¢±í(ÓÃ»§)
+	//2.ï¿½é¿´Ô¤Ô¼ï¿½ï¿½Ï¢ï¿½ï¿½(ï¿½Ã»ï¿½)
 	public List<Book> findBookByRid(String rid);
-	//3.²é¿´Ô¤Ô¼ÐÅÏ¢±í£¨¾­¼ÍÈË£©
+	//3.ï¿½é¿´Ô¤Ô¼ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½
 	public List<Book> findBookByLid(String lid);
+	public int countBookSize();
 }
