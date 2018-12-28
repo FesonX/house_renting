@@ -12,58 +12,51 @@ public class House {
 	public int status;				
 	public float Price;			
 	public String issueDate;			
-	public int reviewed;			
+	public int reviewed;
 	public House() {
 		super();
 	}
-	
-	public House(int hid, String lid, int did, String title, String houseType, String address, float area, String pic,
-			int status, float price, String issueDate, int reviewed) {
+	public House(int hid, String lid, int did, int eid, String address, float Area,  String Pic, int status, float Price, String issueDate, int reviewed) {
 		super();
 		this.hid = hid;
 		this.lid = lid;
 		this.did = did;
-		this.title = title;
-		this.houseType = houseType;
+		this.eid = eid;
 		this.address = address;
-		Area = area;
-		Pic = pic;
+		this.Area = Area;
+		this.Pic = Pic;
 		this.status = status;
-		Price = price;
+		this.Price = Price;
 		this.issueDate = issueDate;
 		this.reviewed = reviewed;
+		
 	}
-
-
 	public int getHid() {
 		return hid;
 	}
 	public void setHid(int hid) {
 		this.hid = hid;
 	}
-	public String getLid() {
+	
+	public String getlid() {
 		return lid;
 	}
-	public void setLid(String lid) {
+	public void setlid(String lid) {
 		this.lid = lid;
 	}
-	public int getDid() {
+	
+	public int getdid() {
 		return did;
 	}
-	public void setDid(int did) {
+	public void setdid(int did) {
 		this.did = did;
 	}
-	public String getTitle() {
-		return title;
+	
+	public int getEid() {
+		return eid;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getHouseType() {
-		return houseType;
-	}
-	public void setHouseType(String houseType) {
-		this.houseType = houseType;
+	public void setEid(int eid) {
+		this.eid = eid;
 	}
 	public String getAddress() {
 		return address;
@@ -74,14 +67,14 @@ public class House {
 	public float getArea() {
 		return Area;
 	}
-	public void setArea(float area) {
-		Area = area;
+	public void setArea(float Area) {
+		this.Area = Area;
 	}
 	public String getPic() {
 		return Pic;
 	}
-	public void setPic(String pic) {
-		Pic = pic;
+	public void setPic(String Pic) {
+		this.Pic = Pic;
 	}
 	public int getStatus() {
 		return status;
@@ -92,19 +85,19 @@ public class House {
 	public float getPrice() {
 		return Price;
 	}
-	public void setPrice(float price) {
-		Price = price;
+	public void setPrice(float Price) {
+		this.Price = Price;
 	}
-	public String getIssueDate() {
+	public String getissueDate() {
 		return issueDate;
 	}
-	public void setIssueDate(String issueDate) {
+	public void setissueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
-	public int getReviewed() {
+	public int getreviewed() {
 		return reviewed;
 	}
-	public void setReviewed(int reviewed) {
+	public void setreviewed(int reviewed) {
 		this.reviewed = reviewed;
 	}
 }
