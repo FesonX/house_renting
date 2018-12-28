@@ -2,11 +2,11 @@ package cn.bean;
 
 public class Book {
 	public int bid;					//Ô¤Ô¼ID	
-	public String rid;				//×â¿ÍÓÃ»§ID
-	public String lid;				//·¿¶«ÓÃ»§ID
-	public int hid;					//·¿Ô´ÐÅÏ¢ID
-	public int reviewed;			//ÉóºË×´Ì¬
-	public String booktime;			//Ô¤Ô¼Ê±¼ä
+	public String rid;				//ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ID
+	public String lid;				//ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ID
+	public int hid;					//ï¿½ï¿½Ô´ï¿½ï¿½Ï¢ID
+	public int reviewed;			//ï¿½ï¿½ï¿½×´Ì¬
+	public String booktime;			//Ô¤Ô¼Ê±ï¿½ï¿½
 	public Book() {
 		super();
 	}
@@ -25,16 +25,16 @@ public class Book {
 	public void setBid(int bid) {
 		this.bid = bid;
 	}
-	public String getrid() {
+	public String getRid() {
 		return rid;
 	}
-	public void setrid(String rid) {
+	public void setRid(String rid) {
 		this.rid = rid;
 	}
-	public String getlid() {
+	public String getLid() {
 		return lid;
 	}
-	public void setlid(String lid) {
+	public void setLid(String lid) {
 		this.lid = lid;
 	}
 	public int getHid() {

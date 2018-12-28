@@ -15,8 +15,8 @@ public class BookDaoImpl implements BookDao {
 		String sql="insert into book(bid,rid,lid,hid,booktime) values(?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(bo.getBid());
-		lp.add(bo.getrid());
-		lp.add(bo.getlid());
+		lp.add(bo.getRid());
+		lp.add(bo.getLid());
 		lp.add(bo.getHid());
 		lp.add(bo.getReviewed());
 		lp.add(bo.getBooktime());
@@ -43,6 +43,14 @@ public class BookDaoImpl implements BookDao {
 		lp.add(lid);
 		list=bs.query(sql, lp, Book.class);
 		return list;
+	}
+
+	@Override
+	public int countBookSize() {
+		String sql="select count(*) from book";
+		List<Object> lp=new ArrayList<Object>();
+//		list=bs.query(sql, lp, Book.class);
+		return 0;
 	}
 
 }
