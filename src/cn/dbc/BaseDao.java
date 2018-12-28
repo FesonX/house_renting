@@ -19,7 +19,7 @@ public class BaseDao
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/house_rent","root","123456");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/house_rent","root","root");
 
 		} 
 		catch (Exception e)
