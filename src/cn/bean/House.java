@@ -1,17 +1,18 @@
 package cn.bean;
 
 public class House {
-	public int hid;					//·¿ÎÝID
-	public String lid;				//ËùÊô·¿¶«
-	public int did;					//ËùÊôÇøÓò
-	public int eid;					//ÏàÓ¦ÆÀ¼Û
-	public String address;			//¾ßÌåµØÖ·
-	public float Area;				//·¿ÎÝÃæ»ý
-	public String Pic;				//·¿ÎÝÍ¼Æ¬
-	public int status;				//×âÊÛ×´Ì¬
-	public float Price;				//·¿ÎÝ¼Û¸ñ
-	public String issueDate;			//ÐÅÏ¢·¢²¼ÈÕÆÚ
-	public int reviewed;			//ÉóºË×´Ì¬
+	public int hid;					//ï¿½ï¿½ï¿½ï¿½ID
+	public String lid;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public int did;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public String title;
+	public int eid;					//ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
+	public String address;			//ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
+	public float Area;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public String Pic;				//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
+	public int status;				//ï¿½ï¿½ï¿½ï¿½×´Ì¬
+	public float Price;				//ï¿½ï¿½ï¿½Ý¼Û¸ï¿½
+	public String issueDate;			//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public int reviewed;			//ï¿½ï¿½ï¿½×´Ì¬
 	public House() {
 		super();
 	}
