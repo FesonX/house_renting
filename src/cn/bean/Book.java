@@ -1,12 +1,12 @@
 package cn.bean;
 
 public class Book {
-	public int bid;					//ԤԼID	
-	public String rid;				//����û�ID
-	public String lid;				//�����û�ID
-	public int hid;					//��Դ��ϢID
-	public int reviewed;			//���״̬
-	public String booktime;			//ԤԼʱ��
+	public int bid;					
+	public String rid;				
+	public String lid;				
+	public int hid;					
+	public int reviewed;			
+	public String booktime;			
 	public Book() {
 		super();
 	}
