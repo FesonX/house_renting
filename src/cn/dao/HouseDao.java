@@ -13,4 +13,5 @@ public interface HouseDao {
 	public List<House> housesearch(String[] propertyname,Object[] value) throws Exception;
 	//search house by district
 	public List<House> houseSearchByDistrict(String district) throws Exception;
+	public boolean updateHouseByReview(House house, int reviewed);
 }

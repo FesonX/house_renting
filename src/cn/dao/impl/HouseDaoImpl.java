@@ -59,17 +59,16 @@ public class HouseDaoImpl implements HouseDao {
 		return flag;
 	}
 
-/*
 	@Override
-	public boolean updateHouseByAuditing(House ho, String auditing) {
-		String sql = "update house set auditing=? where hid=?";
+	public boolean updateHouseByReview(House house, int reviewed) {
+		String sql = "update house set reviewed=? where hid=?";
 		List<Object> lp = new ArrayList<Object>();
-		lp.add(ho.getAuditing());
-		lp.add(ho.getHid());
+		lp.add(reviewed);
+		lp.add(house.getHid());
 		Boolean flag= bd.update(sql, lp);
 		return flag;
-	}
-*/
+	} 
+	
 	@Override
 	public boolean updateHouseByLid(House ho, int lid) {
 		String sql = "insert into house(lid) value(?) where hid=?";
@@ -149,6 +148,5 @@ public class HouseDaoImpl implements HouseDao {
 			list.add(ho);
 		}
 		return list;
-	} 
-
+	}
 }
