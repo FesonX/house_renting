@@ -11,7 +11,7 @@ public interface RenterDao {
 	//2.×¢ï¿½ï¿½
 	public boolean register(Renter ad);
 	//3.ï¿½Þ¸ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ï¢
-	public boolean updateRenter(Renter ad);
+	public Renter updateRenter(Renter ad);
 	//4.ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean updatePwd(Renter ad,String password);
 	//5.¸ù¾ÝÓÃ»§ÕËºÅ²éÑ¯
