@@ -1,5 +1,8 @@
 package cn.dao;
 
+import java.util.List;
+
+import cn.bean.Contract;
 import cn.bean.Renter;
 
 public interface RenterDao {
@@ -11,4 +14,9 @@ public interface RenterDao {
 	public boolean updateRenter(Renter ad);
 	//4.修改密码
 	public boolean updatePwd(Renter ad,String password);
+	//5.根据用户账号查询
+	public List<Renter> findRenterByName(String name);
+	
+	//
+	public Renter findRenterByRid(String rid);
 }

@@ -1,21 +1,21 @@
 package cn.bean;
 
-public class Distinct {
+public class District {
 	public int did;					//区域ID
 	public String name;    			//区域名
 	public int parent_id;			//父级ID
 	public String pinyin;			//拼音
 	public String initial;			//区域第一个字母
 	public String initials;			//区域拼音首字母
-	public String suffle;			//行政级别
+	public String suffix;			//行政级别
 	public String code;				//行政代码
 	public int order;				//默认排序序号
-	public Distinct() {
+	public District() {
 		super();
 	}
 	
 	
-	public Distinct(int did, String name, int parent_id, String pinyin ,String initial, String initials, String suffle, String code, int order) {
+	public District(int did, String name, int parent_id, String pinyin ,String initial, String initials, String suffix, String code, int order) {
 		super();
 		this.did = did;
 		this.name = name;
@@ -23,7 +23,7 @@ public class Distinct {
 		this.pinyin = pinyin;
 		this.initial = initial;
 		this.initials = initials;
-		this.suffle = suffle;
+		this.suffix = suffix;
 		this.code = code;
 		this.order = order;
 		
@@ -67,11 +67,11 @@ public class Distinct {
 	public void setInitials(String initials) {
 		this.initials = initials;
 	}
-	public String getSuffle() {
-		return suffle;
+	public String getsuffix() {
+		return suffix;
 	}
-	public void setSuffle(String suffle) {
-		this.suffle = suffle;
+	public void setsuffix(String suffix) {
+		this.suffix = suffix;
 	}
 	public String getCode() {
 		return code;

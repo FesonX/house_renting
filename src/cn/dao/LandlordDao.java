@@ -20,5 +20,5 @@ public interface LandlordDao {
 	//7.查询全部房东
 	public List<Landlord> findLandlord();
 	//8.查询某个房东
-	public Landlord findLandlordBy(int lid);
+	public Landlord findLandlordBy(String lid);
 }

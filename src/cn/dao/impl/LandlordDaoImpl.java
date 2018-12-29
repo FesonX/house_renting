@@ -96,7 +96,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	}
 
 	@Override
-	public Landlord findLandlordBy(int lid) {
+	public Landlord findLandlordBy(String lid) {
 		Landlord Landlord=null;
 		List<Object> lp=new ArrayList<Object>();
 		String sql="select * from Landlord where lid=?";
