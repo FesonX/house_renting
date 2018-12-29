@@ -2,14 +2,14 @@ package cn.bean;
 
 
 public class Contract {
-	public int cid;				//ºÏÍ¬ID	
-	public String rid;			//×â¿ÍÓÃ»§ID
-	public String lid;			//·¿¶«ÓÃ»§ID
-	public int hid;				//×â·¿ÐÅÏ¢ID
-	public float duration;		//×âÁÞÊ±¼ä
-	public String signdate;		//Ç©Ô¼Ê±¼ä
-	public int reviewed;		//ÉóºË×´Ì¬
-	public float Price;			//×Ü¼Û
+	public int cid;				//ï¿½ï¿½Í¬ID	
+	public String rid;			//ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ID
+	public String lid;			//ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ID
+	public int hid;		        //ï¿½â·¿ï¿½ï¿½Ï¢ID
+	public float duration;		//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	public String signdate; 	//Ç©Ô¼Ê±ï¿½ï¿½
+	public int reviewed;		//ï¿½ï¿½ï¿½×´Ì¬
+	public float price;			//ï¿½Ü¼ï¿½
 	public Contract() {
 		super();
 	}
@@ -22,7 +22,7 @@ public class Contract {
 		this.duration = duration;
 		this.signdate = signdate;
 		this.reviewed = reviewed;
-		this.Price = Price;
+		this.price = Price;
 	}
 	public int getCid() {
 		return cid;
@@ -30,22 +30,22 @@ public class Contract {
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public String getrid() {
+	public String getRid() {
 		return rid;
 	}
-	public void setrid(String rid) {
+	public void setRid(String rid) {
 		this.rid = rid;
 	}
-	public String getlid() {
+	public String getLid() {
 		return lid;
 	}
-	public void setlid(String lid) {
+	public void setLid(String lid) {
 		this.lid = lid;
 	}
-	public int gethid() {
+	public int getHid() {
 		return hid;
 	}
-	public void sethid(int hid) {
+	public void setHid(int hid) {
 		this.hid = hid;
 	}
 	public float getDuration() {
@@ -54,23 +54,23 @@ public class Contract {
 	public void setDuration(float duration) {
 		this.duration = duration;
 	}
-	public String getsigndate() {
+	public String getSigndate() {
 		return signdate;
 	}
-	public void setsigndate(String signdate) {
+	public void setSigndate(String signdate) {
 		this.signdate = signdate;
 	}
 	
-	public int getreviewed() {
+	public int getReviewed() {
 		return reviewed;
 	}
-	public void setreview(int reviewed) {
+	public void setReview(int reviewed) {
 		this.reviewed = reviewed;
 	}
 	public float getPrice() {
-		return Price;
+		return price;
 	}
-	public void setPrice(float Price) {
-		this.Price = Price;
+	public void setPrice(float price) {
+		this.price = price;
 	}
 }
