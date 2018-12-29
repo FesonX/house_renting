@@ -6,7 +6,9 @@ import cn.bean.Landlord;
 
 public interface LandlordDao {
 
-	public Landlord login(int lid,String password);
+	public Landlord login(String name,String password);
+	
+	public boolean register(Landlord ag);
 
 	public boolean updatePwd(Landlord ag,String password);
 
