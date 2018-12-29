@@ -10,7 +10,7 @@ import cn.dbc.BaseDao;
 public class AdminDaoImpl implements AdminDao {
 	BaseDao bs=new BaseDao();
 	@Override
-	public Admin login(int aid, String password) {
+	public Admin login(String aid, String password) {
 		Admin Admin=null;
 		String sql="select * from Admin where aid=? and password=?";
 		List<Object> lp=new ArrayList<Object>();

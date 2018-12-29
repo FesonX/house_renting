@@ -1,18 +1,35 @@
 package cn.bean;
 
 public class District {
-	public int did;					//����ID
-	public String name;    			//������
-	public int parent_id;			//����ID
-	public String pinyin;			//ƴ��
-	public String initial;			//�����һ����ĸ
-	public String initials;			//����ƴ������ĸ
-	public String suffix;			//��������
-	public String code;				//��������
-	public int order;				//Ĭ���������
+	public int did;					
+	public String name;    			
+	public int parent_id;			
+	public String pinyin;			
+	public String initial;			
+	public String initials;			
+	public String suffix;			
+	public String code;				
+	public int order;				
 	public District() {
 		super();
 	}
+	
+	
+	public District(int did, String name, int parent_id, String pinyin ,String initial, String initials, String suffix, String code, int order) {
+		super();
+		this.did = did;
+		this.name = name;
+		this.parent_id = parent_id;
+		this.pinyin = pinyin;
+		this.initial = initial;
+		this.initials = initials;
+		this.suffix = suffix;
+		this.code = code;
+		this.order = order;
+		
+	}
+	
+	
 	public int getDid() {
 		return did;
 	}
@@ -25,6 +42,7 @@ public class District {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public int getParent_id() {
 		return parent_id;
 	}
@@ -49,10 +67,10 @@ public class District {
 	public void setInitials(String initials) {
 		this.initials = initials;
 	}
-	public String getSuffix() {
+	public String getsuffix() {
 		return suffix;
 	}
-	public void setSuffix(String suffix) {
+	public void setsuffix(String suffix) {
 		this.suffix = suffix;
 	}
 	public String getCode() {
@@ -67,26 +85,5 @@ public class District {
 	public void setOrder(int order) {
 		this.order = order;
 	}
-	public District(int did, String name, int parent_id, String pinyin, String initial, String initials, String suffix,
-			String code, int order) {
-		super();
-		this.did = did;
-		this.name = name;
-		this.parent_id = parent_id;
-		this.pinyin = pinyin;
-		this.initial = initial;
-		this.initials = initials;
-		this.suffix = suffix;
-		this.code = code;
-		this.order = order;
-	}
-	@Override
-	public String toString() {
-		return "District [did=" + did + ", name=" + name + ", parent_id=" + parent_id + ", pinyin=" + pinyin
-				+ ", initial=" + initial + ", initials=" + initials + ", suffix=" + suffix + ", code=" + code
-				+ ", order=" + order + "]";
-	}
-	
-	
 	
 }

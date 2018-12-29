@@ -1,80 +1,120 @@
 package cn.bean;
 
 public class Renter {
-	public String rid;					//ÓÃ»§ID
-	public String name;					//êÇ³Æ
-	public String gender;				//ÐÔ±ð
-	public String realname;				//ÐÕÃû
-	public String Avatar;				//Í·Ïñ
-	public String qq;					//QQºÅ
-	public String wechat;				//Î¢ÐÅºÅ
-	public String password;				//ÃÜÂë
+	public String rid;					//ï¿½Ã»ï¿½ID
+	public String name;					//ï¿½Ç³ï¿½
+	public String gender;				//ï¿½Ô±ï¿½
+	public String realname;				//ï¿½ï¿½ï¿½ï¿½
+	public String Avatar;				//Í·ï¿½ï¿½
+	public String qq;					//QQï¿½ï¿½
+	public String Wechat;				//Î¢ï¿½Åºï¿½
+	public String password;				//ï¿½ï¿½ï¿½ï¿½
 	
 	
+	public Renter(String rid, String name, String gender, String realname, String avatar, String qq, String Wechat,
+			String password) {
+		super();
+		this.rid = rid;
+		this.name = name;
+		this.gender = gender;
+		this.realname = realname;
+		this.Avatar = avatar;
+		this.qq = qq;
+		this.Wechat = Wechat;
+		this.password = password;
+	}
+
+
 	public Renter() {
 		super();
 	}
-	
-	//¸³Öµ
-	public Renter(String rid, String name, String gender, String realname, String Avatar, String qq, String wechat, String password) {
-		super();
-		this.rid = rid;
-		this.name = name;
-		this.gender = gender;
-		this.realname = realname;	
-		this.Avatar = Avatar;
-		this.qq = qq;
-		this.wechat = wechat;
-		this.password = password;
+
+
+	@Override
+	public String toString() {
+		return "Renter [rid=" + rid + ", name=" + name + ", gender=" + gender + ", realname=" + realname + ", Avatar="
+				+ Avatar + ", qq=" + qq + ", wechat=" + Wechat + ", password=" + password + "]";
 	}
-	
-	
-	public String getrid() {
+
+
+	public String getRid() {
 		return rid;
 	}
-	public void setrid(String rid) {
+
+
+	public void setRid(String rid) {
 		this.rid = rid;
 	}
-	public String getname() {
+
+
+	public String getName() {
 		return name;
 	}
-	public void setname(String name) {
+
+
+	public void setName(String name) {
 		this.name = name;
 	}
+
+
+	public String getGender() {
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
 	public String getRealname() {
 		return realname;
 	}
+
+
 	public void setRealname(String realname) {
 		this.realname = realname;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getgender() {
-		return gender;
-	}
-	public void setgender(String gender) {
-		this.gender = gender;
-	}
+
+
 	public String getAvatar() {
 		return Avatar;
 	}
-	public void setAvatar(String Avatar) {
-		this.Avatar = Avatar;
+
+
+	public void setAvatar(String avatar) {
+		Avatar = avatar;
 	}
+
+
 	public String getQq() {
 		return qq;
 	}
+
+
 	public void setQq(String qq) {
 		this.qq = qq;
 	}
+
+
 	public String getWechat() {
-		return wechat;
+		return Wechat;
 	}
+
+
 	public void setWechat(String wechat) {
-		this.wechat = wechat;
+		this.Wechat = wechat;
 	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 }
