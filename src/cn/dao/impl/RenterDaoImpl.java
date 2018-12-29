@@ -68,4 +68,28 @@ public class RenterDaoImpl implements RenterDao {
 		return Flag;
 	}
 
+	@Override
+	public List<Renter> findRenterByName(String name) {
+		List<Renter> list=null;
+		String sql="select * from renter where name=?";
+		List<Object> lp=new ArrayList<Object>();
+		lp.add(name);
+		list=bs.query(sql, lp, Renter.class);
+		return list;
+	}
+	
+	
+	@Override
+	public Renter findRenterByRid(String rid) {
+		Renter renter=null;
+		List<Object> lp=new ArrayList<Object>();
+		String sql="select * from renter where lid=?";
+		lp.add(rid);
+		List<Renter> r=bs.query(sql, lp, Renter.class);
+		if(r.size()>0)
+		{
+			renter=r.get(0);
+		}
+		return renter;
+	}
 }
