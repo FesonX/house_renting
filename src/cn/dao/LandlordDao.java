@@ -5,11 +5,9 @@ import java.util.List;
 import cn.bean.Landlord;
 
 public interface LandlordDao {
-
+	
 	public Landlord login(String name,String password);
 	
-	public boolean register(Landlord ag);
-
 	public boolean updatePwd(Landlord ag,String password);
 
 	public boolean doLandlord(Landlord ag);
@@ -22,5 +20,7 @@ public interface LandlordDao {
 
 	public List<Landlord> findLandlord();
 
-	public Landlord findLandlordBy(String lid);
+	public Landlord findLandlordBy(int lid);
+	public List<Landlord> findLandlordByLid(String lid);
+	boolean register(Landlord ag);
 }
