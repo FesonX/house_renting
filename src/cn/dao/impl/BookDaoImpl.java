@@ -1,5 +1,9 @@
 package cn.dao.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +16,7 @@ public class BookDaoImpl implements BookDao {
 	BaseDao bs=new BaseDao();
 	@Override
 	public boolean doBook(Book bo) {
-		String sql="insert into book(bid,rid,lid,hid,booktime) values(?,?,?,?,?)";
+		String sql="insert into book(bid,rid,lid,hid,reviewed,booktime) values(?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(bo.getBid());
 		lp.add(bo.getRid());
@@ -46,11 +50,14 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public int countBookSize() {
-		String sql="select count(*) from book";
-		List<Object> lp=new ArrayList<Object>();
-//		list=bs.query(sql, lp, Book.class);
-		return 0;
+	public int countBookSize() throws SQLException {
+		Connection conn = bs.getConnection();
+		StringBuffer sqlBuffer = new StringBuffer();
+		sqlBuffer.append("select * from book");
+		PreparedStatement pstmt = conn.prepareStatement(sqlBuffer.toString());
+		ResultSet rs = pstmt.executeQuery();
+		rs.last();
+		return rs.getRow();
 	}
 
 }
