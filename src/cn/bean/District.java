@@ -1,15 +1,15 @@
 package cn.bean;
 
 public class District {
-	public int did;					//区域ID
-	public String name;    			//区域名
-	public int parent_id;			//父级ID
-	public String pinyin;			//拼音
-	public String initial;			//区域第一个字母
-	public String initials;			//区域拼音首字母
-	public String suffix;			//行政级别
-	public String code;				//行政代码
-	public int order;				//默认排序序号
+	public int did;					
+	public String name;    			
+	public int parent_id;			
+	public String pinyin;			
+	public String initial;			
+	public String initials;			
+	public String suffix;			
+	public String code;				
+	public int order;				
 	public District() {
 		super();
 	}
