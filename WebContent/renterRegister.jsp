@@ -150,12 +150,10 @@
 					  <option value="东莞">东莞</option>
 					</select>
                 </div>
-
                 <span style="color:red;display: none;" class="tips"></span>
                 <span style="display: none;" class=" glyphicon glyphicon-remove form-control-feedback"></span>
                 <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
             </div>
-
 
             <div class="row">
                 <div class="col-xs-7">
@@ -204,7 +202,6 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     <input id="Wechat" name="Wechat" class="form-control" placeholder="真实姓名" maxlength="20" type="text">
                 </div>
-
                 <span style="color:red;display: none;" class="tips"></span>
                 <span style="display: none;" class=" glyphicon glyphicon-remove form-control-feedback"></span>
                 <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
