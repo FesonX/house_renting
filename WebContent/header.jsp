@@ -82,10 +82,10 @@
                 <%}
 				else{%>
 				<li>
-                   <a href="http://localhost:8080/House_rent/login.jsp">登录</a>
+                   <a href="login.jsp">登录</a>
                 </li>
                 <li>
-                   <a href="http://localhost:8080/House_rent/register.jsp">注册</a>
+                   <a href="register.jsp">注册</a>
                 </li>
 				<%} %>
               </ul>
