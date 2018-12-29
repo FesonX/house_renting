@@ -10,7 +10,7 @@ import cn.dbc.BaseDao;
 public class DistrictDaoImpl  implements DistrictDao{
 	BaseDao bs=new BaseDao();
 	@Override
-	//1.添加区域
+
 	public boolean doDistinct(District dis){
 		String sql="insert into district(did,name,parent_id,pinyin,initial,initials,suffix,code,order) values(?,?,?,?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
@@ -45,7 +45,7 @@ public class DistrictDaoImpl  implements DistrictDao{
 	}
 	
 	@Override
-	//3.删除区域
+
 	public boolean deleteDistinct(int did){
 		String sql="delete district where did=?";
 		List<Object> lp=new ArrayList<Object>();
@@ -54,7 +54,7 @@ public class DistrictDaoImpl  implements DistrictDao{
 		return flag;
 	}
 	@Override
-	//4。根据区域ID查询
+
 	public List<District> findDistinctByDid(int did){
 		List<District> list=null;
 		String sql="select * from district where did=?";
@@ -75,7 +75,7 @@ public class DistrictDaoImpl  implements DistrictDao{
 	}
 	
 	@Override
-	//5。根据区域ID查询
+
 	public District findDistrictByDid(int did){
 		District dis=null;
 		List<Object> lp=new ArrayList<Object>();
