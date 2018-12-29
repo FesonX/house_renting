@@ -23,9 +23,7 @@ public class LandlordLoginAction implements Action {
 			return "index.jsp";
 		}
 		else
-		{
 			return "login.jsp";
-		}
 	}
 
 }
