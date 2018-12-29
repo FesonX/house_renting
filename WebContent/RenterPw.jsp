@@ -1,12 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<%@include file="header.jsp"%>
 </head>
 <body>
 
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<form  action="renterPw.do" method="post" id="" onsubmit="return check()">
+				<fieldset>
+					 <legend>修改个人信息</legend>
+					 <legend>修改密码</legend>
+					  <label>原密码</label>
+					  <input type="text" name="old_password" placeholder="原密码"/><br> 
+					  <label>新密码</label>
+					  <input type="text" name="new_password" placeholder="新密码"><br>
+					  <label>确认新密码</label>
+					  <input type="text" name="cnew_password" placeholder="确认新密码"><br>
+					  <button type="submit" class="btn">提交</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
