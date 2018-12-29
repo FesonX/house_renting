@@ -1,22 +1,24 @@
 package cn.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import cn.bean.Contract;
 
 public interface ContractDao {
-	//1.Ìí¼ÓºÏÍ¬
+	//1.ï¿½ï¿½Óºï¿½Í¬
 	public boolean doContract(Contract co);
-	//2.ÐÞ¸ÄºÏÍ¬
+	//2.ï¿½Þ¸Äºï¿½Í¬
 	public boolean updateContract(Contract co);
-	//3.É¾³ýºÏÍ¬
+	//3.É¾ï¿½ï¿½ï¿½ï¿½Í¬
 	public boolean deleteContract(int cid);
 	
-	//4.²é¿´ºÏÍ¬(ÓÃ»§²é¿´£¨·¿¶«£©)
+	//4.ï¿½é¿´ï¿½ï¿½Í¬(ï¿½Ã»ï¿½ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	public List<Contract> findContractByLid(String lid);
-	//5.²é¿´ºÏÍ¬£¨ÓÃ»§²é¿´£¨×â¿Í£©£©
+	//5.ï¿½é¿´ï¿½ï¿½Í¬ï¿½ï¿½ï¿½Ã»ï¿½ï¿½é¿´ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½
 	public List<Contract> findContractByRid(String rid);
 /*	
-	//6.²é¿´ºÏÍ¬£¨·¿¶«£©
+	//6.ï¿½é¿´ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<Contract> findContractByLid(int lid);*/
+	public int countContractSize() throws SQLException;
 }

@@ -40,7 +40,7 @@
                <a href="#navbar">首页</a>
             </li>
             <li>
-               <a href="#trend">热门房源</a>
+               <a href="query.do?method=showAllHouse">热门房源</a>
             </li>
             <li>
                <a href="#landlords">热门房东</a>
@@ -49,9 +49,9 @@
                <a href="#issue_house">发布房源</a>
             </li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
+          <form action="query.do?method=searchHouseByDid" class="navbar-form navbar-left" role="search" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" name="district" value=""/>
             </div> <button type="submit" class="btn btn-default">搜索</button>
           </form>
           <ul class="nav navbar-nav navbar-right">

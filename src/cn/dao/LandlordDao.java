@@ -21,5 +21,6 @@ public interface LandlordDao {
 	public List<Landlord> findLandlord();
 	//8.��ѯĳ������
 	public Landlord findLandlordBy(int lid);
+	public List<Landlord> findLandlordByLid(String lid);
 	boolean register(Landlord ag);
 }

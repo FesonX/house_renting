@@ -1,5 +1,9 @@
 package cn.dao.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +19,12 @@ public class ContractDaoImpl implements ContractDao {
 		String sql="insert into contract values(?,?,?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(co.getCid());
-		lp.add(co.getrid());
-		lp.add(co.getlid());
-		lp.add(co.gethid());
+		lp.add(co.getRid());
+		lp.add(co.getLid());
+		lp.add(co.getHid());
 		lp.add(co.getDuration());
-		lp.add(co.getsigndate());
-		lp.add(co.getreviewed());
+		lp.add(co.getSigndate());
+		lp.add(co.getReviewed());
 		lp.add(co.getPrice());
 		Flag=bs.update(sql, lp);
 		return Flag;
@@ -31,12 +35,12 @@ public class ContractDaoImpl implements ContractDao {
 		boolean Flag=false;
 		String sql="update contract set rid=?,lid=?,hid=?,uid2=?,signtime=?,duration=?,reviewed=? where cid=?";
 		List<Object> lp=new ArrayList<Object>();
-		lp.add(co.getrid());
-		lp.add(co.getlid());
-		lp.add(co.gethid());
+		lp.add(co.getRid());
+		lp.add(co.getLid());
+		lp.add(co.getHid());
 		lp.add(co.getDuration());
-		lp.add(co.getsigndate());
-		lp.add(co.getreviewed());
+		lp.add(co.getSigndate());
+		lp.add(co.getReviewed());
 		lp.add(co.getCid());
 		Flag=bs.update(sql, lp);
 		return Flag;
@@ -82,4 +86,15 @@ public class ContractDaoImpl implements ContractDao {
 		return list;
 	}
 */
+
+	@Override
+	public int countContractSize() throws SQLException {
+		Connection conn = bs.getConnection();
+		StringBuffer sqlBuffer = new StringBuffer();
+		sqlBuffer.append("select * from contract");
+		PreparedStatement pstmt = conn.prepareStatement(sqlBuffer.toString());
+		ResultSet rs = pstmt.executeQuery();
+		rs.last();
+		return rs.getRow();
+	}
 }
