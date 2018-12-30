@@ -32,12 +32,23 @@
 String msg = (String)request.getAttribute("message");
 if (admin!=null) {
 	ArrayList houses = (ArrayList)request.getAttribute("houseList");	
-	
-	 if(msg != null && msg.equals("success") ){
-		System.out.println("修改成功");
+	if(msg == null){
+		System.out.println("Do Nothing");
+	%><% 
+	}%><%
+	else if(msg!=null && msg.equals("agree") ){
+		String hid = (String)request.getAttribute("hid");
+		System.out.println("审核通过");
 	%>
-	 <h3 contenteditable="true" class="text-warning">修改成功!</h3>
-	<% } else{ System.out.println("修改失败");%>
+	 <h3 contenteditable="true" class="text-warning">编号No.<%=hid %>房屋审核通过!</h3>
+	<% }
+	else if(msg!=null && msg.equals("reject")){
+		String hid = (String)request.getAttribute("hid");
+		System.out.println("审核不通过");
+	%>
+	 <h3 contenteditable="true" class="text-warning">编号No.<%=hid %>房屋未通过审核!</h3>
+	<% }
+	else{ System.out.println("修改失败");%>
 	<h3 contenteditable="true" class="text-warning">修改失败!</h3><%} %>
 <div class="container-fluid">
 	<div class="row-fluid">
