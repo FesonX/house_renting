@@ -34,7 +34,8 @@ if (admin!=null) {
 	ArrayList houses = (ArrayList)request.getAttribute("houseList");	
 	if(msg == null){
 		System.out.println("Do Nothing");
-	%><% 
+	%>
+	<% 
 	}%><%
 	else if(msg!=null && msg.equals("agree") ){
 		String hid = (String)request.getAttribute("hid");
@@ -46,11 +47,23 @@ if (admin!=null) {
 		String hid = (String)request.getAttribute("hid");
 		System.out.println("审核不通过");
 	%>
-	 <h3 contenteditable="true" class="text-warning">编号No.<%=hid %>房屋未通过审核!</h3>
+	 <h3 contenteditable="false" class="text-warning">编号No.<%=hid %>房屋未通过审核!</h3>
 	<% }
 	else{ System.out.println("修改失败");%>
 	<h3 contenteditable="true" class="text-warning">修改失败!</h3><%} %>
-<div class="container-fluid">
+	
+	<div class="btn-group open">
+                  <button class="btn" contenteditable="true">筛选条件</button>
+                  <button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
+                  <ul class="dropdown-menu" contenteditable="false">
+                    <li><a href='houseReview.do?type=1'>审核通过</a></li>
+                    <li><a href='houseReview.do?type=2'>审核不通过</a></li>
+                    <li><a href='houseReview.do?type=0'>未审核</a></li>
+                  </ul>
+    </div>
+	<h5 class="text-left text-success">_________________</h5>
+	
+	<div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="list-group">
@@ -71,7 +84,7 @@ if (admin!=null) {
 			</div>
 			</div>
 			</div>		
-				</div></c:forEach>
+			</c:forEach></div>
 				</div> 			
 			</div>
 		</div>	
