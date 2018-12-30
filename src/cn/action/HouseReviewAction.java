@@ -24,6 +24,13 @@ public class HouseReviewAction implements Action{
 		HouseDao hd = new HouseDaoImpl();
 		int status = 0; // Haven't Rented
 		int reviewed = 0; // 0 Haven't Reviewed, 1 Agree, 2 Reject
+		
+		
+		String type  = request.getParameter("type");
+		if(type != null) {
+			reviewed = Integer.parseInt(type);
+		}
+		
 		String[] propertyname = {"status", "reviewed"};
 		Object[] value = {status, reviewed};
 		

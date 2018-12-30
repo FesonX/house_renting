@@ -15,7 +15,7 @@
 			
 			<br><p>
 			<button class="btn btn-success btn-large" type="button" 
-			onclick="javascript:window.location.href='houseReview.do'">房源审核</button>
+			onclick="javascript:window.location.href='houseReview.do?type=0'">房源审核</button>
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
 			onclick="javascript:window.location.href='renterManage.jsp'">租户管理</button>
@@ -25,7 +25,7 @@
 			
 			<p><br>
 			<h4 class="text-left text-success">_________________</h4>
-			
+			<div class="hero-unit" contenteditable="true">
 		</div>
 	</div>
 </div>
