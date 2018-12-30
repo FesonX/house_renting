@@ -10,25 +10,24 @@ import cn.dao.impl.HouseDaoImpl;
 import cn.framework.Action;
 import cn.bean.House;
 
-public class ConfirmHouseReviewAction implements Action{
+public class RejectHouseReviewAction implements Action{
 
-	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		boolean result = false;
 		String msg = "";
-		result = confirmHouseReviewAction(request, response);
+		result = rejectHouseReviewAction(request, response);
 		if(result==true) {
-			msg = "agree";
+			msg = "reject";
 			request.setAttribute("message", msg);
 		}
 		else {
 			msg = "failure";
 			request.setAttribute("message", msg);
 		}
-		return "houseReview.do?msg="+msg;
+		return "houseReview.do";
 	}
-	
-	public boolean confirmHouseReviewAction(HttpServletRequest request, HttpServletResponse response) {
+
+	public boolean rejectHouseReviewAction(HttpServletRequest request, HttpServletResponse response) {
 		HouseDao hd = new HouseDaoImpl();
 		String hid = request.getParameter("hid");
 		int hid_value = Integer.parseInt(hid);
@@ -38,7 +37,7 @@ public class ConfirmHouseReviewAction implements Action{
 		
 		try {
 			List<House> list = hd.housesearch(propertyname, value);
-			result = hd.updateHouseByReview(list.get(0), 1);
+			result = hd.updateHouseByReview(list.get(0), 2);
 			request.setAttribute("hid", hid);
 		}catch (Exception e) {e.printStackTrace();}	
 		return result;

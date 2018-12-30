@@ -23,7 +23,7 @@ public class HouseReviewAction implements Action{
 	public String showAllHouse(HttpServletRequest request, HttpServletResponse response) {
 		HouseDao hd = new HouseDaoImpl();
 		int status = 0; // Haven't Rented
-		int reviewed = 0; // Haven't Reviewed
+		int reviewed = 0; // 0 Haven't Reviewed, 1 Agree, 2 Reject
 		String[] propertyname = {"status", "reviewed"};
 		Object[] value = {status, reviewed};
 		

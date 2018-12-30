@@ -149,4 +149,13 @@ public class HouseDaoImpl implements HouseDao {
 		}
 		return list;
 	}
+
+	@Override
+	public boolean deleteHouseByHid(String hid) {
+		String sql = "delete * from house where hid=?";
+		List<Object> lp = new ArrayList<Object>();
+		lp.add(hid);
+		Boolean flag= bd.update(sql, lp);
+		return flag;
+	}
 }
