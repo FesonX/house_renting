@@ -24,7 +24,9 @@
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
 			onclick="javascript:window.location.href='renterManage.jsp'">租户管理</button>
-			
+			&nbsp;&nbsp;
+			<button class="btn btn-success btn-large" type="button"
+			onclick="javascript:window.location.href='adminModify.jsp'">修改密码</button>
 			
 			<br>
 		</div>
