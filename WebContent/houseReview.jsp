@@ -38,8 +38,7 @@ if (admin!=null) {
 	if(msg == null){
 		System.out.println("Do Nothing");
 	%>
-	<% 
-	}%><%
+	<% }%><%
 	else if(msg!=null && msg.equals("agree") ){
 		String hid = (String)request.getAttribute("hid");
 		System.out.println("审核通过");

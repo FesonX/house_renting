@@ -30,6 +30,7 @@
 			onclick="javascript:window.location.href='adminModify.jsp'">修改密码</button>
 
 			<h4 class="text-left text-success">_________________</h4>
+			<div class="hero-unit" contenteditable="true">
 		</div>
 	</div>
 	
