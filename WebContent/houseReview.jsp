@@ -26,7 +26,10 @@
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
 			onclick="javascript:window.location.href='landlordManage.jsp'">房东管理</button>
-			<br>
+			&nbsp;&nbsp;
+			<button class="btn btn-success btn-large" type="button"
+			onclick="javascript:window.location.href='adminModify.jsp'">修改密码</button>
+			
 		</div>
 <%
 String msg = (String)request.getAttribute("message");
@@ -35,8 +38,7 @@ if (admin!=null) {
 	if(msg == null){
 		System.out.println("Do Nothing");
 	%>
-	<% 
-	}%><%
+	<% }%><%
 	else if(msg!=null && msg.equals("agree") ){
 		String hid = (String)request.getAttribute("hid");
 		System.out.println("审核通过");
@@ -92,7 +94,7 @@ if (admin!=null) {
 	else{%>	
 	
 	<div class="container-fluid">
-	<div class="row-fluid">
+		<div class="row-fluid">
 		<div class="span12">
 			<div class="list-group">	
 			<div class="panel panel-primary">
@@ -103,9 +105,9 @@ if (admin!=null) {
 			</div>
 				</div>
 				</div> 	
-			</div>
 		</div>
-		<%} %>
+	</div>
+	<%} %>
 	</div>
 	</div>
 </body>
