@@ -1,4 +1,4 @@
-<%@ page import="java.util.ArrayList,cn.bean.*" language="java" contentType="text/html; charset=UTF-8"
+<%@ page import="java.util.*,cn.bean.*" language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,8 +38,12 @@
 								<%   ArrayList houses = (ArrayList)request.getAttribute("houseList");
 								   String landlord_name = (String)request.getAttribute("landlord_name");
 								   String district_name = (String)request.getAttribute("district_name");
-								   /*iterate over the arraylist*/ for (int i = 0; i < houses.size(); i++) { 
-								       House a_house = (House)houses.get(i); %>  
+								   Random r = new Random();
+								   int pic_id = r.nextInt(16)+1;
+								   /*iterate over the arraylist*/
+								   for (int i = 0; i < houses.size(); i++) { 
+								       House a_house = (House)houses.get(i); %>
+								       <tr><img src="images/<%out.print(pic_id); %>.jpg" class="img-responsive" alt="/"></tr>  
 								       <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 								       	   <td><% out.print(a_house.getHid()); %></td>
 									       <td><% out.print(a_house.getLid()); %></td>

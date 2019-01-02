@@ -27,8 +27,7 @@
 		<div class="span12">
 			<form  action="landlordModify.do" method="post" id="" onsubmit="return check()">
 				<fieldset>
-					 <legend>个人信息</legend>
-					 
+					 <legend>个人信息</legend>		 
 					  <label>账号</label>
 					  <input type="text" name="name" value="<%=landlord.getname() %>" /><br> 
 					  <label>真实姓名</label>

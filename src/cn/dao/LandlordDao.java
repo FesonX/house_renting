@@ -20,7 +20,7 @@ public interface LandlordDao {
 
 	public List<Landlord> findLandlord();
 
-	public Landlord findLandlordBy(int lid);
+	public Landlord findLandlordBy(String lid);
 	public List<Landlord> findLandlordByLid(String lid);
 	boolean register(Landlord ag);
 }

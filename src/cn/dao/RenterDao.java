@@ -2,7 +2,6 @@ package cn.dao;
 
 import java.util.List;
 
-import cn.bean.Contract;
 import cn.bean.Renter;
 
 public interface RenterDao {
@@ -14,7 +13,7 @@ public interface RenterDao {
 	public boolean updateRenter(Renter ad);
 	//4.ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean updatePwd(Renter ad,String password);
-	//5.¸ù¾ÝÓÃ»§ÕËºÅ²éÑ¯
+	//5.ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ËºÅ²ï¿½Ñ¯
 	public List<Renter> findRenterByName(String name);
 	
 	//

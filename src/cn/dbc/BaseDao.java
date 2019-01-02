@@ -22,7 +22,7 @@ public class BaseDao
 	 
 	    // 数据库的用户名与密码，需要根据自己的设置
 	    final String USER = "root";
-	    final String PASS = "xwg@DGUT";
+	    final String PASS = "root";
 		Connection conn=null;
 		try
 		{

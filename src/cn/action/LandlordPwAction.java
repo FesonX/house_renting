@@ -1,16 +1,9 @@
 package cn.action;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.bean.Landlord;
 import cn.dao.LandlordDao;
 import cn.dao.impl.LandlordDaoImpl;
-import cn.bean.District;
-import cn.dao.DistrictDao;
-import cn.dao.impl.DistrictDaoImpl;
-
 import cn.framework.Action;
 public class LandlordPwAction implements Action{
 	

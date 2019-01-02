@@ -3,7 +3,6 @@ package cn.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 import cn.bean.District;
-import cn.bean.Landlord;
 import cn.dao.DistrictDao;
 import cn.dbc.BaseDao;
 

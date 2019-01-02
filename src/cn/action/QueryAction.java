@@ -1,7 +1,7 @@
 package cn.action;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -56,6 +56,7 @@ public class QueryAction implements Action {
 	}
 
 	public String searchHouse(HttpServletRequest request, HttpServletResponse response) {
+		DistrictDao dd  = new DistrictDaoImpl();
 		String nowPage=request.getParameter("nowPage");
 		if(nowPage==null)
 			nowPage = "0";
@@ -67,7 +68,14 @@ public class QueryAction implements Action {
 			//separate page
 			Paging page = new Paging(list,50);
 	        List<Object> houseList = page.getPaging(Integer.parseInt(nowPage));
+	        List<String> districtList = new ArrayList<>();
+	        for(Object h:houseList) {
+	        	House house = (House)h;
+	        	District d = dd.findDistrictByDid(house.getDid());
+	        	districtList.add(d.getName());
+	        }
 			request.setAttribute("houseList", houseList);
+			request.setAttribute("districtList", districtList);
 			request.setAttribute("pageNum",page.getPageNum());
 			request.setAttribute("nowPage",Integer.parseInt(nowPage));
 			request.setAttribute("district",district);
@@ -78,6 +86,7 @@ public class QueryAction implements Action {
 	}
 
 	public String showAllHouse(HttpServletRequest request, HttpServletResponse response) {
+		DistrictDao dd  = new DistrictDaoImpl();
 		String nowPage=request.getParameter("nowPage");
 		if(nowPage==null)
 			nowPage = "0";
@@ -91,7 +100,14 @@ public class QueryAction implements Action {
 			//separate page
 			Paging page = new Paging(list,50);
 	        List<Object> houseList = page.getPaging(Integer.parseInt(nowPage));
+	        List<String> districtList = new ArrayList<>();
+	        for(Object h:houseList) {
+	        	House house = (House)h;
+	        	District d = dd.findDistrictByDid(house.getDid());
+	        	districtList.add(d.getName());
+	        }
 			request.setAttribute("houseList", houseList);
+			request.setAttribute("districtList", districtList);
 			request.setAttribute("pageNum",page.getPageNum());
 			request.setAttribute("nowPage",Integer.parseInt(nowPage));
 		} catch (Exception e) { e.printStackTrace(); }
