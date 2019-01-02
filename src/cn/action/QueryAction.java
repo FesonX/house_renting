@@ -5,10 +5,17 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.bean.District;
 import cn.bean.House;
+import cn.bean.Landlord;
+import cn.dao.DistrictDao;
 import cn.dao.HouseDao;
+import cn.dao.LandlordDao;
+import cn.dao.impl.DistrictDaoImpl;
 import cn.dao.impl.HouseDaoImpl;
+import cn.dao.impl.LandlordDaoImpl;
 import cn.framework.Action;
+import cn.util.Paging;
 
 public class QueryAction implements Action {
 
@@ -28,6 +35,8 @@ public class QueryAction implements Action {
 	
 	public String showOneHouse(HttpServletRequest request, HttpServletResponse response) {
 		HouseDao hd=new HouseDaoImpl();
+		LandlordDao ld=new LandlordDaoImpl();
+		DistrictDao dd=new DistrictDaoImpl();
 		String hid=request.getParameter("hid");
 		int hid_value = Integer.parseInt(hid);
 		String[] propertyname={"hid"};
@@ -35,26 +44,43 @@ public class QueryAction implements Action {
 		
 		try {
 			List<House> list = hd.housesearch(propertyname, value);
+			House h = list.get(0);
+			List<Landlord> landLordList= ld.findLandlordByLid(h.getLid());
+			List<District> districtList = dd.findDistinctByDid(h.getDid());
 			request.setAttribute("houseList", list);
+			request.setAttribute("landlord_name",landLordList.get(0).getrealname());
+			request.setAttribute("district_name",districtList.get(0).getName());
 		} catch (Exception e) { e.printStackTrace(); }
 		
 		return "showOneHouse.jsp";
 	}
 
 	public String searchHouse(HttpServletRequest request, HttpServletResponse response) {
+		String nowPage=request.getParameter("nowPage");
+		if(nowPage==null)
+			nowPage = "0";
 		HouseDao hd=new HouseDaoImpl();
 		String district=request.getParameter("district");
 		
 		try {
 			List<House> list = hd.houseSearchByDistrict(district);
-			request.setAttribute("houseList", list);
+			//separate page
+			Paging page = new Paging(list,50);
+	        List<Object> houseList = page.getPaging(Integer.parseInt(nowPage));
+			request.setAttribute("houseList", houseList);
+			request.setAttribute("pageNum",page.getPageNum());
+			request.setAttribute("nowPage",Integer.parseInt(nowPage));
+			request.setAttribute("district",district);
 		} catch (Exception e) {e.printStackTrace();}
 		
 		
-		return "showAllHouse.jsp";
+		return "showSearchHouse.jsp";
 	}
 
 	public String showAllHouse(HttpServletRequest request, HttpServletResponse response) {
+		String nowPage=request.getParameter("nowPage");
+		if(nowPage==null)
+			nowPage = "0";
 		HouseDao hd=new HouseDaoImpl();
 		int status = 0;
 		int reviewed = 1;
@@ -62,8 +88,14 @@ public class QueryAction implements Action {
 		Object[] value={status,reviewed};
 		try {
 			List<House> list = hd.housesearch(propertyname, value);
-			request.setAttribute("houseList", list);
+			//separate page
+			Paging page = new Paging(list,50);
+	        List<Object> houseList = page.getPaging(Integer.parseInt(nowPage));
+			request.setAttribute("houseList", houseList);
+			request.setAttribute("pageNum",page.getPageNum());
+			request.setAttribute("nowPage",Integer.parseInt(nowPage));
 		} catch (Exception e) { e.printStackTrace(); }
+		
 		return "showAllHouse.jsp";
 	}
 

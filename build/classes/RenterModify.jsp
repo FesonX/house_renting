@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
+
 <html>
 <head>
 <title>Agents</title>
@@ -92,6 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<h2>修改信息</h2>
 			</div>
+
 		</div>
 		<!---banner--->
 		<div class="content">
