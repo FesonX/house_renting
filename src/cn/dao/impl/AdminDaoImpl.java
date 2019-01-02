@@ -35,4 +35,10 @@ public class AdminDaoImpl implements AdminDao {
 		return Flag;
 	}
 
+	@Override
+	public List<Admin> adminSearch(String[] propertyname, Object[] value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

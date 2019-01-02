@@ -127,4 +127,14 @@ public class LandlordDaoImpl implements LandlordDao {
 		return Landlord;
 	}
 
+	@Override
+	public List<Landlord> findLandlordByLid(String lid) {
+		Landlord Landlord=null;
+		List<Object> lp=new ArrayList<Object>();
+		String sql="select * from Landlord where lid=?";
+		lp.add(lid);
+		List<Landlord> l=bs.query(sql, lp, Landlord.class);
+		return l;
+	}
+
 }
