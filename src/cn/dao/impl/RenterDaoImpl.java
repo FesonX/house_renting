@@ -99,4 +99,22 @@ public class RenterDaoImpl implements RenterDao {
 		}
 		return renter;
 	}
+
+	@Override
+	public boolean delRenter(String rid) {
+		boolean Flag=false;
+		String sql="delete from renter where rid=?";
+		List<Object> lp=new ArrayList<Object>();
+		lp.add(rid);
+		Flag=bs.update(sql, lp);
+		return Flag;
+	}
+
+	@Override
+	public List<Renter> showAllRenters() {
+		List<Object> lp=new ArrayList<Object>();
+		String sql="select * from renter";
+		List<Renter> renters = bs.query(sql, lp, Renter.class);
+		return renters;
+	}
 }
