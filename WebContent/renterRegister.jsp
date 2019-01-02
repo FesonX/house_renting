@@ -200,7 +200,7 @@
                 <label for="username">Wechat</label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    <input id="Wechat" name="Wechat" class="form-control" placeholder="真实姓名" maxlength="20" type="text">
+                    <input id="Wechat" name="Wechat" class="form-control" placeholder="请输入微信号" maxlength="20" type="text">
                 </div>
                 <span style="color:red;display: none;" class="tips"></span>
                 <span style="display: none;" class=" glyphicon glyphicon-remove form-control-feedback"></span>
