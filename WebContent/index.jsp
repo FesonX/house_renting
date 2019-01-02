@@ -583,4 +583,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!-- //Register -->
 </body>
+
 </html>
