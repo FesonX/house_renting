@@ -22,10 +22,10 @@
 			onclick="javascript:window.location.href='adminCenter.jsp'">管理中心</button>
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
-			onclick="javascript:window.location.href='renterManage.jsp'">租户管理</button>
+			onclick="javascript:window.location.href='showUsers.do?type=1'">租户管理</button>
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
-			onclick="javascript:window.location.href='landlordManage.jsp'">房东管理</button>
+			onclick="javascript:window.location.href='showUsers.do?type=2'">房东管理</button>
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
 			onclick="javascript:window.location.href='adminModify.jsp'">修改密码</button>
@@ -38,7 +38,8 @@ if (admin!=null) {
 	if(msg == null){
 		System.out.println("Do Nothing");
 	%>
-	<% }%><%
+	<% 
+	}%><%
 	else if(msg!=null && msg.equals("agree") ){
 		String hid = (String)request.getAttribute("hid");
 		System.out.println("审核通过");
@@ -110,4 +111,5 @@ if (admin!=null) {
 	<%} %>
 	</div>
 	</div>
+
 </body>

@@ -21,16 +21,15 @@
 			onclick="javascript:window.location.href='houseReview.do?type=0'">房源审核</button>
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
-			onclick="javascript:window.location.href='renterManage.jsp'">租户管理</button>
+			onclick="javascript:window.location.href='showUsers.do?type=1'">租户管理</button>
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
-			onclick="javascript:window.location.href='landlordManage.jsp'">房东管理</button>
+			onclick="javascript:window.location.href='showUsers.do?type=2'">房东管理</button>
 			&nbsp;&nbsp;
 			<button class="btn btn-success btn-large" type="button"
 			onclick="javascript:window.location.href='adminModify.jsp'">修改密码</button>
 
 			<h4 class="text-left text-success">_________________</h4>
-			<div class="hero-unit" contenteditable="true">
 		</div>
 	</div>
 	
