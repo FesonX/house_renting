@@ -3,39 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
-<link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+<title>管理员登录</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="css/header.css" rel="stylesheet">
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
-			<h2 class="text-info">
-				欢迎登录贝壳租房 | Login
-			</h2>
-			<form class="form-horizontal" action="adminLogin.do" method="post" id="" onsubmit="return check()">
-				<div class="control-group">
-					 <label class="control-label" for="inputEmail">手机</label>
-					<div class="controls">
-						<input id="inputEmail" name="name" placeholder="请输入手机" type="text" />
-					</div>
-				</div>
-				<div class="control-group">
-					 <label class="control-label" for="inputPassword" >密码</label>
-					<div class="controls">
-						<input id="inputPassword" type="password" name="password" placeholder="密码" />
-					</div>
-				</div>
-				<div class="control-group">
-					<div class="controls">
-						 <label class="checkbox"><input type="checkbox" /> 记住我</label> <button type="submit" class="btn">登陆</button>
-					</div>
-				</div>
-			</form>
+<!------ Include the above in your HEAD tag ---------->
+<div class = "container">
+			<div class="wrapper">
+				<form action="adminLogin.do" method="post" name="Login_Form" class="form-signin">       
+				    <h3 class="form-signin-heading">欢迎登录贝壳租房🐚</h3>
+					  <hr class="colorgraph"><br>
+					  
+					  <input type="text" class="form-control" name="name" placeholder="手机号码" required="" autofocus="" />
+					  <input type="password" class="form-control" name="password" placeholder="密码" required=""/>     		  
+					 
+					  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+				</form>			
+			</div>
 		</div>
-	</div>
-</div>
 </body>
 </html>
