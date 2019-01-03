@@ -52,9 +52,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>-->
 						<div class="email">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎， <a href="LandlordInfo.jsp">${renter.name}</a> </li>
 							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#">注销</a></li>
+							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
 						</ul>
 						</div>
 						<div class="clearfix"></div>
