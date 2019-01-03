@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <%@ page import="cn.bean.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.mysql.jdbc.Driver" %>
@@ -13,7 +13,7 @@
 <!---css--->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Real Space Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Real Space Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!---js--->
@@ -26,32 +26,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
 <script src="js/responsiveslides.min.js"></script>
-	 <script>
-		$(function () {
-		  $("#slider").responsiveSlides({
-			auto:true,
-			nav: false,
-			speed: 500,
-			namespace: "callbacks",
-			pager:true,
-		  });
-		});
-	</script>
+<script>
+$(function () {
+$("#slider").responsiveSlides({
+auto:true,
+nav: false,
+speed: 500,
+namespace: "callbacks",
+pager:true,
+});
+});
+</script>
 <link href="css/owl.carousel.css" rel="stylesheet">
 <script src="js/owl.carousel.js"></script>
-	<script>
-		$(document).ready(function() {
-		$("#owl-demo").owlCarousel({
-			items : 1,
-			lazyLoad : true,
-			autoPlay : true,
-			navigation : false,
-			navigationText :  false,
-			pagination : true,
-		});
-		});
-	</script>
-	
+<script>
+$(document).ready(function() {
+$("#owl-demo").owlCarousel({
+items : 1,
+lazyLoad : true,
+autoPlay : true,
+navigation : false,
+navigationText : false,
+pagination : true,
+});
+});
+</script>
 </head>
 <body>
 		<!---header--->

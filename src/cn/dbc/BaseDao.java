@@ -18,12 +18,11 @@ public class BaseDao
 	public Connection getConnection()
 	{
 		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	    final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false";
+	  final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false&allowPublicKeyRetrieval=true";
 
-	    final String USER = "root";
+	  final String USER = "root";
 
-	    final String PASS = "123456";
-
+	  final String PASS = "root";
 		Connection conn=null;
 		try
 		{

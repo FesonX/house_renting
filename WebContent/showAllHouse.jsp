@@ -52,6 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
+
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 			<script>
@@ -87,7 +88,7 @@ ul.pagination li a.active {
 }
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
-</style>	
+
 </head>
 <body>
 
@@ -104,6 +105,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<ul>
 							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com</a> </li>
 							<li class="dropdown">				
+
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
 											<ul class="dropdown-menu">
@@ -181,10 +183,11 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 					</nav>
 				</div>
 			</div>
-		<!---header--->
+		<!---header--->		
 		<!---banner--->
 		<div class="banner-section">
 			<div class="container">
+
 				<h2>房源</h2>
 			</div>
 		</div>
