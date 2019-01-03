@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span class="icon-bar"></span>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html"><span>贝壳 </span>租房</a></h1>
+								<h1><a href="index.jsp"><span>贝壳 </span>租房</a></h1>
 							</div>
 						</div>
 
@@ -108,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
-								<li><a href="forrent.html">租房</a></li>
+								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
 							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
@@ -152,6 +152,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="place-section">
 			<div class="container">
 				<h2>寻找房源</h2>
+				<form action="query.do" method="get">
+				<input type="hidden" name="method" value="searchHouseByDid">
 				<div class="place-grids">
 					<div class="col-md-3 place-grid1">
 						<h5>面积下限</h5>
@@ -208,15 +210,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="place-grids">
 					<div class="col-md-4 place-grid">
 						<h5>所在城市</h5>
-						<select class="sel">
+						<select class="sel" name="district">
 						<option value="">所有城市</option>
-						<option value="">广州</option>
-						<option value="">深圳</option>
-						<option value="">北京</option>
-						<option value="">上海</option>
-						<option value="">杭州</option>
-						<option value="">成都</option>
-						<option value="">东莞</option>
+						<option value="guangzhou">广州</option>
+						<option value="shenzhen">深圳</option>
+						<option value="beijing">北京</option>
+						<option value="shanghai">上海</option>
+						<option value="hangzhou">杭州</option>
+						<option value="chengdu">成都</option>
+						<option value="dongguan">东莞</option>
 						</select>
 					</div>
 					<div class="col-md-4 place-grid">
@@ -233,12 +235,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</select>
 					</div>
 					<div class="col-md-4 search">
-					<form action="forrent.html">
-						<input type="submit" value="搜索">
-					</form>
+					<input type="submit" value="搜索">
 					</div>
 					<div class="clearfix"></div>
 				</div>
+				</form>
 			</div>
 		</div>
 			<div class="friend-agent">
