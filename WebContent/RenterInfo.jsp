@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
 								<li class="active"><a href="forrent.html">租房</a></li>
 							</ul>
 							<div class="phone">
