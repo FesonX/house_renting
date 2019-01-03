@@ -16,6 +16,6 @@ public class BookReviewedAction implements Action {
 		int bid=Integer.parseInt(request.getParameter("bid"));
 		int reviewed=Integer.parseInt(request.getParameter("reviewed"));
 		bookDao.UpdateBookReviewed(bid, reviewed);
-		return "index.jsp";
+		return "LandlordInfo.jsp";
 	}
 }

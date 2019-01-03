@@ -44,41 +44,43 @@ public class AddHouseServlet extends HttpServlet {
          DistrictDao distinctDao=new DistrictDaoImpl();
          ServletContext servletContext=null;
          servletContext=request.getSession().getServletContext();
-         //Êı¾İ¿âÖĞ´æ´¢¸ñÊ½:/webTest/imgs/***.jpg
-         //µÚÒ»²½:»ñÈ¡Ò³ÃæÉÏÉÏ´«µÄÍ¼Æ¬×ÊÔ´
+         //æ•°æ®åº“ä¸­å­˜å‚¨æ ¼å¼:/webTest/imgs/***.jpg
+         //ç¬¬ä¸€æ­¥:è·å–é¡µé¢ä¸Šä¸Šä¼ çš„å›¾ç‰‡èµ„æº
          List<FileItem> items=PhotoDao.getRequsetFileItems(request,servletContext);
          boolean isLoadToSQL=false;
          for(FileItem item:items) {
              if(!item.isFormField()){
-                 //ÅĞ¶Ïºó×ºÃûÊÇ·ñÊÇjpg
+                 //åˆ¤æ–­åç¼€åæ˜¯å¦æ˜¯jpg
             	 filename=PhotoDao.getPhotoNewName()+PhotoDao.isGif(item);
              }else {
-                 //»ñÈ¡±íµ¥ÖĞµÄ·ÇÎÄ¼şÖµ
-                 //±íµ¥ÖĞµÄ¿Õ¼änameÖµ
-                 //¸ÃnameÖµ¿Õ¼äÖĞµÄvalueÖµ
+                 //è·å–è¡¨å•ä¸­çš„éæ–‡ä»¶å€¼
+                 //è¡¨å•ä¸­çš„ç©ºé—´nameå€¼
+                 //è¯¥nameå€¼ç©ºé—´ä¸­çš„valueå€¼
                  list.add(item.getString("UTF-8"));               
              }
          }
-         //´æÔÚÊı¾İ¿âÀïÃæµÄÕÕÆ¬Â·¾¶ÊÇÔÚÏîÄ¿ÀïµÄÏà¶ÔÂ·¾¶
+         //å­˜åœ¨æ•°æ®åº“é‡Œé¢çš„ç…§ç‰‡è·¯å¾„æ˜¯åœ¨é¡¹ç›®é‡Œçš„ç›¸å¯¹è·¯å¾„
          String finalPhotoName= request.getContextPath()+"/imgs/"+filename;
          int hashCodeV = UUID.randomUUID().toString().hashCode();
-         if(hashCodeV < 0) {//ÓĞ¿ÉÄÜÊÇ¸ºÊı
+         if(hashCodeV < 0) {//æœ‰å¯èƒ½æ˜¯è´Ÿæ•°
              hashCodeV = -hashCodeV;
          }
  	int hid =hashCodeV;
- 	String lid =list.get(0);
- 	String address =list.get(3);
- 	int did=distinctDao.findDid(list.get(1));
- 	String title = list.get(2);
- 	float Area = Float.parseFloat(list.get(4));
- 	float Price = Float.parseFloat(list.get(5));
- 	String houseType=list.get(6);
+
+ 	String lid =request.getParameter("lid");
+ 	String address =list.get(2);
+ 	int did=distinctDao.findDid(list.get(0));
+ 	String title = list.get(1);
+ 	float Area = Float.parseFloat(list.get(3));
+ 	float Price = Float.parseFloat(list.get(4));
+ 	String houseType=list.get(5);
  	String Pic = finalPhotoName;
- 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// ÉèÖÃÈÕÆÚ¸ñÊ½
- 	String str = df.format(new Date());// new Date()Îª»ñÈ¡µ±Ç°ÏµÍ³Ê±¼ä
+ 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// è®¾ç½®æ—¥æœŸæ ¼å¼
+ 	String str = df.format(new Date());// new Date()ä¸ºè·å–å½“å‰ç³»ç»Ÿæ—¶é—´
  	House h=new House(hid,lid,did,title,houseType,address,  Area,  Pic,
 			0,  Price,  str,  0);
  	boolean isFlag = houseDao.doHouse(h);
+ 	request.getRequestDispatcher("/LandlordInfo.jsp").forward(request,response);
     }
 
 protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {

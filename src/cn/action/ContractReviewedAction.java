@@ -16,6 +16,6 @@ public class ContractReviewedAction implements Action {
 		ContractDao contractDao = new ContractDaoImpl();
 		int cid=Integer.parseInt(request.getParameter("cid"));
 		contractDao.updateContractReviewed(cid);
-		return "index.jsp";
+		return "LandlordInfo.jsp";
 	}
 }

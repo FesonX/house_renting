@@ -28,8 +28,7 @@
 							<li><a href="BookReviewed.do?bid=${book.bid}&reviewed=0">取消预约</a></li>
 						</c:if>
 						<c:if test="${book.reviewed == 0}">
-							<li><a href="BookReviewed.do?bid=${book.bid}&reviewed=1">接受预约</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-								href="BookReviewed.do?bid=${book.bid}&reviewed=0">拒绝预约</a></li>
+							<li><a href="BookReviewed.do?bid=${book.bid}&reviewed=1">接受预约</a>
 						</c:if>
 					</ul>
 				</div>
