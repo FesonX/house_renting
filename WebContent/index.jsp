@@ -66,14 +66,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#"><i class="icon3"></i></a>
 							<a href="#"><i class="icon4"></i></a>
 						</div>-->
+						<%
+								Renter renter=(Renter) session.getAttribute("renter");
+								Landlord landlord = (Landlord) session.getAttribute("landlord");
+						%>
 						<div class="email">
 						<ul>
 							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li class="dropdown">
-							<%
-								Renter renter=(Renter) session.getAttribute("renter");
-								Landlord landlord = (Landlord) session.getAttribute("landlord");
-							%>
+							<li class="dropdown">				
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
 											<ul class="dropdown-menu">
