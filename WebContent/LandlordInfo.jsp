@@ -37,7 +37,6 @@ controlNav: "thumbnails"
 <!-- //FlexSlider-->
 </head>
 <body>
-
 <!---header--->
 <div class="header-section">
 <div class="container">
