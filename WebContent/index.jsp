@@ -54,18 +54,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 </head>
 <body>
-
 		<!---header--->
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
@@ -407,49 +399,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
-			<!---Featured Properties--->
-			<!---<div class="membership">
-				<div class="container">
-					<h3>Membership Plans</h3>
-					<div class="membership-grids">
-						<div class="col-md-4 membership-grid">
-								<h4>Personal</h4>
-							<div class="membership1">
-								<h5>9.99 <span>USD</span></h5>
-								<h6>/ 1 month</h6>
-								<ul class="member">
-									<li>10 Listings</li>
-									<li>2 Featured Listings</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4 membership-grid">
-								<h4>Professional</h4>
-							<div class="membership1">
-								<h5>49.99 <span>USD</span></h5>
-								<h6>/ 6 month</h6>
-								<ul class="member">
-									<li>40 Listings</li>
-									<li>10 Featured Listings</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4 membership-grid">
-								<h4>Bussiness</h4>
-							<div class="membership1">
-								<h5>99.99 <span>USD</span></h5>
-								<h6>/ 1 year</h6>
-								<ul class="member">
-									<li>Unlimited Listings</li>
-									<li>20 Featured Listings</li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			--->
 			<!---testimonials--->
 					<div class="testimonials">
 						<div class="container">
@@ -479,55 +428,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 						</div>
-					</div>
-					<!---testmonials--->
+		</div>
+		<!---testmonials--->
 	</div>				
 					<!---footer--->
 					<div class="footer-section">
 						<div class="container">
-							<!--<div class="footer-grids">
-								<div class="col-md-3 footer-grid">
-									<h4>About Real Homes</h4>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-								</div>
-								<div class="col-md-3 footer-grid">
-									<h4>Recent Posts</h4>
-									<ul>
-										<li><a href="#">Lorem Post With Image Format</a></li>
-										<li><a href="#">Example Video Blog Post</a></li>
-										<li><a href="#">Example Post With Gallery Post </a></li>
-										<li><a href="#">Example Video Blog Post</a></li>
-										<li><a href="#">Lorem Post With Image Format</a></li>
-										<li><a href="#">Example Video Blog Post</a></li>
-									</ul>
-								</div>
-								<div class="col-md-3 footer-grid">
-									<h4>Useful links</h4>
-									<ul>
-										<li><a href="terms.html">Terms of Use</a></li>
-										<li><a href="privacy.html">Privacy Policy</a></li>
-										<li><a href="contact.html">Contact Support </a></li>
-										<li><a href="agents.html"> All Agents</a></li>
-										<li><a href="blog.html">Blog</a></li>
-										<li><a href="faqs.html">FAQs</a></li>
-									</ul>
-								</div>
-								<div class="col-md-3 footer-grid">
-									<h4>Get In Touch</h4>
-									<p>8901 Marmora Road</p>
-									<p>Glasgow, DO4 89GR.</p>
-									<p>Freephone : +1 234 567 890</p>
-									<p>Telephone : +1 234 567 890</p>
-									<p>FAX : + 1 234 567 890</p>
-									<p>E-mail : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-								</div>
-							<div class="clearfix"> </div>
-							</div>
-							-->
 						</div>
 					</div>
 					<!---footer--->
-<!-- login -->
+		<!-- login -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content modal-info">
