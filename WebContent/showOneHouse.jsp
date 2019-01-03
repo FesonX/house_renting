@@ -23,8 +23,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
-<<<<<<< HEAD
-
 <script src="js/responsiveslides.min.js"></script>
 	 <script>
 		$(function () {
@@ -52,9 +50,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
-
-=======
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 <!-- FlexSlider -->
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -82,7 +77,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#"><i class="icon3"></i></a>
 							<a href="#"><i class="icon4"></i></a>
 						</div>-->
-<<<<<<< HEAD
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
@@ -103,13 +97,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 											</ul></li>
-=======
-						<div class="email">
-						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -217,7 +204,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><span>宽带：</span><% int num9 = r.nextInt(2);String flag9 = (num9==1?"有":"无");out.print(flag9); %></li>
 								<li><span>衣柜：</span><% int num10 = r.nextInt(2);String flag10 = (num10==1?"有":"无");out.print(flag10); %></li>
 							</ul>
-<<<<<<< HEAD
 							<div>
 							  <%if(renter!=null){ %>
 							  <a href="book.do?rid=<% out.print(renter.getRid()); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>" class="button button-glow button-rounded button-highlight"><h5>预约看房</h5></a>
@@ -229,8 +215,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							    <a href="renterRegister.jsp" class="button button-glow button-rounded button-caution"><h5>还没账户？注册一个</h5></a>
 							  <%} %>
 							</div>
-=======
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 						</div>							  
 					<!--fea-video-->
 					</div>
@@ -376,92 +360,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </body>
 </html>    
- 
-<%-- <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<div>
-<div class="result-title">
-<h1>房源列表</h1>
-</div>
-	<form id="houseForm" name="houseForm"
-		action=""
-		method=post >
-					<div class="">
-						<table id=grid
-							class="result-tab" width="100%">
-							<tbody>
-								<tr style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
-									<td>房源id</td>
-									<td>房主id</td>
-									<td>房主名字</td>
-									<td>地址id</td>
-									<td>城市</td>
-									<td>描述</td>
-									<td>房型</td>
-									<td>具体地址</td>
-									<td>面积</td>
-									<td>图片</td>
-									<td>租赁状态</td>
-									<td>价格</td>
-									<td>发布时间</td>
-									<td>审核状态</td>
-									<td>操作</td>
-								</tr>
-								<%   ArrayList houses = (ArrayList)request.getAttribute("houseList");
-								   String landlord_name = (String)request.getAttribute("landlord_name");
-								   String district_name = (String)request.getAttribute("district_name");
-<<<<<<< HEAD
-<<<<<<< HEAD
-								   Random r = new Random();
-								   int pic_id = r.nextInt(16)+1;
-								   /*iterate over the arraylist*/
-								   for (int i = 0; i < houses.size(); i++) { 
-								       House a_house = (House)houses.get(i); %>
-								       <tr><img src="images/<%out.print(pic_id); %>.jpg" class="img-responsive" alt="/"></tr>  
-=======
-=======
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
-								   /*iterate over the arraylist*/
-								    for (int i = 0; i < houses.size(); i++) { 
-								       House a_house = (House)houses.get(i); %>  
->>>>>>> dd6db6f0f6ee72171c12441a08a55944b59cb49c
-								       <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-								       	   <td><% out.print(a_house.getHid()); %></td>
-									       <td><% out.print(a_house.getLid()); %></td>
-									       <td><% out.print(landlord_name); %></td>
-									       <td><% out.print(a_house.getDid()); %></td>
-									       <td><% out.print(district_name); %></td>
-									       <td><% out.print(a_house.getTitle()); %></td>
-									       <td><% out.print(a_house.getHouseType()); %></td>
-									       <td><% out.print(a_house.getAddress()); %></td>
-									       <td><% out.print(a_house.getArea()); %></td>
-									       <td><% out.print(a_house.getPic()); %></td>
-									       <td><% out.print(a_house.getStatus()); %></td>
-									       <td><% out.print(a_house.getPrice()); %></td>
-									       <td><% out.print(a_house.getIssueDate()); %></td>
-									       <td><% out.print(a_house.getReviewed()); %></td>
-									       <td>
-									       <a class="" href="book.do?rid=<% out.print("13030645753"); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>">预约看房</a>
-									       &nbsp;&nbsp;
-									       <a class="" href="contract.do?rid=<% out.print("13030645753"); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>">租赁此房</a>
-									       </td>
-								       </tr>
-								<% } %>
-							</tbody>
-						</table>
-					</div>
-	 </form>
-</div>
-</body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-</html>
-=======
-</html> --%>
-=======
-</html> --%>
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a

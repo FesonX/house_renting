@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="cn.bean.*" %>
@@ -8,15 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>贝壳租房 - 租个好房 住个好家</title>
-=======
-<%@ page import="cn.bean.*,java.util.*" language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>租房</title>
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
+<title>贝壳租房</title>
 <!---css--->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -35,7 +26,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
-<<<<<<< HEAD
 <script src="js/responsiveslides.min.js"></script>
 	 <script>
 		$(function () {
@@ -62,8 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
-=======
-<!-- FlexSlider -->
+<!-- =======
+FlexSlider
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 			<script>
@@ -75,8 +65,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 				});
 			</script>
-			<!-- //FlexSlider-->
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
+			//FlexSlider
+>>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a -->
 <style>
 ul.pagination {
     display: inline-block;
@@ -102,14 +92,7 @@ ul.pagination li a.active {
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 </style>
-<<<<<<< HEAD
-	
 </head>
-=======
-</head>
-
-
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 <body>
 
 		<!---header--->
