@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>贝壳租房</title>
+<title>贝壳租房 - 租个好房 住个好家</title>
 <!---css--->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -98,6 +98,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
+								if(renter==null&&landlord==null){
 						%>
 						<div class="email">
 						<ul>
@@ -117,6 +118,37 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 											</ul></li>
 						</ul>
 						</div>
+						<%
+								}else{
+									if(renter!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="renterLogin.do?name=<%out.print(renter.getName());%>&password=<%out.print(renter.getPassword());%>">用户中心 </a> </li>
+								</ul>
+							</div>
+						<%
+									}
+									if(landlord!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getPassword());%>&password=<%out.print(landlord.getname());%>">用户中心 </a> </li>
+								</ul>
+							</div>
+						<%
+									}
+						%>
+							
+						<%
+								}	
+						%>
 						<div class="clearfix"></div>
 					</div>
 					<nav class="navbar navbar-default">
@@ -139,9 +171,11 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
+							<%if(renter!=null){ %>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><%out.print(renter.getRid()); %></span>
 							</div>
+							<%} %>
 							<div class="clearfix"></div>
 						</div>
 					</nav>
@@ -182,7 +216,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 												<div class="forsale-right">
 													<h5><label><% out.print(d); %></label> - <span><% out.print(a_house.getAddress()); %></span></h5>
 													<p><% out.print(a_house.getTitle()); %></p>
-													<a href="agent.html"class="button4">查看详情</a>
+													<a href="query.do?method=showOneHouse&hid=<% out.print(a_house.getHid()); %>"class="button4">查看详情</a>
 												</div>
 												<div class="clearfix"></div>
 												<ul>
@@ -227,12 +261,12 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 							<div class="feature-top">
 							<img src="images/s6.jpg" class="img-responsive" alt="/">
 									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=1817">Know More</a></p>
 							</div>
 							<div class="feature-top top2">
 							<img src="images/s7.jpg" class="img-responsive" alt="/">
 									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=3194">Know More</a></p>
 							</div>
 						</div>
 					</div>

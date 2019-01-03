@@ -73,6 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
+								if(renter==null&&landlord==null){
 						%>
 						<div class="email">
 						<ul>
@@ -92,6 +93,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</ul></li>
 						</ul>
 						</div>
+						<%
+								}else{
+									if(renter!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="renterLogin.do?name=<%out.print(renter.getName());%>&password=<%out.print(renter.getPassword());%>">用户中心 </a> </li>
+								</ul>
+							</div>
+						<%
+									}
+									if(landlord!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getPassword());%>&password=<%out.print(landlord.getname());%>">用户中心 </a> </li>
+								</ul>
+							</div>
+						<%
+									}
+						%>
+							
+						<%
+								}	
+						%>
 						<div class="clearfix"></div>
 					</div>
 					<nav class="navbar navbar-default">
@@ -114,9 +146,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
 								<li class="active"><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
+							<%if(renter!=null){ %>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><%out.print(renter.getRid()); %></span>
 							</div>
+							<%} %>
 							<div class="clearfix"></div>
 						</div>
 					</nav>
@@ -214,26 +248,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 					<div class="col-md-3 properties-right">
 						<div class="properties-top">
-							<h4>房东:<% out.print(landlord_name); %></h4>
+							<h4><% out.print(landlord_name); %></h4>
 							<img src="images/a3.jpg" class="img-responsive" alt=""/>
 							<ul class="">
 								<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> 座机 : 0041-456-3692</li>
 								<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> 手机 : <% out.print(a_house.getLid()); %></li>
 							</ul>
-							<p>房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息房东信息</p>
-							<a href="#" class="button2">查看详情</a>
+							
+							<a href="#" class="button2">房东</a>
 						</div>
 						<div class="feature">
 							<h4>优质房源推荐</h4>
 							<div class="feature-top">
-							<img src="images/s1.jpg" class="img-responsive" alt="/">
+							<img src="images/s6.jpg" class="img-responsive" alt="/">
 									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=1817">Know More</a></p>
 							</div>
 							<div class="feature-top top2">
-							<img src="images/s2.jpg" class="img-responsive" alt="/">
+							<img src="images/s7.jpg" class="img-responsive" alt="/">
 									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=3194">Know More</a></p>
 							</div>
 						</div>
 					</div>

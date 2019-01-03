@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
-
 <html>
 <head>
 <title>RenterInfo</title>
@@ -80,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="active"><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>${renter.name}</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>${renter.rid}</span>
 							</div>
 							<div class="clearfix"></div>
 						</div>
