@@ -3,7 +3,6 @@
 <%@ page import="cn.bean.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.mysql.jdbc.Driver" %>
-<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,66 +51,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
-<!-- FlexSlider -->
-	 <script src="js/jquery.flexslider.js"></script>
-		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-			<script>
-			// Can also be used with $(document).ready()
-				$(window).load(function() {
-				$('.flexslider').flexslider({
-				animation: "slide",
-				controlNav: "thumbnails"
-				});
-				});
-			</script>
-			<!-- //FlexSlider-->
-<style>
-ul.pagination {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-}
-
-ul.pagination li {display: inline;}
-
-ul.pagination li a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-ul.pagination li a.active {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
-}
-
-ul.pagination li a:hover:not(.active) {background-color: #ddd;}
-</style>
+	
 </head>
 <body>
-
 		<!---header--->
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
+
+								if(renter==null&&landlord==null){
 						%>
-						<div class="email">
-						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com</a> </li>
-							<li class="dropdown">				
+							<div class="email">
+							<ul>
+							<!-- <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li> -->
+							<li class="dropdown">
+							
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
 											<ul class="dropdown-menu">
@@ -124,8 +81,40 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 											</ul></li>
-						</ul>
-						</div>
+							</ul>
+							</div>
+						<%
+								}else{
+									if(renter!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+								</ul>
+							</div>
+						<%
+									}
+									if(landlord!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+								</ul>
+							</div>
+						<%
+									}
+						%>
+							
+						<%
+								}	
+						%>
+						
 						<div class="clearfix"></div>
 					</div>
 					<nav class="navbar navbar-default">
@@ -156,228 +145,334 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 					</nav>
 				</div>
 			</div>
-		<!---header--->		
+		<!---header--->
 		<!---banner--->
-		<div class="banner-section">
-			<div class="container">
-				<h2>房源</h2>
-			</div>
-		</div>
-		<!---banner--->
-		<div class="content">
-			<div class="properties-section">
-				<div class="container">
-				<div class="properties-grids">
-					<div class="col-md-9 forsales-left">
-						<div class="forsale">
-							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-								<div id="myTabContent" class="tab-content">
-									<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-									
-									<% ArrayList houses = (ArrayList)request.getAttribute("houseList");
-									   ArrayList districts = (ArrayList)request.getAttribute("districtList");
-								   /*iterate over the arraylist*/
-								   for (int i = 0; i < houses.size(); i++) { 
-								       House a_house = (House)houses.get(i);
-								       String d = (String)districts.get(i);
-								       Random r = new Random();
-									   int pic_id = r.nextInt(14)+1;%>
-										<div class="forsale-grids">
-											<div class="forsale1">
-												<div class="forsale-left">
-													<a href="query.do?method=showOneHouse&hid=<% out.print(a_house.getHid()); %>"><img src="images/<%out.print(pic_id); %>.jpg" class="img-responsive" alt="/"></a>
-												</div>
-												<div class="forsale-right">
-													<h5><label><% out.print(d); %></label> - <span><% out.print(a_house.getAddress()); %></span></h5>
-													<p><% out.print(a_house.getTitle()); %></p>
-													<a href="agent.html"class="button4">查看详情</a>
-												</div>
-												<div class="clearfix"></div>
-												<ul>
-													<li><span> <% out.print(a_house.getArea()); %> </span>m²</li>
-													<li><% out.print(a_house.getHouseType()); %></li>
-													<li><span> <% out.print(a_house.getPrice()); %>元 </span>/月</li>
-													<li><span> 地址 </span><% out.print(a_house.getAddress()); %></li>
-												</ul>
-											</div>
-										</div>	
-									<% } %>
-											
-									</div>
-								</div>
-							</div>
+		<div class="slider">
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider">
+					<div class="slid banner1">
+						  <div class="caption">
+								<h3>深圳南山花园社区，南北通透</h3>
+								<p>南山花园对面是阳光科创商圈，近南山村市场，周末与朋友小憩聊天超方便，还有清吧等。离蛇口沃尔玛，来福士，海雅百货，茂业，海岸城都超级近，平常想逛街一口气都能去这几个地方买到心仪的东西。公交站有城市山林东/西，南山村等，地铁临近南山站。</p>
+								<a href="#" class="button">查看详情</a>
+						  </div>
+					</div>
+					<div class="slid banner2">	
+						  <div class="caption">
+								<h3>深圳龙悦居四期，坐北朝南</h3>
+								<p>龙悦居北邻深圳北站，距梅林关约3公里，离深圳市中心9.3公里。是深圳市2010年开工建设的“十大民生工程”之一，是深圳市2011年度重大项目。龙悦居由1-3层地下室、2层商业区、1栋3层幼儿园及11栋33-35层高层住宅组成，是集商业、幼儿园、住宅为一体的保障性住房。</p>
+								<a href="#" class="button">查看详情</a>
+						  </div>
+					</div>
+					<div class="slid banner3">	
+						<div class="caption">
+							<h3>深圳南海中心，风水宝地</h3>
+							<p>南海中心大厦位于深圳市东门中路繁华商业中心，大厦由商务公寓、购物商场组成，另有两层地下停车场，总占地面积5523平方米，总建筑面积52045平方米。南海中心大厦是东门地界早期最豪华的高级商住豪宅，集商住、购物、美食广场于一体，拥有一流的硬件设备设施。</p>
+							<a href="#" class="button">查看详情</a>
 						</div>
 					</div>
-					<div class="col-md-3 properties-right">
-						<div class="properties-top">
-						<div class="search1">
-							<form action="query.do" method="get">
-							<input type="hidden" name="method" value="searchHouseByDid">
-							<h4>挑选您喜爱的房子</h4>
-							<!-- <div class="yourplace">
-								<h5>面积下限</h5>
-								<select class="sel2">
-									<option value="">无下限</option>
-									<option value="">20m²</option>
-									<option value="">50m²</option>
-									<option value="">80m²</option>
-									<option value="">100m²</option>
-									<option value="">150m²</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>面积上限</h5>
-								<select class="sel2">
-									<option value="">无上限</option>
-									<option value="">20m²</option>
-									<option value="">50m²</option>
-									<option value="">80m²</option>
-									<option value="">100m²</option>
-									<option value="">150m²</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>租金下限</h5>
-								<select class="sel2">
-									<option value="">无下限</option>
-									<option value="">￥300</option>
-									<option value="">￥500</option>
-									<option value="">￥700</option>
-									<option value="">￥1000</option>
-									<option value="">￥1500</option>
-									<option value="">￥2000</option>
-									<option value="">￥3000</option>
-									<option value="">￥5000</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>租金上限</h5>
-								<select class="sel2">
-									<option value="">无上限</option>
-									<option value="">￥300</option>
-									<option value="">￥500</option>
-									<option value="">￥700</option>
-									<option value="">￥1000</option>
-									<option value="">￥1500</option>
-									<option value="">￥2000</option>
-									<option value="">￥3000</option>
-									<option value="">￥5000</option>
-								</select>
-							</div> -->
-							<div class="yourplace">
-								<h5>所在城市</h5>
-								<select class="sel2" name="district">
-									<option value="">所有城市</option>
-									<option value="guangzhou">广州</option>
-									<option value="shenzhen">深圳</option>
-									<option value="beijing">北京</option>
-									<option value="shanghai">上海</option>
-									<option value="hangzhou">杭州</option>
-									<option value="chengdu">成都</option>
-									<option value="dongguan">东莞</option>
-								</select>
-							</div>
-							
-							<!-- <div class="yourplace">
-								<h5>房型</h5>
-								<select class="sel2">
-									<option value="">所有房型</option>
-									<option value="">单间</option>
-									<option value="">一室一厅</option>
-									<option value="">两室一厅</option>
-									<option value="">三室一厅</option>
-									<option value="">两室两厅</option>
-									<option value="">三室两厅</option>
-									<option value="">四室两厅</option>
-								</select>
-							</div> -->
-							
-								<input type="submit" value="搜索">
-							</form>
-							</div>
-						</div>
-						<div class="feature">
-							<h4>优质房源推荐</h4>
-							<div class="feature-top">
-							<img src="images/s6.jpg" class="img-responsive" alt="/">
-									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-							</div>
-							<div class="feature-top top2">
-							<img src="images/s7.jpg" class="img-responsive" alt="/">
-									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-							</div>
-						</div>
+				</ul>
+			</div>
+		</div>
+<!---banner--->
+	<div class="content">
+		<div class="place-section">
+			<div class="container">
+				<h2>寻找房源</h2>
+				<form action="query.do" method="get">
+				<input type="hidden" name="method" value="searchHouseByDid">
+				<!-- <div class="place-grids">
+					<div class="col-md-3 place-grid1">
+						<h5>面积下限</h5>
+						<select class="sel">
+						<option value="">无下限</option>
+						<option value="">20m²</option>
+						<option value="">50m²</option>
+						<option value="">80m²</option>
+						<option value="">100m²</option>
+						<option value="">150m²</option>
+						</select>
+					</div>
+					<div class="col-md-3 place-grid1">
+						<h5>面积上限</h5>
+						<select class="sel">
+							<option value="">无上限</option>
+							<option value="">20m²</option>
+							<option value="">50m²</option>
+							<option value="">80m²</option>
+							<option value="">100m²</option>
+							<option value="">150m²</option>
+						</select>
+					</div>
+					<div class="col-md-3 place-grid1">
+						<h5>租金下限</h5>
+						<select class="sel">
+							<option value="">无下限</option>
+							<option value="">￥300</option>
+							<option value="">￥500</option>
+							<option value="">￥700</option>
+							<option value="">￥1000</option>
+							<option value="">￥1500</option>
+							<option value="">￥2000</option>
+							<option value="">￥3000</option>
+							<option value="">￥5000</option>
+						</select>
+					</div>
+					<div class="col-md-3 place-grid1">
+						<h5>租金上限</h5>
+						<select class="sel">
+							<option value="">无上限</option>
+							<option value="">￥300</option>
+							<option value="">￥500</option>
+							<option value="">￥700</option>
+							<option value="">￥1000</option>
+							<option value="">￥1500</option>
+							<option value="">￥2000</option>
+							<option value="">￥3000</option>
+							<option value="">￥5000</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+				</div> -->
+				<div class="place-grids">
+					<div class="col-md-4 place-grid">
+						<h5>所在城市</h5>
+						<select class="sel" name="district">
+						<option value="">所有城市</option>
+						<option value="guangzhou">广州</option>
+						<option value="shenzhen">深圳</option>
+						<option value="beijing">北京</option>
+						<option value="shanghai">上海</option>
+						<option value="hangzhou">杭州</option>
+						<option value="chengdu">成都</option>
+						<option value="dongguan">东莞</option>
+						</select>
+					</div>
+					<!-- <div class="col-md-4 place-grid">
+						<h5>房型</h5>
+						<select class="sel">
+						<option value="">所有房型</option>
+						<option value="">单间</option>
+						<option value="">一室一厅</option>
+						<option value="">两室一厅</option>
+						<option value="">三室一厅</option>
+						<option value="">两室两厅</option>
+						<option value="">三室两厅</option>
+						<option value="">四室两厅</option>
+						</select>
+					</div> -->
+					<div class="col-md-4 search">
+					<input type="submit" value="搜索">
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="col-md-12" style="margin-top:36px;">
-					<ul class="pagination">						
-						<% int pageNum = (Integer)request.getAttribute("pageNum");
-						 	int nowPage = (Integer)request.getAttribute("nowPage");
-						 %>
-						  	<%if(nowPage>0){%>
-						  <li><a href="query.do?method=showAllHouse&nowPage=<%out.print(nowPage-1);%>">&laquo;</a></li>
-						  	<%}%>
-						  	
-						  	<%for (int i = 0; i < pageNum; i++) { %>
-						  <li><a <%if(i==nowPage)out.print("class='active' "); %> href="query.do?method=showAllHouse&nowPage=<%out.print(i);%>"><%out.print(i+1); %></a></li>
-						  	<% } %>
-						  	
-						  	<%if(nowPage<pageNum-1){%>
-						  <li><a href="query.do?method=showAllHouse&nowPage=<%out.print(nowPage+1);%>">&raquo;</a></li>
-						  	<%}%>
-					</ul>
-				</div>
-				</div>
+				</form>
 			</div>
 		</div>
-		<!---footer--->
-			<div class="footer-section">
+			<div class="friend-agent">
 				<div class="container">
-					<!--<div class="footer-grids">
-						<div class="col-md-3 footer-grid">
-							<h4>About Real Homes</h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+					<div class="friend-grids">
+						<div class="col-md-4 friend-grid">
+							<img src="images/p.png">
+							<h4>房源遍地</h4>
+							<p>集全国各大城市房源于一体，随时随地任性找房。服务承诺让您安心，庞大的租房数据让您感受贴心漫漫找房路，我们努力为您想更多。</p>
 						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Recent Posts</h4>
-							<ul>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Example Post With Gallery Post </a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-							</ul>
+						<div class="col-md-4 friend-grid">
+							<img src="images/p1.png">
+							<h4>实地考察</h4>
+							<p>租房难，房租贵，房子现如今已经成为了我们生活中的必须品。实地考察，是我们审核房源最直接的方式，通过我们您可以轻松挑选房子。</p>
 						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Useful links</h4>
-							<ul>
-								<li><a href="terms.html">Terms of Use</a></li>
-								<li><a href="privacy.html">Privacy Policy</a></li>
-								<li><a href="contact.html">Contact Support </a></li>
-								<li><a href="agents.html"> All Agents</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="faqs.html">FAQs</a></li>
-							</ul>
+						<div class="col-md-4 friend-grid">
+							<img src="images/p2.png">
+							<h4>优质房源</h4>
+							<p>租房，就上贝壳租房。海量公寓直租房源，拎包入住，零中介费。预约后直接联系公寓管理员看房，一键导航，全面提升租房体验，让租房更简单！</p>
 						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Get In Touch</h4>
-							<p>8901 Marmora Road</p>
-							<p>Glasgow, DO4 89GR.</p>
-							<p>Freephone : +1 234 567 890</p>
-							<p>Telephone : +1 234 567 890</p>
-							<p>FAX : + 1 234 567 890</p>
-							<p>E-mail : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>-->
+						<div class="clearfix"></div>
+					</div>
 				</div>
 			</div>
-			<!---footer--->
-<!-- login -->
+			<div class="offering">
+				<div class="container">
+					<h3>优质房源推荐</h3>
+					<div class="offer-grids">
+						<div class="col-md-6 offer-grid">
+							<div class="offer-grid1">
+								<h4><a href="single.html" style="font-weight:bolder;">深圳罗湖置地逸轩</a></h4>
+								<div class="offer1">
+									<div class="offer-left">
+										<a href="single.html" class="mask"><img src="images/p3.jpg" class="img-responsive zoom-img" alt=""/></a>
+									</div>
+									<div class="offer-right">
+										<h5><label>￥</label>1500/两室一厅</h5>
+										<p>房间采光通风超好，大落地窗，还有阳台，空调，热水器，液晶电视，双人床，衣柜，沙发，茶几，宽带，免费网络，遮光防强光高档窗帘独立厨房卫生间。</p>
+										<a href="single.html"class="button1">查看详情</a>
+									</div>
+										<div class="clearfix"></div>
+								</div>
+							</div>
+						</div>
+							<div class="col-md-6 offer-grid">
+								<div class="offer-grid1">
+									<h4><a href="single.html" style="font-weight:bolder;">深圳南山集悦城</a></h4>
+									<div class="offer1">
+										<div class="offer-left">
+											<a href="single.html" class="mask"><img src="images/p4.jpg" class="img-responsive zoom-img" alt=""/></a>
+									</div>
+										<div class="offer-right">
+											<h5><label>￥</label>2200/一室一厅</h5>
+											<p>公寓紧邻地铁站，距离老街地铁站300米，交通非常方便。出门就是东门步行街，购物出行都极其方便。所有的房间都是精美装修，家私家电全齐 ，拎包入住即可。 </p>
+											<a href="single.html"class="button1">查看详情</a>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="offer-grids">
+						<div class="col-md-6 offer-grid">
+							<div class="offer-grid1">
+								<h4><a href="single.html" style="font-weight:bolder;">深圳南山魔方公寓</a></h4>
+								<div class="offer1">
+									<div class="offer-left">
+										<a href="single.html" class="mask"><img src="images/p5.jpg" class="img-responsive zoom-img" alt=""/></a>
+									</div>
+									<div class="offer-right">
+										<h5><label>￥</label>3000/三室一厅</h5>
+										<p>室内配备空调，电视，冰箱，洗衣机等品牌家电，拥有带阳台、带飘窗等，周边汇聚岁宝百货、华城百货等等，临近白石洲、华侨城等。</p>
+										<a href="single.html"class="button1">查看详情</a>
+									</div>
+										<div class="clearfix"></div>
+								</div>
+							</div>
+						</div>
+							<div class="col-md-6 offer-grid">
+								<div class="offer-grid1">
+									<h4><a href="single.html" style="font-weight:bolder;">深圳宝安庭苑公寓</a></h4>
+									<div class="offer1">
+										<div class="offer-left">
+											<a href="single.html" class="mask"><img src="images/p6.jpg" class="img-responsive zoom-img" alt=""/></a>
+									</div>
+										<div class="offer-right">
+											<h5><label>￥</label>4500/三室两厅</h5>
+											<p>家电家私配置齐全，可拎包入住，有阳台，有电梯，可养宠物，可短租。双人床、沙发、WiFi、空调、洗衣机、双层冰箱、24h热水、电磁炉、油烟机等全新配备。</p>
+											<a href="single.html"class="button1">查看详情</a>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="offer-grids">
+						<div class="col-md-6 offer-grid">
+							<div class="offer-grid1">
+								<h4><a href="#" style="font-weight:bolder;">深圳龙华窝趣轻社区</a></h4>
+								<div class="offer1">
+									<div class="offer-left">
+										<a href="single.html" class="mask"><img src="images/p7.jpg" class="img-responsive zoom-img" alt=""/></a>
+									</div>
+									<div class="offer-right">
+										<h5><label>￥</label>2200/一室一厅</h5>
+										<p>社区周边生活便利，下楼即享受24小时品牌连锁便利店；社区房间风格多样，马卡龙、格调北欧、自由工业任你选，给您打造一个全新的住房体验。</p>
+										<a href="single.html"class="button1">查看详情</a>
+									</div>
+										<div class="clearfix"></div>
+								</div>
+							</div>
+						</div>
+							<div class="col-md-6 offer-grid">
+								<div class="offer-grid1">
+									<h4><a href="single.html" style="font-weight:bolder;">深圳福田城家公寓</a></h4>
+									<div class="offer1">
+										<div class="offer-left">
+											<a href="single.html" class="mask"><img src="images/p8.jpg" class="img-responsive zoom-img" alt=""/></a>
+									</div>
+										<div class="offer-right">
+											<h5><label>￥</label>8500/四室两厅</h5>
+											<p>公寓位于红岭路与八卦三路十字路口，距离红岭北A出口100米，周边体育中心，沃尔玛，万象城，租期灵活，房间配置齐全，你想到的全都有，满足您所有的住宿需求。</p>
+											<a href="single.html"class="button1">查看详情</a>	
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<!---Featured Properties--->
+				<div class="feature-section">
+					<div class="container">
+						<h3>高档别墅出租</h3>
+						<div class="feature-grids">
+							<div class="col-md-3 feature-grid">
+								<img src="images/f1.jpg" class="img-responsive" alt="/">
+								<h5 style="font-style:normal;font-weight:bolder;">新世界名镌</h5>
+								<p>阔绰客厅开间，约4.1米宽阔开间客厅个，65寸家庭影院、8座家族沙发自由摆放，彰显非凡品味。 <a href="#">查看详情</a></p>
+								<span>￥35000/月</span>
+							</div>
+							<div class="col-md-3 feature-grid">
+								<img src="images/f2.jpg" class="img-responsive" alt="/">
+								<h5 style="font-style:normal;font-weight:bolder;">承翰半山海</h5>
+								<p>传世大宅，尊荣5房布局，四世同堂，尽显大家风范。舒居主卧套房，全景奢阔飘窗，美景尽收眼底。 <a href="#">查看详情</a></p>
+								<span>￥27500/月</span>
+							</div>
+							<div class="col-md-3 feature-grid">
+								<img src="images/f3.jpg" class="img-responsive" alt="/">
+								<h5 style="font-style:normal;font-weight:bolder;">半山半海</h5>
+								<p>奢阔观景阳台，观景阳台宽大约7.1米，一家人的第二会客厅，雍容尺度，阅览人生美景。 <a href="#">查看详情</a></p>
+								<span>￥40000/月</span>
+							</div>
+							<div class="col-md-3 feature-grid">
+								<img src="images/f4.jpg" class="img-responsive" alt="/">
+								<h5 style="font-style:normal;font-weight:bolder;">高档泳池别墅</h5>
+								<p>高档的别墅泳池庭院，放上遮阳伞和休闲躺椅你就可以美美的享受你的私家别墅泳池了。 <a href="#">查看详情</a></p>
+								<span>￥50000/月</span>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			<!---testimonials--->
+					<div class="testimonials">
+						<div class="container">
+							<h3>房客</h3>
+							<span></span>
+							<div id="owl-demo" class="owl-carousel">
+								<div class="item">
+									<div class="col-md-2 testmonial-img">
+										<img src="images/t1.png" class="img-responsive" alt=""/>
+									</div>
+									<div class="col-md-10 testmonial-text">
+										<p>真实存在，真实在售，真实价格，真实图片！贝壳郑重向用户承诺：真实房源，假一赔百元！</p>
+										<h4><a href="#">许维恭</a></h4>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+								<div class="item">
+									<div class="col-md-2 testmonial-img">
+										<img src="images/t3.png" class="img-responsive" alt=""/>
+									</div>
+									<div class="col-md-10 testmonial-text">
+										<p>喜欢贝壳租房，贝壳租房比自己去外面找房好多了。买房是不可能买房的，这辈子都不可能买房的，就是租房这种东西才能维持生活。
+										进出租房就像回家一样，卧室大床又大，室内干净卫生空气又好，周围环境又好，超喜欢住在里面。</p>
+										<h4><a href="#">张宁 </a></h4>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+		</div>
+		<!---testmonials--->
+	</div>				
+					<!---footer--->
+					<div class="footer-section">
+						<div class="container">
+						</div>
+					</div>
+					<!---footer--->
+		<!-- login -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content modal-info">
@@ -441,4 +536,5 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 			</div>
 			<!-- //Register -->
 </body>
+
 </html>

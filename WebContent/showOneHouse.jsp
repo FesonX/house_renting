@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
+
 <script src="js/responsiveslides.min.js"></script>
 	 <script>
 		$(function () {
@@ -50,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
+
 <!-- FlexSlider -->
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -81,6 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
 						%>
+
 						<div class="email">
 						<ul>
 							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com</a> </li>
@@ -97,6 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 											</ul></li>
+
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -360,3 +364,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </body>
 </html>    
+ 

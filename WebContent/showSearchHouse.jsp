@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page import="cn.bean.*,java.util.*" language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="cn.bean.*" %>
 <%@ page import="java.sql.*" %>
@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>贝壳租房</title>
+<title>贝壳租房 - 租个好房 住个好家</title>
+
 <!---css--->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -52,8 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
-<!-- =======
-FlexSlider
+
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 			<script>
@@ -65,8 +65,6 @@ FlexSlider
 				});
 				});
 			</script>
-			//FlexSlider
->>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a -->
 <style>
 ul.pagination {
     display: inline-block;
@@ -91,7 +89,7 @@ ul.pagination li a.active {
 }
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
-</style>
+</style>	
 </head>
 <body>
 
