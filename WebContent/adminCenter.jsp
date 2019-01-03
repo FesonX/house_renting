@@ -4,6 +4,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.mysql.jdbc.Driver" %>
 <%@include file="header.jsp"%>
+<title>管理中心</title>
 <body>
 <div class="container-fluid">
 	<div class="row-fluid">
