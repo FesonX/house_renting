@@ -54,10 +54,12 @@ public class RenterDaoImpl implements RenterDao {
 	}
 
 	@Override
-	public boolean updateRenter(Renter ad) {
+	public Renter updateRenter(Renter ad) {
 		boolean Flag=false;
-		String sql="update renter set realname=?,gender=?,Avater=?,qq=?,wechar=? where rid=?";
+		Renter renter=null;
+		String sql="update renter set name=?,realname=?,gender=?,Avatar=?,qq=?,Wechat=? where rid=?";
 		List<Object> lp=new ArrayList<Object>();
+		lp.add(ad.getName());
 		lp.add(ad.getRealname());
 		lp.add(ad.getGender());
 		lp.add(ad.getAvatar());
@@ -65,7 +67,12 @@ public class RenterDaoImpl implements RenterDao {
 		lp.add(ad.getWechat());
 		lp.add(ad.getRid());
 		Flag=bs.update(sql, lp);
-		return Flag;
+		if(Flag)
+		{
+			renter=findRenterByRid(ad.getRid());
+		}
+		
+		return renter;
 	}
 
 	@Override
@@ -83,7 +90,7 @@ public class RenterDaoImpl implements RenterDao {
 	public Renter findRenterByRid(String rid) {
 		Renter renter=null;
 		List<Object> lp=new ArrayList<Object>();
-		String sql="select * from renter where lid=?";
+		String sql="select * from renter where rid=?";
 		lp.add(rid);
 		List<Renter> r=bs.query(sql, lp, Renter.class);
 		if(r.size()>0)
@@ -91,5 +98,23 @@ public class RenterDaoImpl implements RenterDao {
 			renter=r.get(0);
 		}
 		return renter;
+	}
+
+	@Override
+	public boolean delRenter(String rid) {
+		boolean Flag=false;
+		String sql="delete from renter where rid=?";
+		List<Object> lp=new ArrayList<Object>();
+		lp.add(rid);
+		Flag=bs.update(sql, lp);
+		return Flag;
+	}
+
+	@Override
+	public List<Renter> showAllRenters() {
+		List<Object> lp=new ArrayList<Object>();
+		String sql="select * from renter";
+		List<Renter> renters = bs.query(sql, lp, Renter.class);
+		return renters;
 	}
 }

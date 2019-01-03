@@ -95,15 +95,15 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 								<span class="icon-bar"></span>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html"><span>贝壳 </span>租房</a></h1>
+								<h1><a href="index.jsp"><span>贝壳 </span>租房</a></h1>
 							</div>
 						</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="forrent.html">租房</a></li>
+								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
 							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
@@ -139,7 +139,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 								       House a_house = (House)houses.get(i);
 								       String d = (String)districts.get(i);
 								       Random r = new Random();
-									   int pic_id = r.nextInt(16)+1;%>
+									   int pic_id = r.nextInt(14)+1;%>
 										<div class="forsale-grids">
 											<div class="forsale1">
 												<div class="forsale-left">
@@ -275,15 +275,15 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						 	int nowPage = (Integer)request.getAttribute("nowPage");
 						 %>
 						  	<%if(nowPage>0){%>
-						  <li><a href="query.do?method=showAllHouse&nowPage=<%out.print(nowPage-1);%>">&laquo;</a></li>
+						  <li><a href="query.do?method=searchHouseByDid&nowPage=<%out.print(nowPage-1);%>&district=<%out.print(district);%>">&laquo;</a></li>
 						  	<%}%>
 						  	
 						  	<%for (int i = 0; i < pageNum; i++) { %>
-						  <li><a <%if(i==nowPage)out.print("class='active' "); %> href="query.do?method=showAllHouse&nowPage=<%out.print(i);%>"><%out.print(i+1); %></a></li>
+						  <li><a <%if(i==nowPage)out.print("class='active' "); %> href="query.do?method=searchHouseByDid&nowPage=<%out.print(i);%>&district=<%out.print(district);%>"><%out.print(i+1); %></a></li>
 						  	<% } %>
 						  	
 						  	<%if(nowPage<pageNum-1){%>
-						  <li><a href="query.do?method=showAllHouse&nowPage=<%out.print(nowPage+1);%>">&raquo;</a></li>
+						  <li><a href="query.do?method=searchHouseByDid&nowPage=<%out.print(nowPage+1);%>&district=<%out.print(district);%>">&raquo;</a></li>
 						  	<%}%>
 					</ul>
 				</div>

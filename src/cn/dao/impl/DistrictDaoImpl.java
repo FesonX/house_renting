@@ -27,7 +27,7 @@ public class DistrictDaoImpl  implements DistrictDao{
 		return flag;
 	}
 	@Override
-	//2.ä¿®æ”¹åŒºåŸŸ
+	//2.ÐÞ¸ÄÇøÓò
 	public boolean updateDistinct(District dis){
 		String sql="update district set name=?,parent_id=?,pinyin=?,initial=?,initials=?,suffix=?,code=?,order=? where did=?";
 		List<Object> lp=new ArrayList<Object>();
@@ -54,7 +54,6 @@ public class DistrictDaoImpl  implements DistrictDao{
 		return flag;
 	}
 	@Override
-
 	public List<District> findDistinctByDid(int did){
 		List<District> list=null;
 		String sql="select * from district where did=?";

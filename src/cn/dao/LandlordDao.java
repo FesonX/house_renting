@@ -14,13 +14,15 @@ public interface LandlordDao {
 
 	public boolean updateLandlord(Landlord ag);
 
-	public boolean deleteLandlord(int lid);
+	public boolean deleteLandlord(String lid);
 
 	public List<Landlord> findLandlordByDid(int did);
 
 	public List<Landlord> findLandlord();
 
 	public Landlord findLandlordBy(String lid);
+
 	public List<Landlord> findLandlordByLid(String lid);
+	
 	boolean register(Landlord ag);
 }

@@ -85,9 +85,9 @@ public class LandlordDaoImpl implements LandlordDao {
 	}
 
 	@Override
-	public boolean deleteLandlord(int lid) {
+	public boolean deleteLandlord(String lid) {
 		boolean Flag=false;
-		String sql="delete Landlord where lid=?";
+		String sql="delete from Landlord where lid=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(lid);
 		Flag=bs.update(sql, lp);
@@ -136,5 +136,4 @@ public class LandlordDaoImpl implements LandlordDao {
 		List<Landlord> l=bs.query(sql, lp, Landlord.class);
 		return l;
 	}
-
 }

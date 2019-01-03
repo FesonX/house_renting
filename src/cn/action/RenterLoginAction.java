@@ -2,6 +2,7 @@ package cn.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cn.bean.Renter;
 import cn.dao.RenterDao;
@@ -18,13 +19,17 @@ public class RenterLoginAction implements Action {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		renter = renterDao.login(name, password);
+		System.out.println(renter);
 		
 		if (renter != null) {
-			return "index.jsp";
+			HttpSession session=request.getSession();
+			session.setAttribute("renter", renter);
+			//request.setAttribute("renter", renter);
+			return "RenterInfo.jsp";
 		}
 		else
 		{
-			return "login.jsp";
+			return "index.jsp";
 		}
 	}
 
