@@ -40,10 +40,12 @@ public class LandlordRegisterAction implements Action {
 		
 		//Flag = adminDao.register(admin);
 		if (Flag) {
-			return "index.jsp";
+			return "jumpLandlordLogin.jsp";
 		}
-		else
-			return "register.jsp";	
+		else {
+			return "registerResult";
+		}
+			
 	}
 
 }

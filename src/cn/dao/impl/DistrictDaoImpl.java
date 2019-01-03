@@ -1,10 +1,16 @@
 package cn.dao.impl;
 
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import cn.bean.District;
 import cn.dao.DistrictDao;
 import cn.dbc.BaseDao;
+
 
 public class DistrictDaoImpl  implements DistrictDao{
 	BaseDao bs=new BaseDao();
@@ -85,6 +91,33 @@ public class DistrictDaoImpl  implements DistrictDao{
 			dis=l.get(0);
 		}
 		return dis;
-	}	
+	}
+	@Override
+	public int findDid(String name) {
+		List<District> list=null;
+		Connection conn = bs.getConnection();
+		int did = 0;
+		StringBuffer sqlBuffer = new StringBuffer();
+		sqlBuffer.append("select * from district where name='");
+		sqlBuffer.append(name);
+		sqlBuffer.append("'");
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sqlBuffer.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				did=rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return did;
+	}
 	
 }

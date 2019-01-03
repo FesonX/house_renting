@@ -180,7 +180,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 					</nav>
 				</div>
 			</div>
-		<!---header--->
+		<!---header--->		
 		<!---banner--->
 		<div class="banner-section">
 			<div class="container">

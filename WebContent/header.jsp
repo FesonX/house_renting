@@ -63,20 +63,17 @@
 				if (admin!=null) {
 				%>
                 <li>
-                   <a href="https://github.com/FesonX">修改密码</a>
+                   <a href="adminModify.jsp">修改密码</a>
                 </li>
                 <li class="divider">
                 </li>
                 <li>
-                   <a onclick=<%%>href="adminLogin.jsp">退出</a>
+                   <a onclick=<%%>href="adminLogout.jsp">退出</a>
                 </li>
                 <%}
 				else{%>
 				<li>
-                   <a href="http://localhost:8080/House_rent/login.jsp">登录</a>
-                </li>
-                <li>
-                   <a href="http://localhost:8080/House_rent/register.jsp">注册</a>
+                   <a href="adminLogin.jsp">登录</a>
                 </li>
 				<%} %>
               </ul>
