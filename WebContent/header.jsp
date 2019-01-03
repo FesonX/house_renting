@@ -34,22 +34,16 @@
                          <span class="sr-only">Toggle navigation</span>
                          <span class="icon-bar"></span><span class="icon-bar"></span>
                          <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="#">贝壳租房</a>
+                    <a class="navbar-brand" href="index.jsp">🐚贝壳租房</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active">
-               <a href="#navbar">首页</a>
+               <a href="adminCenter.jsp">首页</a>
             </li>
             <li>
-               <a href="query.do?method=showAllHouse">热门房源</a>
-            </li>
-            <li>
-               <a href="#landlords">热门房东</a>
-            </li>
-            <li>
-               <a href="#issue_house">发布房源</a>
+               <a href="adminModify.jsp">修改密码</a>
             </li>
           </ul>
           <form action="query.do?method=searchHouseByDid" class="navbar-form navbar-left" role="search" method="post">
@@ -59,7 +53,7 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li>
-               <a href="/admin">管理</a>
+               <a href="adminLogin.jsp">管理</a>
             </li>
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<strong class="caret"></strong></a>
@@ -69,15 +63,12 @@
 				if (admin!=null) {
 				%>
                 <li>
-                   <a href="https://github.com/FesonX">我的主页</a>
-                </li>
-                <li>
-                   <a href="https://github.com/huangjiarong">我的合同</a>
+                   <a href="https://github.com/FesonX">修改密码</a>
                 </li>
                 <li class="divider">
                 </li>
                 <li>
-                   <a href="#navbar">退出</a>
+                   <a onclick=<%%>href="adminLogin.jsp">退出</a>
                 </li>
                 <%}
 				else{%>
