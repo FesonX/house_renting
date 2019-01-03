@@ -268,12 +268,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><hr></li>
 						</ul>
 
+
 						<form action="${pageContext.request.contextPath}/AddHouseServlet?lid=${param.lid}"
 							method="post" enctype="multipart/form-data">
 							<fieldset>
 								<legend>房源信息</legend>
-								 <label>所属区域：</label> <select
-									name="did" id="did">
+								 <label>所属区域：</label> <select name="did" id="did">
 									<option value="北京">北京市</option>
 									<option value="天津">天津市</option>
 									<option value="上海">上海市</option>

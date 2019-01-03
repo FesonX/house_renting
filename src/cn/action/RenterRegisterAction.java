@@ -1,11 +1,8 @@
 package cn.action;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.bean.District;
 import cn.bean.Renter;
 import cn.dao.RenterDao;
 import cn.dao.impl.RenterDaoImpl;
@@ -27,10 +24,10 @@ public class RenterRegisterAction implements Action {
 		Renter renter = new Renter(rid,name,gender,realname,"0",qq,Wechat,password);
 		Flag= renterDao.register(renter);
 		if (Flag) {
-			return "index.jsp";
+			return "jumpRenterLogin.jsp";
 		}
 		else
-			return "register.jsp";	
+			return "registerResult.jsp";	
 	}
 
 }

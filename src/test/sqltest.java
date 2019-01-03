@@ -1,13 +1,9 @@
 package test;
 
-import java.lang.reflect.Field;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +28,7 @@ public class sqltest {
 		    PreparedStatement pst = null;
 		        // 定义一个list用于接受数据库查询到的内容
 		    List<String> list = new ArrayList<String>();
-		    pst = (PreparedStatement) conn.prepareStatement(sql);
+		    pst = conn.prepareStatement(sql);
 		    ResultSet rs = pst.executeQuery();
 		    while (rs.next()) {
 		                // 将查询出的内容添加到list中，其中userName为数据库中的字段名称

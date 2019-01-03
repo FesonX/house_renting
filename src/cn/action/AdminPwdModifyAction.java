@@ -10,6 +10,7 @@ import cn.dao.impl.AdminDaoImpl;
 import cn.framework.Action;
 
 public class AdminPwdModifyAction implements Action{
+	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		AdminDao ad = new AdminDaoImpl();
 		String oldPwd = request.getParameter("oldPwd");

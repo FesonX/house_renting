@@ -13,6 +13,7 @@ public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String reqPath=request.getServletPath();
 		reqPath=reqPath.substring(reqPath.lastIndexOf("/")+1,reqPath.length()-3);
@@ -34,6 +35,7 @@ public class Controller extends HttpServlet {
 	}
 
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		this.doGet(request, response);
