@@ -69,10 +69,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
+								if(renter==null&&landlord==null){
 						%>
-						<div class="email">
-						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
+							<div class="email">
+							<ul>
+							<!-- <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li> -->
 							<li class="dropdown">
 							
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
@@ -87,8 +88,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 											</ul></li>
-						</ul>
-						</div>
+							</ul>
+							</div>
+						<%
+								}else{
+									if(renter!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+								</ul>
+							</div>
+						<%
+									}
+									if(landlord!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+								</ul>
+							</div>
+						<%
+									}
+						%>
+							
+						<%
+								}	
+						%>
+						
 						<div class="clearfix"></div>
 					</div>
 					<nav class="navbar navbar-default">
