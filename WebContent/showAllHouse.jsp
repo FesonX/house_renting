@@ -1,4 +1,4 @@
-<%@ page import="cn.bean.*,java.util.*" language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="cn.bean.*" %>
 <%@ page import="java.sql.*" %>
@@ -123,10 +123,10 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						%>
 							<div class="email">
 								<ul>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %></li>
 									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
 									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="renterLogin.do?name=<%out.print(renter.getName());%>&password=<%out.print(renter.getPassword());%>">用户中心 </a> </li>
 								</ul>
 							</div>
 						<%
@@ -138,7 +138,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
 									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
 									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getname());%>&password=<%out.print(landlord.getPassword());%>">用户中心 </a> </li>
 								</ul>
 							</div>
 						<%
@@ -168,7 +168,17 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<% if(renter!=null){%>
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
+								<li><a href="book.do?rid=<% out.print(renter.getRid()); %>">我的预约</a></li>
+								<li><a href="contract.do?rid=<% out.print(renter.getRid()); %>">我的租赁</a></li>
+								<%} %>
+								<% if(landlord!=null){%>
+								<li><a href="FindHousebylid.do?lid=${landlord.getlid()}">房源</a></li>
+								<%} %>
+								<% if(renter==null&&landlord==null){%>
+								<li><a href="query.do?method=showAllHouse">看房</a></li>
+								<%} %>
 							</ul>
 							<%if(renter!=null){ %>
 							<div class="phone">
@@ -180,7 +190,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 					</nav>
 				</div>
 			</div>
-		<!---header--->		
+		<!---header--->
 		<!---banner--->
 		<div class="banner-section">
 			<div class="container">
@@ -222,7 +232,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 													<li><span> <% out.print(a_house.getArea()); %> </span>m²</li>
 													<li><% out.print(a_house.getHouseType()); %></li>
 													<li><span> <% out.print(a_house.getPrice()); %>元 </span>/月</li>
-													<li><span> 地址 </span><% out.print(a_house.getAddress()); %></li>
+													<li><span> 所在地 </span><% out.print(a_house.getAddress()); %></li>
 												</ul>
 											</div>
 										</div>	
@@ -260,12 +270,12 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 							<div class="feature-top">
 							<img src="images/s6.jpg" class="img-responsive" alt="/">
 									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=1817">Know More</a></p>
 							</div>
 							<div class="feature-top top2">
 							<img src="images/s7.jpg" class="img-responsive" alt="/">
 									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=3194">Know More</a></p>
 							</div>
 						</div>
 					</div>
@@ -277,15 +287,15 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						 	int nowPage = (Integer)request.getAttribute("nowPage");
 						 %>
 						  	<%if(nowPage>0){%>
-						  <li><a href="query.do?method=searchHouseByDid&nowPage=<%out.print(nowPage-1);%>&district=<%out.print(district);%>">&laquo;</a></li>
+						  <li><a href="query.do?method=showAllHouse&nowPage=<%out.print(nowPage-1);%>&district=<%out.print(district);%>">&laquo;</a></li>
 						  	<%}%>
 						  	
 						  	<%for (int i = 0; i < pageNum; i++) { %>
-						  <li><a <%if(i==nowPage)out.print("class='active' "); %> href="query.do?method=searchHouseByDid&nowPage=<%out.print(i);%>&district=<%out.print(district);%>"><%out.print(i+1); %></a></li>
+						  <li><a <%if(i==nowPage)out.print("class='active' "); %> href="query.do?method=showAllHouse&nowPage=<%out.print(i);%>&district=<%out.print(district);%>"><%out.print(i+1); %></a></li>
 						  	<% } %>
 						  	
 						  	<%if(nowPage<pageNum-1){%>
-						  <li><a href="query.do?method=searchHouseByDid&nowPage=<%out.print(nowPage+1);%>&district=<%out.print(district);%>">&raquo;</a></li>
+						  <li><a href="query.do?method=showAllHouse&nowPage=<%out.print(nowPage+1);%>&district=<%out.print(district);%>">&raquo;</a></li>
 						  	<%}%>
 					</ul>
 				</div>

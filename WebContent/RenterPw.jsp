@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import="cn.bean.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.Driver" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -43,18 +46,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
+						<%
+								Renter renter=(Renter) session.getAttribute("renter");
+						%>
 						<div class="email">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %></li>
 							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#">注销</a></li>
+							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="renterLogin.do?name=<%out.print(renter.getName());%>&password=<%out.print(renter.getPassword());%>">用户中心 </a> </li>
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -69,19 +69,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span class="icon-bar"></span>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html"><span>贝壳 </span>租房</a></h1>
+								<h1><a href="index.jsp"><span>贝壳 </span>租房</a></h1>
 							</div>
 						</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="forrent.html">租房</a></li>
+								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<% if(renter!=null){%>
+								<li><a href="query.do?method=showAllHouse">租房</a></li>
+								<li><a href="book.do?rid=<% out.print(renter.getRid()); %>">我的预约</a></li>
+								<li><a href="contract.do?rid=<% out.print(renter.getRid()); %>">我的租赁</a></li>
+								<%} %>
 							</ul>
+							<%if(renter!=null){ %>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><%out.print(renter.getRid()); %></span>
 							</div>
+							<%} %>
 							<div class="clearfix"></div>
 						</div>
 					</nav>

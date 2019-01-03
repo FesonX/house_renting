@@ -96,26 +96,29 @@ $(function () {
 <div class="container">
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form" action="contract.do" method="get">
+		<form role="form" action="contract.do" method="post">
+			<input class="common-text required" value="<%out.print(rid); %>" id="rid" name="rid" size="50" type="hidden">
+	        <input class="common-text required" value="<%out.print(lid); %>" id="lid" name="lid" size="50" type="hidden">
+	        <input class="common-text required" value="<%out.print(hid); %>" id="hid" name="hid" size="50" type="hidden">
 			<h2>${renter.name },你好! 请填写租赁合同 <small>🐚贝壳租房</small></h2>
 			<hr class="colorgraph">
 			<!-- Landlord name -->
 			<div class="form-group">
 				<input type="text" name="rid" id="display_name" readonly 
-				class="form-control input-lg" placeholder="房主姓名" tabindex="3" value="房主姓名:<%=landlord_name %>">
+				class="form-control input-lg" placeholder="房主姓名" tabindex="3" value="<%=landlord_name %>">
 			</div>
 			
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<input type="text" name="area" id="password" readonly 
-						class="form-control input-lg" placeholder="房屋面积" tabindex="5" value="房屋面积:<%=house_area %>">
+						class="form-control input-lg" placeholder="房屋面积" tabindex="5" value="<%=house_area %>">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<input type="text" name="houseType" id="password" readonly
-						class="form-control input-lg" placeholder="房型" tabindex="6" value="房型:<%=house_type%>">
+						class="form-control input-lg" placeholder="房型" tabindex="6" value="<%=house_type%>">
 					</div>
 				</div>
 			</div>
@@ -124,7 +127,7 @@ $(function () {
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<input type="text" name="pricePerMonth" id="pricePerMonth" readonly
-						class="form-control input-lg" placeholder="单月价格" tabindex="5" value="单月价格:<%=house_price %>">
+						class="form-control input-lg" placeholder="单月价格" tabindex="5" value="<%=house_price %>">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">

@@ -168,7 +168,17 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<% if(renter!=null){%>
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
+								<li><a href="book.do?rid=<% out.print(renter.getRid()); %>">我的预约</a></li>
+								<li><a href="contract.do?rid=<% out.print(renter.getRid()); %>">我的租赁</a></li>
+								<%} %>
+								<% if(landlord!=null){%>
+								<li><a href="FindHousebylid.do?lid=${landlord.getlid()}">房源</a></li>
+								<%} %>
+								<% if(renter==null&&landlord==null){%>
+								<li><a href="query.do?method=showAllHouse">看房</a></li>
+								<%} %>
 							</ul>
 							<%if(renter!=null){ %>
 							<div class="phone">

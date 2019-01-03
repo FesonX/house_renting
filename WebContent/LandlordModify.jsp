@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import="cn.bean.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.Driver" %>
 <!DOCTYPE HTML>
-
 <html>
 <head>
 <title>Agents</title>
@@ -44,19 +45,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
+						<%
+								Landlord landlord = (Landlord) session.getAttribute("landlord");
+						%>
 						<div class="email">
-						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#">注销</a></li>
-						</ul>
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getname());%>&password=<%out.print(landlord.getPassword());%>">用户中心 </a> </li>
+								</ul>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -70,19 +68,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span class="icon-bar"></span>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html"><span>贝壳 </span>租房</a></h1>
+								<h1><a href="index.jsp"><span>贝壳 </span>租房</a></h1>
 							</div>
 						</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="forrent.html">租房</a></li>
+								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<% if(landlord!=null){%>
+								<li><a href="FindHousebylid.do?lid=${landlord.getlid()}">房源</a></li>
+								<%} %>
 							</ul>
+							<%if(landlord!=null){ %>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><%out.print(landlord.getlid()); %></span>
 							</div>
+							<%} %>
 							<div class="clearfix"></div>
 						</div>
 					</nav>
@@ -100,12 +102,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agent-section">
 				<div class="container">
 					<div class="agent-grids">
-					<form  action="landlordModify.do" method="post" id="" onsubmit="return check()">
+					<form  action="landlordModify.do" method="get" id="" onsubmit="return check()">
 						<div class="col-md-12 agent-grid">
 							<div class="agent-right" style="width:100%;">
 								<h4>修改信息</h4>
 								<ul>
-								<li><i class="glyphicon glyphicon-user" aria-hidden="true"></i> 用户id: &nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="lid" class="form-control" placeholder="输入昵称..." style="display:inline;width:200px;"></li>
+								<li><i class="glyphicon glyphicon-user" aria-hidden="true"></i> 手机号: &nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="lid" class="form-control" placeholder="输入手机号..." style="display:inline;width:200px;"></li>
 								<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> 昵称 : &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" class="form-control" placeholder="输入昵称..." style="display:inline;width:200px;"></li>
 								<li><i class="glyphicon glyphicon-heart" aria-hidden="true"></i> 性别 : &nbsp;&nbsp;&nbsp;&nbsp;<select name="gender" class="form-control" style="display:inline;width:200px;">
 																									  <option>男</option>
@@ -113,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																									</select></li>
 								<li><i class="glyphicon glyphicon-print" aria-hidden="true"></i> 姓名 : &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="realname" class="form-control" placeholder="输入姓名..." style="display:inline;width:200px;"></li>
 								<li></li>
-								<li><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> 区域 : &nbsp;&nbsp;<input type="text" name="didname" class="form-control" placeholder="输入QQ号..." style="display:inline;width:200px;"></li>
+								<li><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> 区域 : &nbsp;&nbsp;<input type="text" name="didname" class="form-control" placeholder="输入居住地..." style="display:inline;width:200px;"></li>
 								
 							</ul>
 							<button type="submit" class="button3 hvr-shutter-out-horizontal">确认修改</button>
@@ -129,45 +131,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!---footer--->
 			<div class="footer-section">
 						<div class="container">
-							<!--<div class="footer-grids">
-								<div class="col-md-3 footer-grid">
-									<h4>About Real Homes</h4>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-								</div>
-								<div class="col-md-3 footer-grid">
-									<h4>Recent Posts</h4>
-									<ul>
-										<li><a href="#">Lorem Post With Image Format</a></li>
-										<li><a href="#">Example Video Blog Post</a></li>
-										<li><a href="#">Example Post With Gallery Post </a></li>
-										<li><a href="#">Example Video Blog Post</a></li>
-										<li><a href="#">Lorem Post With Image Format</a></li>
-										<li><a href="#">Example Video Blog Post</a></li>
-									</ul>
-								</div>
-								<div class="col-md-3 footer-grid">
-									<h4>Useful links</h4>
-									<ul>
-										<li><a href="terms.html">Terms of Use</a></li>
-										<li><a href="privacy.html">Privacy Policy</a></li>
-										<li><a href="contact.html">Contact Support </a></li>
-										<li><a href="agents.html"> All Agents</a></li>
-										<li><a href="blog.html">Blog</a></li>
-										<li><a href="faqs.html">FAQs</a></li>
-									</ul>
-								</div>
-								<div class="col-md-3 footer-grid">
-									<h4>Get In Touch</h4>
-									<p>8901 Marmora Road</p>
-									<p>Glasgow, DO4 89GR.</p>
-									<p>Freephone : +1 234 567 890</p>
-									<p>Telephone : +1 234 567 890</p>
-									<p>FAX : + 1 234 567 890</p>
-									<p>E-mail : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-								</div>
-							<div class="clearfix"> </div>
-							</div>
-							-->
 						</div>
 					</div>
 			<!---footer--->

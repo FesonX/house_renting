@@ -143,7 +143,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="query.do?method=showAllHouse">租房</a></li>
+								<% if(renter!=null){%>
+								<li><a href="query.do?method=showAllHouse">租房</a></li>
+								<li><a href="book.do?rid=<% out.print(renter.getRid()); %>">我的预约</a></li>
+								<li><a href="contract.do?rid=<% out.print(renter.getRid()); %>">我的租赁</a></li>
+								<%} %>
+								<% if(landlord!=null){%>
+								<li><a href="FindHousebylid.do?lid=${landlord.getlid()}">房源</a></li>
+								<%} %>
+								<% if(renter==null&&landlord==null){%>
+								<li><a href="query.do?method=showAllHouse">看房</a></li>
+								<%} %>
 							</ul>
 							<%if(renter!=null){ %>
 							<div class="phone">
@@ -235,11 +245,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <a href="book.do?rid=<% out.print(renter.getRid()); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>" class="button button-glow button-rounded button-highlight"><h5>预约看房</h5></a>
 							   &nbsp;&nbsp;
 							  <a href="contract.do?rid=<% out.print(renter.getRid()); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>" class="button button-glow button-rounded button-caution"><h5>租赁此房</h5></a>
-							  <%}else{%>
+							  <%}else if(renter==null&&landlord==null){%>
 							  	<a href="renterLogin.jsp" class="button button-glow button-rounded button-highlight"><h5>还没登录！前往登录</h5></a>
 							    &nbsp;&nbsp;
 							    <a href="renterRegister.jsp" class="button button-glow button-rounded button-caution"><h5>还没账户？注册一个</h5></a>
-							  <%} %>
+							  <%}else if(renter==null&&landlord!=null){ %>
+							  
+							  <%}%>
 							</div>
 						</div>							  
 					<!--fea-video-->

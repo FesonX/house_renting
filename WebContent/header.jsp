@@ -46,7 +46,7 @@
                <a href="adminModify.jsp">修改密码</a>
             </li>
           </ul>
-          <form action="query.do?method=searchHouseByDid" class="navbar-form navbar-left" role="search" method="post">
+          <form action="#" class="navbar-form navbar-left" role="search" method="post">
             <div class="form-group">
               <input type="text" class="form-control" name="district" value=""/>
             </div> <button type="submit" class="btn btn-default">搜索</button>
