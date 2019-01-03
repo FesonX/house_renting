@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
 									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
 									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="renterLogin.do?name=<%out.print(renter.getName());%>&password=<%out.print(renter.getPassword());%>">用户中心 </a> </li>
 								</ul>
 							</div>
 						<%
@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
 									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
 									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getPassword());%>&password=<%out.print(landlord.getname());%>">用户中心 </a> </li>
 								</ul>
 							</div>
 						<%
@@ -114,7 +114,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<%
 								}	
 						%>
-						
 						<div class="clearfix"></div>
 					</div>
 					<nav class="navbar navbar-default">
@@ -137,9 +136,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
+							
+							<%if(renter!=null){ %>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><%out.print(renter.getRid()); %></span>
 							</div>
+							<%} %>
+							
 							<div class="clearfix"></div>
 						</div>
 					</nav>
@@ -154,21 +157,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  <div class="caption">
 								<h3>深圳南山花园社区，南北通透</h3>
 								<p>南山花园对面是阳光科创商圈，近南山村市场，周末与朋友小憩聊天超方便，还有清吧等。离蛇口沃尔玛，来福士，海雅百货，茂业，海岸城都超级近，平常想逛街一口气都能去这几个地方买到心仪的东西。公交站有城市山林东/西，南山村等，地铁临近南山站。</p>
-								<a href="#" class="button">查看详情</a>
+								<a href="query.do?method=showOneHouse&hid=4062" class="button">查看详情</a>
 						  </div>
 					</div>
 					<div class="slid banner2">	
 						  <div class="caption">
 								<h3>深圳龙悦居四期，坐北朝南</h3>
 								<p>龙悦居北邻深圳北站，距梅林关约3公里，离深圳市中心9.3公里。是深圳市2010年开工建设的“十大民生工程”之一，是深圳市2011年度重大项目。龙悦居由1-3层地下室、2层商业区、1栋3层幼儿园及11栋33-35层高层住宅组成，是集商业、幼儿园、住宅为一体的保障性住房。</p>
-								<a href="#" class="button">查看详情</a>
+								<a href="query.do?method=showOneHouse&hid=3761" class="button">查看详情</a>
 						  </div>
 					</div>
 					<div class="slid banner3">	
 						<div class="caption">
 							<h3>深圳南海中心，风水宝地</h3>
 							<p>南海中心大厦位于深圳市东门中路繁华商业中心，大厦由商务公寓、购物商场组成，另有两层地下停车场，总占地面积5523平方米，总建筑面积52045平方米。南海中心大厦是东门地界早期最豪华的高级商住豪宅，集商住、购物、美食广场于一体，拥有一流的硬件设备设施。</p>
-							<a href="#" class="button">查看详情</a>
+							<a href="query.do?method=showOneHouse&hid=3800" class="button">查看详情</a>
 						</div>
 					</div>
 				</ul>
@@ -181,59 +184,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h2>寻找房源</h2>
 				<form action="query.do" method="get">
 				<input type="hidden" name="method" value="searchHouseByDid">
-				<!-- <div class="place-grids">
-					<div class="col-md-3 place-grid1">
-						<h5>面积下限</h5>
-						<select class="sel">
-						<option value="">无下限</option>
-						<option value="">20m²</option>
-						<option value="">50m²</option>
-						<option value="">80m²</option>
-						<option value="">100m²</option>
-						<option value="">150m²</option>
-						</select>
-					</div>
-					<div class="col-md-3 place-grid1">
-						<h5>面积上限</h5>
-						<select class="sel">
-							<option value="">无上限</option>
-							<option value="">20m²</option>
-							<option value="">50m²</option>
-							<option value="">80m²</option>
-							<option value="">100m²</option>
-							<option value="">150m²</option>
-						</select>
-					</div>
-					<div class="col-md-3 place-grid1">
-						<h5>租金下限</h5>
-						<select class="sel">
-							<option value="">无下限</option>
-							<option value="">￥300</option>
-							<option value="">￥500</option>
-							<option value="">￥700</option>
-							<option value="">￥1000</option>
-							<option value="">￥1500</option>
-							<option value="">￥2000</option>
-							<option value="">￥3000</option>
-							<option value="">￥5000</option>
-						</select>
-					</div>
-					<div class="col-md-3 place-grid1">
-						<h5>租金上限</h5>
-						<select class="sel">
-							<option value="">无上限</option>
-							<option value="">￥300</option>
-							<option value="">￥500</option>
-							<option value="">￥700</option>
-							<option value="">￥1000</option>
-							<option value="">￥1500</option>
-							<option value="">￥2000</option>
-							<option value="">￥3000</option>
-							<option value="">￥5000</option>
-						</select>
-					</div>
-					<div class="clearfix"></div>
-				</div> -->
 				<div class="place-grids">
 					<div class="col-md-4 place-grid">
 						<h5>所在城市</h5>
@@ -248,19 +198,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<option value="dongguan">东莞</option>
 						</select>
 					</div>
-					<!-- <div class="col-md-4 place-grid">
-						<h5>房型</h5>
-						<select class="sel">
-						<option value="">所有房型</option>
-						<option value="">单间</option>
-						<option value="">一室一厅</option>
-						<option value="">两室一厅</option>
-						<option value="">三室一厅</option>
-						<option value="">两室两厅</option>
-						<option value="">三室两厅</option>
-						<option value="">四室两厅</option>
-						</select>
-					</div> -->
 					<div class="col-md-4 search">
 					<input type="submit" value="搜索">
 					</div>
@@ -300,12 +237,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4><a href="single.html" style="font-weight:bolder;">深圳罗湖置地逸轩</a></h4>
 								<div class="offer1">
 									<div class="offer-left">
-										<a href="single.html" class="mask"><img src="images/p3.jpg" class="img-responsive zoom-img" alt=""/></a>
+										<a href="query.do?method=showOneHouse&hid=38" class="mask"><img src="images/p3.jpg" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 									<div class="offer-right">
 										<h5><label>￥</label>1500/两室一厅</h5>
 										<p>房间采光通风超好，大落地窗，还有阳台，空调，热水器，液晶电视，双人床，衣柜，沙发，茶几，宽带，免费网络，遮光防强光高档窗帘独立厨房卫生间。</p>
-										<a href="single.html"class="button1">查看详情</a>
+										<a href="query.do?method=showOneHouse&hid=38"class="button1">查看详情</a>
 									</div>
 										<div class="clearfix"></div>
 								</div>
@@ -316,12 +253,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4><a href="single.html" style="font-weight:bolder;">深圳南山集悦城</a></h4>
 									<div class="offer1">
 										<div class="offer-left">
-											<a href="single.html" class="mask"><img src="images/p4.jpg" class="img-responsive zoom-img" alt=""/></a>
+											<a href="query.do?method=showOneHouse&hid=148" class="mask"><img src="images/p4.jpg" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 										<div class="offer-right">
 											<h5><label>￥</label>2200/一室一厅</h5>
 											<p>公寓紧邻地铁站，距离老街地铁站300米，交通非常方便。出门就是东门步行街，购物出行都极其方便。所有的房间都是精美装修，家私家电全齐 ，拎包入住即可。 </p>
-											<a href="single.html"class="button1">查看详情</a>
+											<a href="query.do?method=showOneHouse&hid=148"class="button1">查看详情</a>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -332,7 +269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="offer-grids">
 						<div class="col-md-6 offer-grid">
 							<div class="offer-grid1">
-								<h4><a href="single.html" style="font-weight:bolder;">深圳南山魔方公寓</a></h4>
+								<h4><a href="query.do?method=showOneHouse&hid=159" style="font-weight:bolder;">深圳南山魔方公寓</a></h4>
 								<div class="offer1">
 									<div class="offer-left">
 										<a href="single.html" class="mask"><img src="images/p5.jpg" class="img-responsive zoom-img" alt=""/></a>
@@ -340,7 +277,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="offer-right">
 										<h5><label>￥</label>3000/三室一厅</h5>
 										<p>室内配备空调，电视，冰箱，洗衣机等品牌家电，拥有带阳台、带飘窗等，周边汇聚岁宝百货、华城百货等等，临近白石洲、华侨城等。</p>
-										<a href="single.html"class="button1">查看详情</a>
+										<a href="query.do?method=showOneHouse&hid=159"class="button1">查看详情</a>
 									</div>
 										<div class="clearfix"></div>
 								</div>
@@ -348,7 +285,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 							<div class="col-md-6 offer-grid">
 								<div class="offer-grid1">
-									<h4><a href="single.html" style="font-weight:bolder;">深圳宝安庭苑公寓</a></h4>
+									<h4><a href="query.do?method=showOneHouse&hid=251" style="font-weight:bolder;">深圳宝安庭苑公寓</a></h4>
 									<div class="offer1">
 										<div class="offer-left">
 											<a href="single.html" class="mask"><img src="images/p6.jpg" class="img-responsive zoom-img" alt=""/></a>
@@ -356,7 +293,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="offer-right">
 											<h5><label>￥</label>4500/三室两厅</h5>
 											<p>家电家私配置齐全，可拎包入住，有阳台，有电梯，可养宠物，可短租。双人床、沙发、WiFi、空调、洗衣机、双层冰箱、24h热水、电磁炉、油烟机等全新配备。</p>
-											<a href="single.html"class="button1">查看详情</a>
+											<a href="query.do?method=showOneHouse&hid=251"class="button1">查看详情</a>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -370,12 +307,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h4><a href="#" style="font-weight:bolder;">深圳龙华窝趣轻社区</a></h4>
 								<div class="offer1">
 									<div class="offer-left">
-										<a href="single.html" class="mask"><img src="images/p7.jpg" class="img-responsive zoom-img" alt=""/></a>
+										<a href="query.do?method=showOneHouse&hid=262" class="mask"><img src="images/p7.jpg" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 									<div class="offer-right">
 										<h5><label>￥</label>2200/一室一厅</h5>
 										<p>社区周边生活便利，下楼即享受24小时品牌连锁便利店；社区房间风格多样，马卡龙、格调北欧、自由工业任你选，给您打造一个全新的住房体验。</p>
-										<a href="single.html"class="button1">查看详情</a>
+										<a href="query.do?method=showOneHouse&hid=262"class="button1">查看详情</a>
 									</div>
 										<div class="clearfix"></div>
 								</div>
@@ -383,10 +320,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 							<div class="col-md-6 offer-grid">
 								<div class="offer-grid1">
-									<h4><a href="single.html" style="font-weight:bolder;">深圳福田城家公寓</a></h4>
+									<h4><a href="query.do?method=showOneHouse&hid=286" style="font-weight:bolder;">深圳福田城家公寓</a></h4>
 									<div class="offer1">
 										<div class="offer-left">
-											<a href="single.html" class="mask"><img src="images/p8.jpg" class="img-responsive zoom-img" alt=""/></a>
+											<a href="query.do?method=showOneHouse&hid=286" class="mask"><img src="images/p8.jpg" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 										<div class="offer-right">
 											<h5><label>￥</label>8500/四室两厅</h5>
@@ -409,25 +346,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-3 feature-grid">
 								<img src="images/f1.jpg" class="img-responsive" alt="/">
 								<h5 style="font-style:normal;font-weight:bolder;">新世界名镌</h5>
-								<p>阔绰客厅开间，约4.1米宽阔开间客厅个，65寸家庭影院、8座家族沙发自由摆放，彰显非凡品味。 <a href="#">查看详情</a></p>
+								<p>阔绰客厅开间，约4.1米宽阔开间客厅个，65寸家庭影院、8座家族沙发自由摆放，彰显非凡品味。 <a href="query.do?method=showOneHouse&hid=654">查看详情</a></p>
 								<span>￥35000/月</span>
 							</div>
 							<div class="col-md-3 feature-grid">
 								<img src="images/f2.jpg" class="img-responsive" alt="/">
 								<h5 style="font-style:normal;font-weight:bolder;">承翰半山海</h5>
-								<p>传世大宅，尊荣5房布局，四世同堂，尽显大家风范。舒居主卧套房，全景奢阔飘窗，美景尽收眼底。 <a href="#">查看详情</a></p>
+								<p>传世大宅，尊荣5房布局，四世同堂，尽显大家风范。舒居主卧套房，全景奢阔飘窗，美景尽收眼底。 <a href="query.do?method=showOneHouse&hid=806">查看详情</a></p>
 								<span>￥27500/月</span>
 							</div>
 							<div class="col-md-3 feature-grid">
 								<img src="images/f3.jpg" class="img-responsive" alt="/">
 								<h5 style="font-style:normal;font-weight:bolder;">半山半海</h5>
-								<p>奢阔观景阳台，观景阳台宽大约7.1米，一家人的第二会客厅，雍容尺度，阅览人生美景。 <a href="#">查看详情</a></p>
+								<p>奢阔观景阳台，观景阳台宽大约7.1米，一家人的第二会客厅，雍容尺度，阅览人生美景。 <a href="query.do?method=showOneHouse&hid=914">查看详情</a></p>
 								<span>￥40000/月</span>
 							</div>
 							<div class="col-md-3 feature-grid">
 								<img src="images/f4.jpg" class="img-responsive" alt="/">
 								<h5 style="font-style:normal;font-weight:bolder;">高档泳池别墅</h5>
-								<p>高档的别墅泳池庭院，放上遮阳伞和休闲躺椅你就可以美美的享受你的私家别墅泳池了。 <a href="#">查看详情</a></p>
+								<p>高档的别墅泳池庭院，放上遮阳伞和休闲躺椅你就可以美美的享受你的私家别墅泳池了。 <a href="query.do?method=showOneHouse&hid=928">查看详情</a></p>
 								<span>￥50000/月</span>
 							</div>
 							<div class="clearfix"></div>
@@ -445,7 +382,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<img src="images/t1.png" class="img-responsive" alt=""/>
 									</div>
 									<div class="col-md-10 testmonial-text">
-										<p>真实存在，真实在售，真实价格，真实图片！贝壳郑重向用户承诺：真实房源，假一赔百元！</p>
+										<p>真实存在，真实在售，真实价格，真实图片！</p>
 										<h4><a href="#">许维恭</a></h4>
 									</div>
 									<div class="clearfix"> </div>
@@ -536,5 +473,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!-- //Register -->
 </body>
-
 </html>

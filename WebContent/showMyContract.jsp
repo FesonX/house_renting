@@ -95,6 +95,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
+								if(renter==null&&landlord==null){
 						%>
 						<div class="email">
 						<ul>
@@ -114,6 +115,37 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 											</ul></li>
 						</ul>
 						</div>
+						<%
+								}else{
+									if(renter!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="renterLogin.do?name=<%out.print(renter.getName());%>&password=<%out.print(renter.getPassword());%>">用户中心 </a> </li>
+								</ul>
+							</div>
+						<%
+									}
+									if(landlord!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getPassword());%>&password=<%out.print(landlord.getname());%>">用户中心 </a> </li>
+								</ul>
+							</div>
+						<%
+									}
+						%>
+							
+						<%
+								}	
+						%>
 						<div class="clearfix"></div>
 					</div>
 					<nav class="navbar navbar-default">
@@ -136,9 +168,11 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
+							<%if(renter!=null){ %>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><%out.print(renter.getRid()); %></span>
 							</div>
+							<%} %>
 							<div class="clearfix"></div>
 						</div>
 					</nav>
@@ -150,7 +184,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 		<!---banner--->
 		<div class="banner-section">
 			<div class="container">
-				<h2>我的合同</h2>
+				<h2>我的租借</h2>
 			</div>
 		</div>
 		<!---banner--->
@@ -201,56 +235,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 							<form action="query.do" method="get">
 							<input type="hidden" name="method" value="searchHouseByDid">
 							<h4>挑选您喜爱的房子</h4>
-							<!-- <div class="yourplace">
-								<h5>面积下限</h5>
-								<select class="sel2">
-									<option value="">无下限</option>
-									<option value="">20m²</option>
-									<option value="">50m²</option>
-									<option value="">80m²</option>
-									<option value="">100m²</option>
-									<option value="">150m²</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>面积上限</h5>
-								<select class="sel2">
-									<option value="">无上限</option>
-									<option value="">20m²</option>
-									<option value="">50m²</option>
-									<option value="">80m²</option>
-									<option value="">100m²</option>
-									<option value="">150m²</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>租金下限</h5>
-								<select class="sel2">
-									<option value="">无下限</option>
-									<option value="">￥300</option>
-									<option value="">￥500</option>
-									<option value="">￥700</option>
-									<option value="">￥1000</option>
-									<option value="">￥1500</option>
-									<option value="">￥2000</option>
-									<option value="">￥3000</option>
-									<option value="">￥5000</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>租金上限</h5>
-								<select class="sel2">
-									<option value="">无上限</option>
-									<option value="">￥300</option>
-									<option value="">￥500</option>
-									<option value="">￥700</option>
-									<option value="">￥1000</option>
-									<option value="">￥1500</option>
-									<option value="">￥2000</option>
-									<option value="">￥3000</option>
-									<option value="">￥5000</option>
-								</select>
-							</div> -->
 							<div class="yourplace">
 								<h5>所在城市</h5>
 								<select class="sel2" name="district">
@@ -265,20 +249,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 								</select>
 							</div>
 							
-							<!-- <div class="yourplace">
-								<h5>房型</h5>
-								<select class="sel2">
-									<option value="">所有房型</option>
-									<option value="">单间</option>
-									<option value="">一室一厅</option>
-									<option value="">两室一厅</option>
-									<option value="">三室一厅</option>
-									<option value="">两室两厅</option>
-									<option value="">三室两厅</option>
-									<option value="">四室两厅</option>
-								</select>
-							</div> -->
-							
 								<input type="submit" value="搜索">
 							</form>
 							</div>
@@ -288,12 +258,12 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 							<div class="feature-top">
 							<img src="images/s6.jpg" class="img-responsive" alt="/">
 									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=1817">Know More</a></p>
 							</div>
 							<div class="feature-top top2">
 							<img src="images/s7.jpg" class="img-responsive" alt="/">
 									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="query.do?method=showOneHouse&hid=3194">Know More</a></p>
 							</div>
 						</div>
 					</div>
