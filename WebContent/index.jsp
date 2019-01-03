@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h2>寻找房源</h2>
 				<form action="query.do" method="get">
 				<input type="hidden" name="method" value="searchHouseByDid">
-				<div class="place-grids">
+				<!-- <div class="place-grids">
 					<div class="col-md-3 place-grid1">
 						<h5>面积下限</h5>
 						<select class="sel">
@@ -241,7 +241,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</select>
 					</div>
 					<div class="clearfix"></div>
-				</div>
+				</div> -->
 				<div class="place-grids">
 					<div class="col-md-4 place-grid">
 						<h5>所在城市</h5>
@@ -256,7 +256,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<option value="dongguan">东莞</option>
 						</select>
 					</div>
-					<div class="col-md-4 place-grid">
+					<!-- <div class="col-md-4 place-grid">
 						<h5>房型</h5>
 						<select class="sel">
 						<option value="">所有房型</option>
@@ -268,7 +268,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<option value="">三室两厅</option>
 						<option value="">四室两厅</option>
 						</select>
-					</div>
+					</div> -->
 					<div class="col-md-4 search">
 					<input type="submit" value="搜索">
 					</div>

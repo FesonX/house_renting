@@ -12,6 +12,7 @@ import cn.bean.House;
 
 public class RejectHouseReviewAction implements Action{
 
+	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		boolean result = false;
 		String msg = "";

@@ -9,15 +9,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.bean.Book;
 import cn.bean.Contract;
 import cn.bean.House;
 import cn.bean.Landlord;
-import cn.dao.BookDao;
 import cn.dao.ContractDao;
 import cn.dao.HouseDao;
 import cn.dao.LandlordDao;
-import cn.dao.impl.BookDaoImpl;
 import cn.dao.impl.ContractDaoImpl;
 import cn.dao.impl.HouseDaoImpl;
 import cn.dao.impl.LandlordDaoImpl;

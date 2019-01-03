@@ -1,5 +1,4 @@
 package cn.action;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -7,7 +6,6 @@ import javax.servlet.http.HttpSession;
 import cn.bean.Landlord;
 import cn.dao.LandlordDao;
 import cn.dao.impl.LandlordDaoImpl;
-
 
 import cn.framework.Action;
 public class LandlordPwAction implements Action{

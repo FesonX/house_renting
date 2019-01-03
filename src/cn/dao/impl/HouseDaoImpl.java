@@ -79,6 +79,7 @@ public class HouseDaoImpl implements HouseDao {
 		return flag;
 	}
 	
+	@Override
 	public List<House> housesearch(String[] propertyname,Object[] value) throws Exception{
 		List<House> list = new ArrayList<House>();
 		Connection conn = bd.getConnection();
