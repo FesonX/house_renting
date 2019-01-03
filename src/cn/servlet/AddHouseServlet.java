@@ -66,19 +66,20 @@ public class AddHouseServlet extends HttpServlet {
              hashCodeV = -hashCodeV;
          }
  	int hid =hashCodeV;
- 	String lid =list.get(0);
- 	String address =list.get(3);
- 	int did=distinctDao.findDid(list.get(1));
- 	String title = list.get(2);
- 	float Area = Float.parseFloat(list.get(4));
- 	float Price = Float.parseFloat(list.get(5));
- 	String houseType=list.get(6);
+ 	String lid =request.getParameter("lid");
+ 	String address =list.get(2);
+ 	int did=distinctDao.findDid(list.get(0));
+ 	String title = list.get(1);
+ 	float Area = Float.parseFloat(list.get(3));
+ 	float Price = Float.parseFloat(list.get(4));
+ 	String houseType=list.get(5);
  	String Pic = finalPhotoName;
  	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
  	String str = df.format(new Date());// new Date()为获取当前系统时间
  	House h=new House(hid,lid,did,title,houseType,address,  Area,  Pic,
 			0,  Price,  str,  0);
  	boolean isFlag = houseDao.doHouse(h);
+ 	request.getRequestDispatcher("/LandlordInfo.jsp").forward(request,response);
     }
 
 protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {

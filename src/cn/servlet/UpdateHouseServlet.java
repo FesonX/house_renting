@@ -85,6 +85,7 @@ public class UpdateHouseServlet extends HttpServlet {
  	House h=new House(hid,h1.getLid(),h1.getDid(),h1.getTitle(),h1.getHouseType(),address,  Area,  Pic,
 			h1.getStatus(),  Price,  str,  h1.getReviewed());
  	boolean isFlag = houseDao.updateHouse(h);
+ 	request.getRequestDispatcher("/LandlordInfo.jsp").forward(request,response);
 	}
 
 	/**

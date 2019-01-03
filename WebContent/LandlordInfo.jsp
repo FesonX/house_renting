@@ -53,7 +53,7 @@ controlNav: "thumbnails"
 <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎， <a href="LandlordInfo.jsp">${renter.name}</a> </li>
 <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
 <li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
-<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="FindHouseBylid.do?lid=${landlord.getlid()}"></a> </li>
+<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="FindHousebylid.do?lid=${landlord.getlid()}">我的房源 </a> </li>
 </ul>
 </div>
 <div class="clearfix"></div>

@@ -27,6 +27,7 @@ public class FindHousebylidAction implements Action {
 			e.printStackTrace();
 		}
 		request.setAttribute("lh", listHouse);
+		request.setAttribute("lid", lid);
 		return "HouseManage.jsp";
 	}
 }

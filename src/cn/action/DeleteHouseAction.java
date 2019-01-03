@@ -14,6 +14,6 @@ public class DeleteHouseAction implements Action {
 		HouseDao houseDao = new HouseDaoImpl();
 		int hid=Integer.parseInt(request.getParameter("hid"));
 		boolean isFlag = houseDao.deleteHouseByHid(hid);
-		return "findHousebylid.do";
+		return "LandlordInfo.jsp";
 	}
 }
