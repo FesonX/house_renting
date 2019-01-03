@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.bean.Admin;
 import cn.dao.AdminDao;
 import cn.bean.Landlord;
 import cn.dao.LandlordDao;
@@ -41,10 +40,12 @@ public class LandlordRegisterAction implements Action {
 		
 		//Flag = adminDao.register(admin);
 		if (Flag) {
-			return "index.jsp";
+			return "jumpLandlordLogin.jsp";
 		}
-		else
-			return "register.jsp";	
+		else {
+			return "registerResult";
+		}
+			
 	}
 
 }

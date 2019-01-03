@@ -23,6 +23,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
+<script src="js/responsiveslides.min.js"></script>
+	 <script>
+		$(function () {
+		  $("#slider").responsiveSlides({
+			auto:true,
+			nav: false,
+			speed: 500,
+			namespace: "callbacks",
+			pager:true,
+		  });
+		});
+	</script>
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/button.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+	<script>
+		$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+			items : 1,
+			lazyLoad : true,
+			autoPlay : true,
+			navigation : false,
+			navigationText :  false,
+			pagination : true,
+		});
+		});
+	</script>
 <!-- FlexSlider -->
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -43,18 +70,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
+						<%
+								Renter renter=(Renter) session.getAttribute("renter");
+								Landlord landlord = (Landlord) session.getAttribute("landlord");
+						%>
 						<div class="email">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com</a> </li>
+							<li class="dropdown">				
+							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a href="renterLogin.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+												<li><a href="landlordLogin.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+											</ul>
+									</li>
+							<li class="dropdown"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">注册<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+											</ul></li>
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -80,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="active"><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -162,6 +197,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><span>宽带：</span><% int num9 = r.nextInt(2);String flag9 = (num9==1?"有":"无");out.print(flag9); %></li>
 								<li><span>衣柜：</span><% int num10 = r.nextInt(2);String flag10 = (num10==1?"有":"无");out.print(flag10); %></li>
 							</ul>
+							<div>
+							  <%if(renter!=null){ %>
+							  <a href="book.do?rid=<% out.print(renter.getRid()); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>" class="button button-glow button-rounded button-highlight"><h5>预约看房</h5></a>
+							   &nbsp;&nbsp;
+							  <a href="contract.do?rid=<% out.print(renter.getRid()); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>" class="button button-glow button-rounded button-caution"><h5>租赁此房</h5></a>
+							  <%}else{%>
+							  	<a href="renterLogin.jsp" class="button button-glow button-rounded button-highlight"><h5>还没登录！前往登录</h5></a>
+							    &nbsp;&nbsp;
+							    <a href="renterRegister.jsp" class="button button-glow button-rounded button-caution"><h5>还没账户？注册一个</h5></a>
+							  <%} %>
+							</div>
 						</div>							  
 					<!--fea-video-->
 					</div>
@@ -200,44 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!---footer--->
 			<div class="footer-section">
 				<div class="container">
-					<!--<div class="footer-grids">
-						<div class="col-md-3 footer-grid">
-							<h4>About Real Homes</h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Recent Posts</h4>
-							<ul>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Example Post With Gallery Post </a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Useful links</h4>
-							<ul>
-								<li><a href="terms.html">Terms of Use</a></li>
-								<li><a href="privacy.html">Privacy Policy</a></li>
-								<li><a href="contact.html">Contact Support </a></li>
-								<li><a href="agents.html"> All Agents</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="faqs.html">FAQs</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Get In Touch</h4>
-							<p>8901 Marmora Road</p>
-							<p>Glasgow, DO4 89GR.</p>
-							<p>Freephone : +1 234 567 890</p>
-							<p>Telephone : +1 234 567 890</p>
-							<p>FAX : + 1 234 567 890</p>
-							<p>E-mail : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>-->
+					
 				</div>
 			</div>
 			<!---footer--->
@@ -306,74 +315,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- //Register -->
 
 </body>
-</html>    
- 
-<%-- <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<div>
-<div class="result-title">
-<h1>房源列表</h1>
-</div>
-	<form id="houseForm" name="houseForm"
-		action=""
-		method=post >
-					<div class="">
-						<table id=grid
-							class="result-tab" width="100%">
-							<tbody>
-								<tr style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
-									<td>房源id</td>
-									<td>房主id</td>
-									<td>房主名字</td>
-									<td>地址id</td>
-									<td>城市</td>
-									<td>描述</td>
-									<td>房型</td>
-									<td>具体地址</td>
-									<td>面积</td>
-									<td>图片</td>
-									<td>租赁状态</td>
-									<td>价格</td>
-									<td>发布时间</td>
-									<td>审核状态</td>
-									<td>操作</td>
-								</tr>
-								<%   ArrayList houses = (ArrayList)request.getAttribute("houseList");
-								   String landlord_name = (String)request.getAttribute("landlord_name");
-								   String district_name = (String)request.getAttribute("district_name");
-								   /*iterate over the arraylist*/
-								    for (int i = 0; i < houses.size(); i++) { 
-								       House a_house = (House)houses.get(i); %>  
-								       <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-								       	   <td><% out.print(a_house.getHid()); %></td>
-									       <td><% out.print(a_house.getLid()); %></td>
-									       <td><% out.print(landlord_name); %></td>
-									       <td><% out.print(a_house.getDid()); %></td>
-									       <td><% out.print(district_name); %></td>
-									       <td><% out.print(a_house.getTitle()); %></td>
-									       <td><% out.print(a_house.getHouseType()); %></td>
-									       <td><% out.print(a_house.getAddress()); %></td>
-									       <td><% out.print(a_house.getArea()); %></td>
-									       <td><% out.print(a_house.getPic()); %></td>
-									       <td><% out.print(a_house.getStatus()); %></td>
-									       <td><% out.print(a_house.getPrice()); %></td>
-									       <td><% out.print(a_house.getIssueDate()); %></td>
-									       <td><% out.print(a_house.getReviewed()); %></td>
-									       <td>
-									       <a class="" href="book.do?rid=<% out.print("13030645753"); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>">预约看房</a>
-									       &nbsp;&nbsp;
-									       <a class="" href="contract.do?rid=<% out.print("13030645753"); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>">租赁此房</a>
-									       </td>
-								       </tr>
-								<% } %>
-							</tbody>
-						</table>
-					</div>
-	 </form>
-</div>
-</body>
-</html> --%>
+</html>

@@ -61,11 +61,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
+
+								if(renter==null&&landlord==null){
 						%>
-						<div class="email">
-						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li class="dropdown">				
+							<div class="email">
+							<ul>
+							<!-- <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li> -->
+							<li class="dropdown">
+							
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
 											<ul class="dropdown-menu">
@@ -78,8 +81,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 											</ul></li>
-						</ul>
-						</div>
+							</ul>
+							</div>
+						<%
+								}else{
+									if(renter!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(renter.getName());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="renterLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+								</ul>
+							</div>
+						<%
+									}
+									if(landlord!=null){
+						%>
+							<div class="email">
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>用户中心 <a href="#"></a> </li>
+								</ul>
+							</div>
+						<%
+									}
+						%>
+							
+						<%
+								}	
+						%>
+						
 						<div class="clearfix"></div>
 					</div>
 					<nav class="navbar navbar-default">
@@ -100,10 +135,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -146,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h2>寻找房源</h2>
 				<form action="query.do" method="get">
 				<input type="hidden" name="method" value="searchHouseByDid">
-				<div class="place-grids">
+				<!-- <div class="place-grids">
 					<div class="col-md-3 place-grid1">
 						<h5>面积下限</h5>
 						<select class="sel">
@@ -198,7 +234,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</select>
 					</div>
 					<div class="clearfix"></div>
-				</div>
+				</div> -->
 				<div class="place-grids">
 					<div class="col-md-4 place-grid">
 						<h5>所在城市</h5>
@@ -213,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<option value="dongguan">东莞</option>
 						</select>
 					</div>
-					<div class="col-md-4 place-grid">
+					<!-- <div class="col-md-4 place-grid">
 						<h5>房型</h5>
 						<select class="sel">
 						<option value="">所有房型</option>
@@ -225,7 +261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<option value="">三室两厅</option>
 						<option value="">四室两厅</option>
 						</select>
-					</div>
+					</div> -->
 					<div class="col-md-4 search">
 					<input type="submit" value="搜索">
 					</div>

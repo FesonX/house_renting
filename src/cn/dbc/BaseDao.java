@@ -18,16 +18,17 @@ public class BaseDao
 	public Connection getConnection()
 	{
 		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	    final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false";
+	  final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false&allowPublicKeyRetrieval=true";
 
-	    final String USER = "root";
-	    final String PASS = "123456";
+	  final String USER = "root";
+
+	  final String PASS = "root";
 		Connection conn=null;
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection(DB_URL,USER,PASS);
-			System.out.println("Connect Database Success");
+			System.out.println("Connect Database Success!!!");
 
 		} 
 		catch (Exception e)

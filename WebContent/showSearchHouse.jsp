@@ -1,9 +1,13 @@
-<%@ page import="cn.bean.*,java.util.*" language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<html>
+<%@ page import="cn.bean.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.Driver" %>
+<%@ page import="java.util.*" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>租房</title>
+<title>贝壳租房</title>
 <!---css--->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -22,7 +26,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
-<!-- FlexSlider -->
+<script src="js/responsiveslides.min.js"></script>
+	 <script>
+		$(function () {
+		  $("#slider").responsiveSlides({
+			auto:true,
+			nav: false,
+			speed: 500,
+			namespace: "callbacks",
+			pager:true,
+		  });
+		});
+	</script>
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+	<script>
+		$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+			items : 1,
+			lazyLoad : true,
+			autoPlay : true,
+			navigation : false,
+			navigationText :  false,
+			pagination : true,
+		});
+		});
+	</script>
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 			<script>
@@ -34,7 +63,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 				});
 			</script>
-			<!-- //FlexSlider-->
 <style>
 ul.pagination {
     display: inline-block;
@@ -59,28 +87,34 @@ ul.pagination li a.active {
 }
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
-</style>
+</style>	
 </head>
-
-
 <body>
 
 		<!---header--->
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
+						<%
+								Renter renter=(Renter) session.getAttribute("renter");
+								Landlord landlord = (Landlord) session.getAttribute("landlord");
+						%>
 						<div class="email">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com@qq.com</a> </li>
+							<li class="dropdown">				
+							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a href="renterLogin.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+												<li><a href="landlordLogin.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+											</ul>
+									</li>
+							<li class="dropdown"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">注册<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+											</ul></li>
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -102,11 +136,11 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="query.do?method=showAllHouse">租房</a></li>
+								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -171,56 +205,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<div class="search1">
 							<form action="query.do?method=searchHouseByDid" method="post">
 							<h4>挑选您喜爱的房子</h4>
-							<!-- <div class="yourplace">
-								<h5>面积下限</h5>
-								<select class="sel2">
-									<option value="">无下限</option>
-									<option value="">20m²</option>
-									<option value="">50m²</option>
-									<option value="">80m²</option>
-									<option value="">100m²</option>
-									<option value="">150m²</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>面积上限</h5>
-								<select class="sel2">
-									<option value="">无上限</option>
-									<option value="">20m²</option>
-									<option value="">50m²</option>
-									<option value="">80m²</option>
-									<option value="">100m²</option>
-									<option value="">150m²</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>租金下限</h5>
-								<select class="sel2">
-									<option value="">无下限</option>
-									<option value="">￥300</option>
-									<option value="">￥500</option>
-									<option value="">￥700</option>
-									<option value="">￥1000</option>
-									<option value="">￥1500</option>
-									<option value="">￥2000</option>
-									<option value="">￥3000</option>
-									<option value="">￥5000</option>
-								</select>
-							</div>
-							<div class="yourplace">
-								<h5>租金上限</h5>
-								<select class="sel2">
-									<option value="">无上限</option>
-									<option value="">￥300</option>
-									<option value="">￥500</option>
-									<option value="">￥700</option>
-									<option value="">￥1000</option>
-									<option value="">￥1500</option>
-									<option value="">￥2000</option>
-									<option value="">￥3000</option>
-									<option value="">￥5000</option>
-								</select>
-							</div> -->
 							<div class="yourplace">
 								<h5>所在城市</h5>
 								<select class="sel2" name="district">
@@ -234,21 +218,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 									<option value="dongguan">东莞</option>
 								</select>
 							</div>
-							
-							<!-- <div class="yourplace">
-								<h5>房型</h5>
-								<select class="sel2">
-									<option value="">所有房型</option>
-									<option value="">单间</option>
-									<option value="">一室一厅</option>
-									<option value="">两室一厅</option>
-									<option value="">三室一厅</option>
-									<option value="">两室两厅</option>
-									<option value="">三室两厅</option>
-									<option value="">四室两厅</option>
-								</select>
-							</div> -->
-							
 								<input type="submit" value="搜索">
 							</form>
 							</div>
@@ -293,44 +262,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 		<!---footer--->
 			<div class="footer-section">
 				<div class="container">
-					<!--<div class="footer-grids">
-						<div class="col-md-3 footer-grid">
-							<h4>About Real Homes</h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Recent Posts</h4>
-							<ul>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Example Post With Gallery Post </a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Useful links</h4>
-							<ul>
-								<li><a href="terms.html">Terms of Use</a></li>
-								<li><a href="privacy.html">Privacy Policy</a></li>
-								<li><a href="contact.html">Contact Support </a></li>
-								<li><a href="agents.html"> All Agents</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="faqs.html">FAQs</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Get In Touch</h4>
-							<p>8901 Marmora Road</p>
-							<p>Glasgow, DO4 89GR.</p>
-							<p>Freephone : +1 234 567 890</p>
-							<p>Telephone : +1 234 567 890</p>
-							<p>FAX : + 1 234 567 890</p>
-							<p>E-mail : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>-->
 				</div>
 			</div>
 			<!---footer--->

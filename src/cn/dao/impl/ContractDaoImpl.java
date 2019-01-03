@@ -87,7 +87,6 @@ public class ContractDaoImpl implements ContractDao {
 	}
 */
 
-	@Override
 	public int countContractSize() throws SQLException {
 		Connection conn = bs.getConnection();
 		StringBuffer sqlBuffer = new StringBuffer();
@@ -96,5 +95,23 @@ public class ContractDaoImpl implements ContractDao {
 		ResultSet rs = pstmt.executeQuery();
 		rs.last();
 		return rs.getRow();
+	}
+	public boolean updateContractReviewed(int cid) {
+		String sql = "update contract set reviewed=? where cid=?";
+		List<Object> lp = new ArrayList<Object>();
+		lp.add(1);
+		lp.add(cid);
+		Boolean flag= bs.update(sql, lp);
+		return flag;
+	}
+
+	@Override
+	public List<Contract> findContractByHid(int hid) {
+		List<Contract> list=null;
+		String sql="select * from contract where hid=?";
+		List<Object> lp=new ArrayList<Object>();
+		lp.add(hid);
+		list=bs.query(sql, lp, Contract.class);
+		return list;
 	}
 }
