@@ -20,8 +20,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/landing-page.min.css" rel="stylesheet">
-    
-    <%@include file="header.jsp"%>
 
   </head>
 
@@ -31,7 +29,7 @@
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
         <a class="navbar-brand" href="#">贝壳租房</a>
-        <a class="btn btn-primary" href="landlordLogin.jsp">登录</a>
+        <a class="btn btn-primary" href="#">登录</a>
       </div>
     </nav>
 

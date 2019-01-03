@@ -1,11 +1,8 @@
 package cn.action;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.bean.District;
 import cn.bean.Renter;
 import cn.dao.RenterDao;
 import cn.dao.impl.RenterDaoImpl;

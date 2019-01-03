@@ -21,13 +21,15 @@ public class BaseDao
 	    final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false";
 
 	    final String USER = "root";
+
 	    final String PASS = "123456";
+
 		Connection conn=null;
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection(DB_URL,USER,PASS);
-			System.out.println("Connect Database Success");
+			System.out.println("Connect Database Success!!!");
 
 		} 
 		catch (Exception e)

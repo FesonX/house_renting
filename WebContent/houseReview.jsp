@@ -6,6 +6,7 @@
 <%@ page import="com.mysql.jdbc.Driver" %>
 <%@ page import="java.util.ArrayList" %>
 <%@include file="header.jsp"%>
+<title>房源审核</title>
 <body>
 <div class="container-fluid">
 	<div class="row-fluid">
@@ -91,6 +92,24 @@ if (admin!=null) {
 				</div> 			
 			</div>
 		</div>	
+		
+		<ul class="pagination">
+				<% int pageNum = (Integer)request.getAttribute("pageNum");
+				   int nowPage = (Integer)request.getAttribute("nowPage");
+				%>
+				<%if(nowPage>0){%>
+					<li>
+						<a href="showUsers.do?type=${type }&nowPage=<%=nowPage-1 %>>">上一页</a>
+					</li>
+					<%} %>
+					<%for (int i = 0; i < pageNum; i++) { %>
+						  <li><a <%if(i==nowPage)out.print("class='active' ");%> 
+						  href="showUsers.do?type=${type }&nowPage=<%out.print(i);%>"><%out.print(i+1); %></a></li>
+					<% } %>
+					<%if(nowPage<pageNum-1){%>
+						  <li><a href="showUsers.do?type=${type }&nowPage=<%out.print(nowPage+1);%>">&raquo;</a></li>
+					<%}%>
+		</ul>
 	<%  	} 
 	else{%>	
 	

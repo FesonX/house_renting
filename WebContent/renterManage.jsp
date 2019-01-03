@@ -6,6 +6,7 @@
 <%@ page import="com.mysql.jdbc.Driver" %>
 <%@ page import="java.util.ArrayList" %>
 <%@include file="header.jsp"%>
+<title>租户管理</title>
 <body>
 
 <script type="text/javascript">
@@ -61,6 +62,7 @@ if (admin!=null) {
 	}
 	else{ System.out.println("删除失败");} 
 	%>
+	<div class="span12">
 	<div class="alert">
 		<button type="button" class="close" data-dismiss="alert">×</button>
 		<h4>
@@ -91,6 +93,25 @@ if (admin!=null) {
 				</tbody>
 				</c:forEach>
 			</table>
+			
+				<ul class="pagination">
+				<% int pageNum = (Integer)request.getAttribute("pageNum");
+				   int nowPage = (Integer)request.getAttribute("nowPage");
+				%>
+				<%if(nowPage>0){%>
+					<li>
+						<a href="showUser.do?type=1&nowPage=<%=nowPage-1 %>>">上一页</a>
+					</li>
+					<%} %>
+					<%for (int i = 0; i < pageNum; i++) { %>
+						  <li><a <%if(i==nowPage)out.print("class='active' ");%> 
+						  href="showUser.do?type=1&nowPage=<%out.print(i);%>"><%out.print(i+1); %></a></li>
+					<% } %>
+					<%if(nowPage<pageNum-1){%>
+						  <li><a href="showUser.do?type=1&nowPage=<%out.print(nowPage+1);%>">&raquo;</a></li>
+					<%}%>
+				</ul>
+			</div>
 			<%}else{%>	
 			
 			<div class="container-fluid">
