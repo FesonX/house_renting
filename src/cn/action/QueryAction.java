@@ -33,28 +33,6 @@ public class QueryAction implements Action {
 		return result; 
 	} 
 	
-	public String showOneHouse(HttpServletRequest request, HttpServletResponse response) {
-		HouseDao hd=new HouseDaoImpl();
-		LandlordDao ld=new LandlordDaoImpl();
-		DistrictDao dd=new DistrictDaoImpl();
-		String hid=request.getParameter("hid");
-		int hid_value = Integer.parseInt(hid);
-		String[] propertyname={"hid"};
-		Object[] value={hid_value};
-		
-		try {
-			List<House> list = hd.housesearch(propertyname, value);
-			House h = list.get(0);
-			List<Landlord> landLordList= ld.findLandlordByLid(h.getLid());
-			List<District> districtList = dd.findDistinctByDid(h.getDid());
-			request.setAttribute("houseList", list);
-			request.setAttribute("landlord_name",landLordList.get(0).getrealname());
-			request.setAttribute("district_name",districtList.get(0).getName());
-		} catch (Exception e) { e.printStackTrace(); }
-		
-		return "showOneHouse.jsp";
-	}
-
 	public String searchHouse(HttpServletRequest request, HttpServletResponse response) {
 		DistrictDao dd  = new DistrictDaoImpl();
 		String nowPage=request.getParameter("nowPage");
@@ -66,7 +44,7 @@ public class QueryAction implements Action {
 		try {
 			List<House> list = hd.houseSearchByDistrict(district);
 			//separate page
-			Paging page = new Paging(list,50);
+			Paging page = new Paging(list,30);
 	        List<Object> houseList = page.getPaging(Integer.parseInt(nowPage));
 	        List<String> districtList = new ArrayList<>();
 	        for(Object h:houseList) {
@@ -98,7 +76,7 @@ public class QueryAction implements Action {
 		try {
 			List<House> list = hd.housesearch(propertyname, value);
 			//separate page
-			Paging page = new Paging(list,50);
+			Paging page = new Paging(list,30);
 	        List<Object> houseList = page.getPaging(Integer.parseInt(nowPage));
 	        List<String> districtList = new ArrayList<>();
 	        for(Object h:houseList) {
@@ -113,6 +91,28 @@ public class QueryAction implements Action {
 		} catch (Exception e) { e.printStackTrace(); }
 		
 		return "showAllHouse.jsp";
+	}
+
+	public String showOneHouse(HttpServletRequest request, HttpServletResponse response) {
+		HouseDao hd=new HouseDaoImpl();
+		LandlordDao ld=new LandlordDaoImpl();
+		DistrictDao dd=new DistrictDaoImpl();
+		String hid=request.getParameter("hid");
+		int hid_value = Integer.parseInt(hid);
+		String[] propertyname={"hid"};
+		Object[] value={hid_value};
+		
+		try {
+			List<House> list = hd.housesearch(propertyname, value);
+			House h = list.get(0);
+			List<Landlord> landLordList= ld.findLandlordByLid(h.getLid());
+			List<District> districtList = dd.findDistinctByDid(h.getDid());
+			request.setAttribute("houseList", list);
+			request.setAttribute("landlord_name",landLordList.get(0).getrealname());
+			request.setAttribute("district_name",districtList.get(0).getName());
+		} catch (Exception e) { e.printStackTrace(); }
+		
+		return "showOneHouse.jsp";
 	}
 
 }

@@ -3,27 +3,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cn.bean.Landlord;
-import cn.dao.LandlordDao;
-import cn.dao.impl.LandlordDaoImpl;
-
+import cn.bean.Renter;
+import cn.dao.RenterDao;
+import cn.dao.impl.RenterDaoImpl;
 import cn.framework.Action;
-public class LandlordPwAction implements Action{
-	
+public class RenterPwAction implements Action{
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		LandlordDao landlordDao = new LandlordDaoImpl();
+		RenterDao RenterDao = new RenterDaoImpl();
 		boolean Flag=false;
 		String password = request.getParameter("new_password");
-		Landlord l=(Landlord) request.getSession().getAttribute("landlord");
-		Flag=landlordDao.updatePwd(l, password);
+		Renter re=(Renter) request.getSession().getAttribute("renter");
+		Flag=RenterDao.updatePwd(re, password);
 		if (Flag) {
 			HttpSession session = request.getSession();
-			l.setPassword(password);
-			session.setAttribute("Landlord", l);
-			return "LandlordInfo.jsp";
+			re.setPassword(password);
+			session.setAttribute("Renter", re);
+			return "RenterInfo.jsp";
 		} else
-			return "LandlordPw.jsp";
+			return "RenterPw.jsp";
 	}
 }

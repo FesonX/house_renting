@@ -19,22 +19,22 @@ public class BaseDao
 	{
 		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	    final String DB_URL = "jdbc:mysql://localhost:3306/house_rent?useSSL=false";
-	 
-	    // 数据库的用户名与密码，需要根据自己的设置
+
 	    final String USER = "root";
-	    final String PASS = "root";
+
+	    final String PASS = "123456";
+
 		Connection conn=null;
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection(DB_URL,USER,PASS);
-			System.out.println("连接数据库成功");
+			System.out.println("Connect Database Success!!!");
 
 		} 
 		catch (Exception e)
 		{
-			// TODO Auto-generated catch block
-			System.out.println("连接数据库失败");
+			System.out.println("Connect Database Failed");
 			e.printStackTrace();
 		}
 		return conn;

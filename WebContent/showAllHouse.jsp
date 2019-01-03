@@ -1,9 +1,13 @@
-<%@ page import="cn.bean.*,java.util.*" language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<html>
+<%@ page import="cn.bean.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.Driver" %>
+<%@ page import="java.util.*" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>租房</title>
+<title>贝壳租房 - 租个好房 住个好家</title>
 <!---css--->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -22,19 +26,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
-<!-- FlexSlider -->
-	 <script src="js/jquery.flexslider.js"></script>
-		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-			<script>
-			// Can also be used with $(document).ready()
-				$(window).load(function() {
-				$('.flexslider').flexslider({
-				animation: "slide",
-				controlNav: "thumbnails"
-				});
-				});
-			</script>
-			<!-- //FlexSlider-->
+<script src="js/responsiveslides.min.js"></script>
+	 <script>
+		$(function () {
+		  $("#slider").responsiveSlides({
+			auto:true,
+			nav: false,
+			speed: 500,
+			namespace: "callbacks",
+			pager:true,
+		  });
+		});
+	</script>
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+	<script>
+		$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+			items : 1,
+			lazyLoad : true,
+			autoPlay : true,
+			navigation : false,
+			navigationText :  false,
+			pagination : true,
+		});
+		});
+	</script>
 <style>
 ul.pagination {
     display: inline-block;
@@ -60,9 +77,8 @@ ul.pagination li a.active {
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 </style>
+	
 </head>
-
-
 <body>
 
 		<!---header--->
@@ -76,11 +92,26 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 							<a href="#"><i class="icon3"></i></a>
 							<a href="#"><i class="icon4"></i></a>
 						</div>-->
+						<%
+								Renter renter=(Renter) session.getAttribute("renter");
+								Landlord landlord = (Landlord) session.getAttribute("landlord");
+						%>
 						<div class="email">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com</a> </li>
+							<li class="dropdown">				
+							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a href="renterLogin.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+												<li><a href="landlordLogin.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+											</ul>
+									</li>
+							<li class="dropdown"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">注册<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+											</ul></li>
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -95,25 +126,27 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 								<span class="icon-bar"></span>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html"><span>贝壳 </span>租房</a></h1>
+								<h1><a href="index.jsp"><span>贝壳 </span>租房</a></h1>
 							</div>
 						</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="forrent.html">租房</a></li>
+								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<li><a href="query.do?method=showAllHouse">租房</a></li>
 							</ul>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>15119419358</span>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 					</nav>
 				</div>
 			</div>
-		<!---header--->
+		<!---header--->		
+		
+		
 		<!---banner--->
 		<div class="banner-section">
 			<div class="container">
@@ -138,7 +171,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 								       House a_house = (House)houses.get(i);
 								       String d = (String)districts.get(i);
 								       Random r = new Random();
-									   int pic_id = r.nextInt(16)+1;%>
+									   int pic_id = r.nextInt(14)+1;%>
 										<div class="forsale-grids">
 											<div class="forsale1">
 												<div class="forsale-left">
