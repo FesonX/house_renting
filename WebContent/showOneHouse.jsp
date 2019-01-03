@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
+<<<<<<< HEAD
 
 <script src="js/responsiveslides.min.js"></script>
 	 <script>
@@ -52,6 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 
+=======
+>>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 <!-- FlexSlider -->
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -79,6 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#"><i class="icon3"></i></a>
 							<a href="#"><i class="icon4"></i></a>
 						</div>-->
+<<<<<<< HEAD
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
@@ -99,6 +103,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 											</ul></li>
+=======
+						<div class="email">
+						<ul>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
+							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+>>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -206,6 +217,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><span>宽带：</span><% int num9 = r.nextInt(2);String flag9 = (num9==1?"有":"无");out.print(flag9); %></li>
 								<li><span>衣柜：</span><% int num10 = r.nextInt(2);String flag10 = (num10==1?"有":"无");out.print(flag10); %></li>
 							</ul>
+<<<<<<< HEAD
 							<div>
 							  <%if(renter!=null){ %>
 							  <a href="book.do?rid=<% out.print(renter.getRid()); %>&lid=<% out.print(a_house.getLid()); %>&hid=<% out.print(a_house.getHid()); %>" class="button button-glow button-rounded button-highlight"><h5>预约看房</h5></a>
@@ -217,6 +229,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							    <a href="renterRegister.jsp" class="button button-glow button-rounded button-caution"><h5>还没账户？注册一个</h5></a>
 							  <%} %>
 							</div>
+=======
+>>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 						</div>							  
 					<!--fea-video-->
 					</div>
@@ -401,6 +415,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								   String landlord_name = (String)request.getAttribute("landlord_name");
 								   String district_name = (String)request.getAttribute("district_name");
 <<<<<<< HEAD
+<<<<<<< HEAD
 								   Random r = new Random();
 								   int pic_id = r.nextInt(16)+1;
 								   /*iterate over the arraylist*/
@@ -408,6 +423,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								       House a_house = (House)houses.get(i); %>
 								       <tr><img src="images/<%out.print(pic_id); %>.jpg" class="img-responsive" alt="/"></tr>  
 =======
+=======
+>>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
 								   /*iterate over the arraylist*/
 								    for (int i = 0; i < houses.size(); i++) { 
 								       House a_house = (House)houses.get(i); %>  
@@ -441,6 +458,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 </body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </html>
 =======
 </html> --%>
+=======
+</html> --%>
+>>>>>>> 2d6bc276c117bb798c5238bc2349a0279c3e777a
