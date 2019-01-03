@@ -27,10 +27,10 @@ public class RenterRegisterAction implements Action {
 		Renter renter = new Renter(rid,name,gender,realname,"0",qq,Wechat,password);
 		Flag= renterDao.register(renter);
 		if (Flag) {
-			return "index.jsp";
+			return "jumpRenterLogin.jsp";
 		}
 		else
-			return "register.jsp";	
+			return "registerResult.jsp";	
 	}
 
 }
