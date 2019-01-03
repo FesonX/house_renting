@@ -60,4 +60,24 @@ public class BookDaoImpl implements BookDao {
 		return rs.getRow();
 	}
 
+	@Override
+	public List<Book> findBookByHid(int hid) {
+		List<Book> list=null;
+		String sql="select * from book where hid=?";
+		List<Object> lp=new ArrayList<Object>();
+		lp.add(hid);
+		list=bs.query(sql, lp, Book.class);
+		return list;
+	}
+
+	@Override
+	public boolean UpdateBookReviewed(int bid, int reviewed) {
+		String sql = "update book set reviewed=? where bid=?";
+		List<Object> lp = new ArrayList<Object>();
+		lp.add(reviewed);
+		lp.add(bid);
+		Boolean flag= bs.update(sql, lp);
+		return flag;
+	}
+
 }

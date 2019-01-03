@@ -8,6 +8,7 @@ import cn.bean.House;
 import cn.dao.HouseDao;
 import cn.dao.impl.HouseDaoImpl;
 import cn.framework.Action;
+import cn.util.Paging;
 
 // House Reviewed Action For Administrator
 public class HouseReviewAction implements Action{
@@ -25,6 +26,9 @@ public class HouseReviewAction implements Action{
 		int status = 0; // Haven't Rented
 		int reviewed = 0; // 0 Haven't Reviewed, 1 Agree, 2 Reject
 		
+		String nowPage=request.getParameter("nowPage");
+		if(nowPage==null)
+			nowPage = "0";
 		
 		String type  = request.getParameter("type");
 		if(type != null) {
@@ -36,7 +40,18 @@ public class HouseReviewAction implements Action{
 		
 		try {
 			List<House> list = hd.housesearch(propertyname, value);
-			request.setAttribute("houseList", list);
+			Paging page = new Paging(list,15);
+			List<Object>houseList = page.getPaging(Integer.parseInt(nowPage));
+			if(page.getPageNum()>50) {
+				request.setAttribute("pageNum",30);
+			}
+			else {
+				request.setAttribute("pageNum",page.getPageNum());
+			}
+			
+			request.setAttribute("houseList", houseList);
+			request.setAttribute("nowPage",Integer.parseInt(nowPage));
+			request.setAttribute("type", type);
 		}catch (Exception e) {e.printStackTrace();}
 		
 		return "houseReview.jsp";
