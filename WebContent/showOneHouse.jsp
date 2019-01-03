@@ -23,7 +23,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
-
 <script src="js/responsiveslides.min.js"></script>
 	 <script>
 		$(function () {
@@ -51,7 +50,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
-
 <!-- FlexSlider -->
 	 <script src="js/jquery.flexslider.js"></script>
 		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -72,18 +70,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
 						<%
 								Renter renter=(Renter) session.getAttribute("renter");
 								Landlord landlord = (Landlord) session.getAttribute("landlord");
 						%>
-
 						<div class="email">
 						<ul>
 							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com</a> </li>
@@ -100,7 +90,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li><a href="renterRegister.jsp">租客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 												<li><a href="landlordRegister.jsp">房东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 											</ul></li>
-
 						</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -257,44 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!---footer--->
 			<div class="footer-section">
 				<div class="container">
-					<!--<div class="footer-grids">
-						<div class="col-md-3 footer-grid">
-							<h4>About Real Homes</h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Recent Posts</h4>
-							<ul>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Example Post With Gallery Post </a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Useful links</h4>
-							<ul>
-								<li><a href="terms.html">Terms of Use</a></li>
-								<li><a href="privacy.html">Privacy Policy</a></li>
-								<li><a href="contact.html">Contact Support </a></li>
-								<li><a href="agents.html"> All Agents</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="faqs.html">FAQs</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Get In Touch</h4>
-							<p>8901 Marmora Road</p>
-							<p>Glasgow, DO4 89GR.</p>
-							<p>Freephone : +1 234 567 890</p>
-							<p>Telephone : +1 234 567 890</p>
-							<p>FAX : + 1 234 567 890</p>
-							<p>E-mail : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>-->
+					
 				</div>
 			</div>
 			<!---footer--->
@@ -363,5 +315,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- //Register -->
 
 </body>
-</html>    
- 
+</html>

@@ -3,6 +3,7 @@
 <%@ page import="cn.bean.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.mysql.jdbc.Driver" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +52,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
-	
+<!-- FlexSlider -->
+	 <script src="js/jquery.flexslider.js"></script>
+		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+			<script>
+			// Can also be used with $(document).ready()
+				$(window).load(function() {
+				$('.flexslider').flexslider({
+				animation: "slide",
+				controlNav: "thumbnails"
+				});
+				});
+			</script>
+			<!-- //FlexSlider-->
+<style>
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+</style>
 </head>
 <body>
 		<!---header--->
@@ -68,7 +106,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul>
 							<!-- <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li> -->
 							<li class="dropdown">
-							
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
 											<ul class="dropdown-menu">
@@ -145,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</nav>
 				</div>
 			</div>
-		<!---header--->
+		<!---header--->		
 		<!---banner--->
 		<div class="slider">
 			<div class="callbacks_container">
@@ -181,59 +218,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h2>寻找房源</h2>
 				<form action="query.do" method="get">
 				<input type="hidden" name="method" value="searchHouseByDid">
-				<!-- <div class="place-grids">
-					<div class="col-md-3 place-grid1">
-						<h5>面积下限</h5>
-						<select class="sel">
-						<option value="">无下限</option>
-						<option value="">20m²</option>
-						<option value="">50m²</option>
-						<option value="">80m²</option>
-						<option value="">100m²</option>
-						<option value="">150m²</option>
-						</select>
-					</div>
-					<div class="col-md-3 place-grid1">
-						<h5>面积上限</h5>
-						<select class="sel">
-							<option value="">无上限</option>
-							<option value="">20m²</option>
-							<option value="">50m²</option>
-							<option value="">80m²</option>
-							<option value="">100m²</option>
-							<option value="">150m²</option>
-						</select>
-					</div>
-					<div class="col-md-3 place-grid1">
-						<h5>租金下限</h5>
-						<select class="sel">
-							<option value="">无下限</option>
-							<option value="">￥300</option>
-							<option value="">￥500</option>
-							<option value="">￥700</option>
-							<option value="">￥1000</option>
-							<option value="">￥1500</option>
-							<option value="">￥2000</option>
-							<option value="">￥3000</option>
-							<option value="">￥5000</option>
-						</select>
-					</div>
-					<div class="col-md-3 place-grid1">
-						<h5>租金上限</h5>
-						<select class="sel">
-							<option value="">无上限</option>
-							<option value="">￥300</option>
-							<option value="">￥500</option>
-							<option value="">￥700</option>
-							<option value="">￥1000</option>
-							<option value="">￥1500</option>
-							<option value="">￥2000</option>
-							<option value="">￥3000</option>
-							<option value="">￥5000</option>
-						</select>
-					</div>
-					<div class="clearfix"></div>
-				</div> -->
 				<div class="place-grids">
 					<div class="col-md-4 place-grid">
 						<h5>所在城市</h5>
@@ -248,19 +232,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<option value="dongguan">东莞</option>
 						</select>
 					</div>
-					<!-- <div class="col-md-4 place-grid">
-						<h5>房型</h5>
-						<select class="sel">
-						<option value="">所有房型</option>
-						<option value="">单间</option>
-						<option value="">一室一厅</option>
-						<option value="">两室一厅</option>
-						<option value="">三室一厅</option>
-						<option value="">两室两厅</option>
-						<option value="">三室两厅</option>
-						<option value="">四室两厅</option>
-						</select>
-					</div> -->
 					<div class="col-md-4 search">
 					<input type="submit" value="搜索">
 					</div>
@@ -536,5 +507,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!-- //Register -->
 </body>
-
 </html>
