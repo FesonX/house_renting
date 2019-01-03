@@ -17,5 +17,6 @@ public interface DistrictDao {
 	public List<District> findDistinctByName(String name);
 
 	public District findDistrictByDid(int did);
+	public int findDid(String name);
 
 }

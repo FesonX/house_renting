@@ -16,7 +16,7 @@ public class HouseDaoImpl implements HouseDao {
 
 	@Override
 	public boolean doHouse(House ho) {
-		String sql="insert into house(hid,lid,did,eid,address,Area,Pic,status,Price,issueDate,reviewed) values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into house(hid,lid,did,title,houseType,address,Area,Pic,Status,Price,issueDate,reviewed) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(ho.getHid());
 		lp.add(ho.getLid());
@@ -37,14 +37,14 @@ public class HouseDaoImpl implements HouseDao {
 
 	@Override
 	public boolean updateHouse(House ho) {
-		String sql = "update house set Price=?,Pic=?,status=?,Area=?,address=? where hid=?";
+		String sql = "update house set Price=?,Pic=?,Status=?,Area=?,address=? where hid=?";
 		List<Object> lp = new ArrayList<Object>();
 		lp.add(ho.getPrice());
 		lp.add(ho.getPic());
 		lp.add(ho.getStatus());
 		lp.add(ho.getArea());
 		lp.add(ho.getAddress());
-		lp.add(ho.getLid());
+		lp.add(ho.getHid());
 		Boolean flag= bd.update(sql, lp);
 		return flag;
 	}
@@ -112,6 +112,7 @@ public class HouseDaoImpl implements HouseDao {
 		}
 		return list;
 		
+		
 	}
 
 	@Override
@@ -151,8 +152,8 @@ public class HouseDaoImpl implements HouseDao {
 	}
 
 	@Override
-	public boolean deleteHouseByHid(String hid) {
-		String sql = "delete * from house where hid=?";
+	public boolean deleteHouseByHid(int hid) {
+		String sql = "delete  from house where hid=?";
 		List<Object> lp = new ArrayList<Object>();
 		lp.add(hid);
 		Boolean flag= bd.update(sql, lp);
