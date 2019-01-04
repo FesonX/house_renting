@@ -27,7 +27,7 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public boolean updatePwd(Admin ma, String password) {
 		boolean Flag=false;
-		String sql="update Admin set password=? where aid=?";
+		String sql="update `admin` set password=? where aid=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(password);
 		lp.add(ma.getaid());

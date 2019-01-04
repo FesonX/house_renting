@@ -45,7 +45,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	@Override
 	public boolean updatePwd(Landlord ag,String password) {
 		boolean Flag=false;
-		String sql="update Landlord set password=? where lid=?";
+		String sql="update landlord set password=? where lid=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(password);
 		lp.add(ag.getlid());
@@ -56,7 +56,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	@Override
 	public boolean doLandlord(Landlord ag) {
 		boolean Flag=false;
-		String sql="insert into Landlord values(?,?,?,?,?,?,?)";
+		String sql="insert into landlord values(?,?,?,?,?,?,?)";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(ag.getlid());
 		lp.add(ag.getname());
@@ -72,7 +72,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	@Override
 	public boolean updateLandlord(Landlord ag) {
 		boolean Flag=false;
-		String sql="update Landlord set name=?,gender=?,realname=?,Avatar=?,did=? where lid=?";
+		String sql="update landlord set name=?,gender=?,realname=?,Avatar=?,did=? where lid=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(ag.getname());
 		lp.add(ag.getgender());
@@ -87,7 +87,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	@Override
 	public boolean deleteLandlord(String lid) {
 		boolean Flag=false;
-		String sql="delete from Landlord where lid=?";
+		String sql="delete from landlord where lid=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(lid);
 		Flag=bs.update(sql, lp);
@@ -97,7 +97,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	@Override
 	public List<Landlord> findLandlordByDid(int did) {
 		List<Landlord> list=null;
-		String sql="select * from Landlord where did=?";
+		String sql="select * from landlord where did=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(did);
 		list=bs.query(sql, lp, Landlord.class);
@@ -107,7 +107,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	@Override
 	public List<Landlord> findLandlord() {
 		List<Landlord> list=null;
-		String sql="select * from Landlord";
+		String sql="select * from landlord";
 		List<Object> lp=new ArrayList<Object>();
 		list=bs.query(sql, lp, Landlord.class);
 		return list;
@@ -117,7 +117,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	public Landlord findLandlordBy(String lid) {
 		Landlord Landlord=null;
 		List<Object> lp=new ArrayList<Object>();
-		String sql="select * from Landlord where lid=?";
+		String sql="select * from landlord where lid=?";
 		lp.add(lid);
 		List<Landlord> l=bs.query(sql, lp, Landlord.class);
 		if(l.size()>0)
@@ -131,7 +131,7 @@ public class LandlordDaoImpl implements LandlordDao {
 	public List<Landlord> findLandlordByLid(String lid) {
 		Landlord Landlord=null;
 		List<Object> lp=new ArrayList<Object>();
-		String sql="select * from Landlord where lid=?";
+		String sql="select * from landlord where lid=?";
 		lp.add(lid);
 		List<Landlord> l=bs.query(sql, lp, Landlord.class);
 		return l;
