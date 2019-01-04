@@ -21,7 +21,7 @@ public class RenterModifyAction implements Action{
 		String rid = request.getParameter("rid");
 		String gender = request.getParameter("gender");
 		String qq = request.getParameter("qq");
-		String wechat = request.getParameter("Wechat");
+		String wechat = request.getParameter("wechat");
 		
 		
 		
