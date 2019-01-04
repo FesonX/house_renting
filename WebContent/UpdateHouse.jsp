@@ -11,11 +11,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<ul id="ltitle" style="clear: both;">
+						<ul id="ltitle" style="clear: both;">
 							<li>更新房源信息</li>
 							<li><hr></li>
 						</ul>
-<form action="${pageContext.request.contextPath}/UpdateHouseServlet?hid=${param.hid}"
+						<form action="${pageContext.request.contextPath}/UpdateHouseServlet?hid=${param.hid}"
 							method="post" enctype="multipart/form-data">
 							<fieldset>
 								<legend>房源信息</legend>

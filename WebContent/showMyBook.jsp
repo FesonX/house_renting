@@ -92,7 +92,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						%>
 						<div class="email">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com</a> </li>
 							<li class="dropdown">				
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
@@ -129,7 +128,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
 									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
 									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getPassword());%>&password=<%out.print(landlord.getname());%>">用户中心 </a> </li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getname());%>&password=<%out.print(landlord.getPassword());%>">用户中心 </a> </li>
 								</ul>
 							</div>
 						<%
@@ -159,7 +158,17 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<% if(renter!=null){%>
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
+								<li><a href="book.do?rid=<% out.print(renter.getRid()); %>">我的预约</a></li>
+								<li><a href="contract.do?rid=<% out.print(renter.getRid()); %>">我的租赁</a></li>
+								<%} %>
+								<% if(landlord!=null){%>
+								<li><a href="FindHousebylid.do?lid=${landlord.getlid()}">房源</a></li>
+								<%} %>
+								<% if(renter==null&&landlord==null){%>
+								<li><a href="query.do?method=showAllHouse">看房</a></li>
+								<%} %>
 							</ul>
 							<%if(renter!=null){ %>
 							<div class="phone">
@@ -192,7 +201,8 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 									<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 									
 									<%
-									   ArrayList books = (ArrayList)request.getAttribute("bookList"); 
+									   ArrayList books = (ArrayList)request.getAttribute("bookList");
+									   ArrayList districtList = (ArrayList)request.getAttribute("districtList");
 									   /*iterate over the arraylist*/
 									   for (int i = 0; i < books.size(); i++) { 
 									       Book a_book = (Book)books.get(i);
@@ -209,8 +219,8 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 												</div>
 												<div class="clearfix"></div>
 												<ul>
-													<li><span>联系房主</span><% out.print("13553535355"); %></li>
-													<li><span>房源位置 </span><% out.print("白石龙地铁站"); %></li>
+													<li><span>联系房主</span><% out.print(a_book.getLid()); %></li>
+													<li><span>房源位置 </span><% out.print(districtList.get(i)); %></li>
 												</ul>
 											</div>
 										</div>	
@@ -269,44 +279,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 		<!---footer--->
 			<div class="footer-section">
 				<div class="container">
-					<!--<div class="footer-grids">
-						<div class="col-md-3 footer-grid">
-							<h4>About Real Homes</h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Recent Posts</h4>
-							<ul>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Example Post With Gallery Post </a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-								<li><a href="#">Lorem Post With Image Format</a></li>
-								<li><a href="#">Example Video Blog Post</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Useful links</h4>
-							<ul>
-								<li><a href="terms.html">Terms of Use</a></li>
-								<li><a href="privacy.html">Privacy Policy</a></li>
-								<li><a href="contact.html">Contact Support </a></li>
-								<li><a href="agents.html"> All Agents</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="faqs.html">FAQs</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid">
-							<h4>Get In Touch</h4>
-							<p>8901 Marmora Road</p>
-							<p>Glasgow, DO4 89GR.</p>
-							<p>Freephone : +1 234 567 890</p>
-							<p>Telephone : +1 234 567 890</p>
-							<p>FAX : + 1 234 567 890</p>
-							<p>E-mail : <a href="mailto:example@mail.com"> example@mail.com</a></p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>-->
 				</div>
 			</div>
 			<!---footer--->

@@ -12,7 +12,7 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public Admin login(String aid, String password) {
 		Admin Admin=null;
-		String sql="select * from Admin where aid=? and password=?";
+		String sql="select * from `admin` where aid=? and password=?";
 		List<Object> lp=new ArrayList<Object>();
 		lp.add(aid);
 		lp.add(password);

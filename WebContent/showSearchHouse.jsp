@@ -102,7 +102,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						%>
 						<div class="email">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">1978069848@qq.com@qq.com</a> </li>
 							<li class="dropdown">				
 							<i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
@@ -169,7 +168,17 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<% if(renter!=null){%>
 								<li><a href="query.do?method=showAllHouse">租房</a></li>
+								<li><a href="book.do?rid=<% out.print(renter.getRid()); %>">我的预约</a></li>
+								<li><a href="contract.do?rid=<% out.print(renter.getRid()); %>">我的租赁</a></li>
+								<%} %>
+								<% if(landlord!=null){%>
+								<li><a href="FindHousebylid.do?lid=${landlord.getlid()}">房源</a></li>
+								<%} %>
+								<% if(renter==null&&landlord==null){%>
+								<li><a href="query.do?method=showAllHouse">看房</a></li>
+								<%} %>
 							</ul>
 							<%if(renter!=null){ %>
 							<div class="phone">

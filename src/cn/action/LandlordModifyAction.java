@@ -30,7 +30,8 @@ public class LandlordModifyAction implements Action{
 		List<District> list = districtDao.findDistinctByName(didname);
 		for(int    i=0;    i<list.size();    i++)    {   
 			did = list.get(i).getDid();
-		   }
+			System.out.print("did"+did);
+		 }
 		
 		Landlord landlord = new Landlord(lid, name, gender, realname, "0", "0", did);
 		Flag = landlordDao.updateLandlord(landlord);

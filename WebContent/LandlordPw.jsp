@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="cn.bean.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.Driver" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -42,19 +45,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-section">
 				<div class="container">
 					<div class="head-top" style="padding-top:20px;padding-bottom:12px;">
-						<!--<div class="social-icon">
-							<a href="#"><i class="icon"></i></a>
-							<a href="#"><i class="icon1"></i></a>
-							<a href="#"><i class="icon2"></i></a>
-							<a href="#"><i class="icon3"></i></a>
-							<a href="#"><i class="icon4"></i></a>
-						</div>-->
+						<%
+								Landlord landlord = (Landlord) session.getAttribute("landlord");
+						%>
 						<div class="email">
-						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="">690886586@qq.com</a> </li>
-							<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
-							<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#">注销</a></li>
-						</ul>
+								<ul>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>欢迎，<% out.print(landlord.getname());  %> <a href="LandlordInfo.jsp"></a> </li>
+									<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>状态：已登录</li>
+									<li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="landlordLoginOut.jsp">注销</a></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="landlordLogin.do?name=<%out.print(landlord.getname());%>&password=<%out.print(landlord.getPassword());%>">用户中心 </a> </li>
+								</ul>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -68,19 +68,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span class="icon-bar"></span>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html"><span>贝壳 </span>租房</a></h1>
+								<h1><a href="index.jsp"><span>贝壳 </span>租房</a></h1>
 							</div>
 						</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
-								<li class="active"><a href="forrent.html">租房</a></li>
+								<li><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+								<% if(landlord!=null){%>
+								<li><a href="FindHousebylid.do?lid=${landlord.getlid()}">房源</a></li>
+								<%} %>
 							</ul>
+							<%if(landlord!=null){ %>
 							<div class="phone">
-							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>18816822341</span>
+							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><%out.print(landlord.getlid()); %></span>
 							</div>
+							<%} %>
 							<div class="clearfix"></div>
 						</div>
 					</nav>

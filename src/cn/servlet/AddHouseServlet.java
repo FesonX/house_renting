@@ -38,6 +38,7 @@ public class AddHouseServlet extends HttpServlet {
     }
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
+    	
     	 List<String> list=new ArrayList<String>();
          String filename=null;
          HouseDao houseDao = new HouseDaoImpl();
